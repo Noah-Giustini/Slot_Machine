@@ -23,9 +23,11 @@ public class Game{
                 int[] leftList = leftReel.getReel();    //get data from left reel
                 int[] midList = midReel.getReel();      //get data from middle reel
                 int[] rightList = rightReel.getReel();  //get data from right reel
-                System.out.println(leftList[0]+"          "+midList[0]+"          "+rightList[0]);      //print the top line
-                System.out.println(leftList[1]+"          "+midList[1]+"          "+rightList[1]);      //print the middle line
-                System.out.println(leftList[2]+"          "+midList[2]+"          "+rightList[2]);      //print the bottom line
+                int var;
+                System.out.print("\033[H\033[2J");
+                for(var=0;var<3;var++){
+                        System.out.println(leftList[var]+"          "+midList[var]+"          "+rightList[var]);      //print the top line
+                }
         }
         public void rollAll(){          //method used to roll all reels
                 leftReel.rollReel();    //roll the left reel
@@ -50,10 +52,19 @@ public class Game{
                 //int[] wonOn = new ArrayList<>(5);
                 int x = 0;                              //variable for itteration
                 for(x=0;x<3;x++){                       //loop to itterate through and see if the player won on the horizontal lines
-                        if ((leftList[x] == midList[x]) && (leftList[x] == rightList[x]) && (midList[x] == rightList[x])){      //if the values in a line are all the same
-                                //wonOn[winLines] = x;
-                                winLines++;             //increment winlines by one
+                        if (rightList[x] != 6){
+                                if ((leftList[x] == midList[x]) && (leftList[x] == rightList[x]) && (midList[x] == rightList[x])){      //if the values in a line are all the same
+                                        //wonOn[winLines] = x;
+                                        winLines++;             //increment winlines by one
 
+                                }
+                        }
+                        else{
+                                if ((leftList[x] == midList[x]) && (6 == rightList[x])){      //if the values in a line are all the same
+                                        //wonOn[winLines] = x;
+                                        winLines++;             //increment winlines by one
+
+                                }
                         }
                 }
                 if((leftList[0] == midList[1]) && (leftList[0] == rightList[2]) && (midList[1] == rightList[2])){       //chech to see if there is a win on the diagnol
@@ -68,6 +79,18 @@ public class Game{
         public int winnings(int betamt,int linesWon){   //method to determine how much the player won
                 int win = (betamt*linesWon*2);          //calculate winnings
                 return win;                             //return winnings
+        }
+        public void mainGame(int bettings){
+                int value = (bettings * 10);
+                bet(value);				//bet
+                rollAll();				//roll all reels
+                int didWin = winTest();		//test to see if the player has won
+                showGame();			//show the reels
+                if (didWin > 0){			//if the player won
+                        int winnings = winnings(value,didWin);	//calculate winnings
+                        collectWinnings(winnings);			//collect winnings
+                        System.out.println("YOU HAVE WON $"+winnings+"!");//tell player how much they have won
+                }
         }
 }
 

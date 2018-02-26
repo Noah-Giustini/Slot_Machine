@@ -10,10 +10,23 @@ public class Reel{
         private int topBox;             // instance variable for the top box value
         private int middlebox;          //instance variable for the middle box value
         private int bottomBox;          //instance variable for the bottom box value
+        private int location;
+
+        public Reel (int locat){
+                this.location = locat;
+        }
+        public Reel (){
+        }
 
         public void rollReel(){         //method used to roll the reel changing the values in all three boxes while also ensuring there are no 2 same values on one reel
-                int max = 5;            //largest possible value for the reels
-                int min = 1;            //smallest possible value that can end up on the reels
+                int max;                //largest possible value for the reels
+                int min = 1;               //smallest possible value that can end up on the reels
+                if (this.location == 2){
+                        max = 6;
+                }
+                else{
+                        max = 5;
+                }
                 int x = 0;              //variable for while loop
                 int i = 0;              //variable for while loop
                 Random rand = new Random(); //new instance of Random called rand

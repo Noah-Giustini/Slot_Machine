@@ -5,9 +5,9 @@ import java.util.Scanner;		//import the scanner utility
 */
 public class Play {
         public static void main(String[] args){		//main method (this is where the magic happens ;) 
-                Reel leftReel = new Reel();		//create the left reel
-                Reel middleReel = new Reel();		//create the middle reel
-                Reel rightReel = new Reel();		//create the right reel
+                Reel leftReel = new Reel(0);		//create the left reel
+                Reel middleReel = new Reel(1);		//create the middle reel
+                Reel rightReel = new Reel(2);		//create the right reel
 
                 Scanner sc = new Scanner(System.in);	//create an instance of Scanner
                 int userChoice = 0;			//variable to keep track of the user's choice
@@ -53,39 +53,7 @@ public class Play {
 					}
 				}
 				if ((game.getPlayerBalance() - (userBet*10)) >=0){	//check to make sure the bet wont give the player a negative balace
-					if(userBet == 1){				//if the user has bet 10
-						game.bet(10);				//bet 10
-						game.rollAll();				//roll all reels
-						didWin = game.winTest();		//test to see if the player has won
-						game.showGame();			//show the reels
-						if (didWin > 0){			//if the player won
-							int winnings = game.winnings(10,didWin);	//calculate winnings
-							game.collectWinnings(winnings);			//collect winnings
-							System.out.println("YOU HAVE WON $"+winnings+"!");//tell player how much they have won
-						}
-					}
-					if(userBet == 2){				//if the user has bet 20
-						game.bet(20);				//bet 20
-						game.rollAll();				//roll all reels
-						didWin = game.winTest();		//test for a win
-						game.showGame();			//show the reels
-						if (didWin > 0){			//if the player won
-							int winnings = game.winnings(20,didWin);	//calculate winnings
-							game.collectWinnings(winnings);			//collect winnings
-							System.out.println("YOU HAVE WON $"+winnings+"!");//tell the player how much they have won
-						}
-					}
-					if(userBet == 3){				//if the user bets 30
-						game.bet(30);				//bet 30
-						game.rollAll();				//roll all reels
-						didWin = game.winTest();		//test for a win
-						game.showGame();			//show the reels
-						if (didWin > 0){			//if the player won
-							int winnings = game.winnings(30,didWin);	//calculate winnings
-							game.collectWinnings(winnings);			//collect winnings
-							System.out.println("YOU HAVE WON $"+winnings+"!");//tell the player how much they have won
-						}
-					}
+					game.mainGame(userBet);
 				}
 			}
 			System.out.println("You have no more money. oops! ");		//tell the player they have no more money (need to re-evaluate life choices)
