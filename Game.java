@@ -29,6 +29,15 @@ public class Game{
                         System.out.println(leftList[var]+"          "+midList[var]+"          "+rightList[var]);      //print the top line
                 }
         }
+        public int[] getLeftList(){
+                return leftReel.getReel();
+        }
+        public int[] getMidList(){
+                return midReel.getReel();
+        }
+        public int[] getRightList(){
+                return rightReel.getReel();
+        }
         public void rollAll(){          //method used to roll all reels
                 leftReel.rollReel();    //roll the left reel
                 rightReel.rollReel();   //roll the right reel
