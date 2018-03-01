@@ -58,5 +58,8 @@ public class Play {
 			}
 			System.out.println("You have no more money. oops! ");		//tell the player they have no more money (need to re-evaluate life choices)
 		}
+		if (userChoice == 1){
+			GUI.main(new String[0]);
+		}
 	}
 }

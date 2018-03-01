@@ -10,30 +10,51 @@
       <Button fx:id="bet10" layoutX="100.0" layoutY="510.0" mnemonicParsing="false" onAction="#bet10Click" text="Bet $10" />
       <Button fx:id="bet20" layoutX="265.0" layoutY="510.0" mnemonicParsing="false" onAction="#bet20Click" text="Bet $20" />
       <Button fx:id="bet30" layoutX="443.0" layoutY="510.0" mnemonicParsing="false" onAction="#bet30Click" text="Bet $30" />
-      <VBox fx:id="midReel" layoutX="241.0" layoutY="31.0">
-         <children>
-            <ImageView fx:id="mTop" fitHeight="118.0" fitWidth="118.0" layoutX="241.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="mMid" fitHeight="118.0" fitWidth="118.0" layoutX="241.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="mBot" fitHeight="118.0" fitWidth="118.0" layoutX="241.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true" />
-         </children>
-      </VBox>
-      <VBox fx:id="leftReel" layoutX="76.0" layoutY="31.0">
-         <children>
-            <ImageView fx:id="LTop" fitHeight="118.0" fitWidth="118.0" layoutX="241.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@1.png" />
-               </image></ImageView>
-            <ImageView fx:id="lMid" fitHeight="118.0" fitWidth="118.0" layoutX="241.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="lBot" fitHeight="118.0" fitWidth="118.0" layoutX="241.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true" />
-         </children>
-      </VBox>
-      <VBox fx:id="rightReel" layoutX="419.0" layoutY="31.0">
-         <children>
-            <ImageView fx:id="rTop" fitHeight="118.0" fitWidth="118.0" layoutX="241.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="rMid" fitHeight="118.0" fitWidth="118.0" layoutX="241.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="rBot" fitHeight="118.0" fitWidth="118.0" layoutX="241.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true" />
-         </children>
-      </VBox>
+      <ImageView fx:id="mMid" fitHeight="118.0" fitWidth="118.0" layoutX="241.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@1.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="mTop" fitHeight="118.0" fitWidth="118.0" layoutX="241.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@4.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="mBot" fitHeight="118.0" fitWidth="118.0" layoutX="241.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@5.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="lBot" fitHeight="118.0" fitWidth="118.0" layoutX="76.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@5.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="lTop" fitHeight="118.0" fitWidth="118.0" layoutX="76.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@1.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="lMid" fitHeight="118.0" fitWidth="118.0" layoutX="76.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@2.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="rBot" fitHeight="118.0" fitWidth="118.0" layoutX="419.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@1.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="rTop" fitHeight="118.0" fitWidth="118.0" layoutX="419.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@6.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="rMid" fitHeight="118.0" fitWidth="118.0" layoutX="419.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@3.png" />
+         </image>
+      </ImageView>
       <Label fx:id="balance" layoutX="255.0" layoutY="413.0" text="Balance: $100" />
    </children>
 </AnchorPane>

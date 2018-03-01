@@ -28,30 +28,35 @@ public class FXMLDocumentController implements Initializable {
         private Button bet20;
         @FXML
         private Button bet10;
+
         @FXML
         private VBox leftReel;
         @FXML
         private VBox midReel;
         @FXML
         private VBox rightReel;
+
+        @FXML
+        private ImageView lTop;
         @FXML
         private ImageView mTop;
         @FXML
         private ImageView rTop;
+
         @FXML
         private ImageView lMid;
         @FXML
         private ImageView mMid;
         @FXML
         private ImageView rMid;
+
         @FXML
         private ImageView lBot;
         @FXML
         private ImageView mBot;
         @FXML
         private ImageView rBot;
-        @FXML
-        private ImageView lTop;
+
         @FXML
         private Label balance;
         
@@ -61,49 +66,96 @@ public class FXMLDocumentController implements Initializable {
         private Reel rReel = new Reel(2);
         private Game backend = new Game(lReel, mReel, rReel);
 
-        /*Image disp = new Image(filenam);
-        inageViewer.setImage(disp); */
-
         @Override
         public void initialize(URL url, ResourceBundle rb) {
         }
 
         @FXML
         private void bet10Click(ActionEvent event) {
-                backend.bet(10);
-                backend.rollAll();
-                int didWin = backend.winTest();
-                if (didWin > 0){
-                        int winnings = backend.winnings(10,didWin);
-                        backend.collectWinnings(winnings);
+                if ((backend.getPlayerBalance() - 10) >= 0){
+                        backend.bet(10);
+                        backend.rollAll();
+                        int didWin = backend.winTest();
+                        if (didWin > 0){
+                                int winnings = backend.winnings(10,didWin);
+                                backend.collectWinnings(winnings);
+                        }
+                        int[] llst = lReel.getReel();
+                        int[] mlst = mReel.getReel();
+                        int[] rlst = rReel.getReel();
+                        this.balance.setText("Balance: $"+Double.toString(backend.getPlayerBalance()));
+
+                        lTop.setImage(new Image(Integer.toString(lReel.getReel()[0])+".png"));
+                        lMid.setImage(new Image(Integer.toString(lReel.getReel()[1])+".png"));
+                        lBot.setImage(new Image(Integer.toString(lReel.getReel()[2])+".png"));
+
+                        mTop.setImage(new Image(Integer.toString(mReel.getReel()[0])+".png"));
+                        mMid.setImage(new Image(Integer.toString(mReel.getReel()[1])+".png"));
+                        mBot.setImage(new Image(Integer.toString(mReel.getReel()[2])+".png"));
+
+                        rTop.setImage(new Image(Integer.toString(rReel.getReel()[0])+".png"));
+                        rMid.setImage(new Image(Integer.toString(rReel.getReel()[1])+".png"));
+                        rBot.setImage(new Image(Integer.toString(rReel.getReel()[2])+".png"));
                 }
-                int[] llst = lReel.getReel();
-                int[] mlst = mReel.getReel();
-                int[] rlst = rReel.getReel();
-                this.balance.setText("Balance: $"+Double.toString(backend.getPlayerBalance()));
-                this.lTop.setImage("2.png")
 
         }
 
         @FXML
         private void bet20Click(ActionEvent event) {
-                backend.bet(20);
-                backend.rollAll();
-                int didWin = backend.winTest();
-                if (didWin > 0){
-                        int winnings = backend.winnings(20,didWin);
-                        backend.collectWinnings(winnings);
-                }
-        }
+                if ((backend.getPlayerBalance() - 20) >= 0){
+                        backend.bet(20);
+                        backend.rollAll();
+                        int didWin = backend.winTest();
+                        if (didWin > 0){
+                                int winnings = backend.winnings(20,didWin);
+                                backend.collectWinnings(winnings);
+                        }
+                        int[] llst = lReel.getReel();
+                        int[] mlst = mReel.getReel();
+                        int[] rlst = rReel.getReel();
+                        this.balance.setText("Balance: $"+Double.toString(backend.getPlayerBalance()));
 
+                        lTop.setImage(new Image(Integer.toString(lReel.getReel()[0])+".png"));
+                        lMid.setImage(new Image(Integer.toString(lReel.getReel()[1])+".png"));
+                        lBot.setImage(new Image(Integer.toString(lReel.getReel()[2])+".png"));
+
+                        mTop.setImage(new Image(Integer.toString(mReel.getReel()[0])+".png"));
+                        mMid.setImage(new Image(Integer.toString(mReel.getReel()[1])+".png"));
+                        mBot.setImage(new Image(Integer.toString(mReel.getReel()[2])+".png"));
+
+                        rTop.setImage(new Image(Integer.toString(rReel.getReel()[0])+".png"));
+                        rMid.setImage(new Image(Integer.toString(rReel.getReel()[1])+".png"));
+                        rBot.setImage(new Image(Integer.toString(rReel.getReel()[2])+".png"));
+                }
+
+        }
         @FXML
         private void bet30Click(ActionEvent event) {
-                backend.bet(30);
-                backend.rollAll();
-                int didWin = backend.winTest();
-                if (didWin > 0){
-                        int winnings = backend.winnings(30,didWin);
-                        backend.collectWinnings(winnings);
+                if ((backend.getPlayerBalance() - 30) >= 0){
+                        backend.bet(30);
+                        backend.rollAll();
+                        int didWin = backend.winTest();
+                        if (didWin > 0){
+                                int winnings = backend.winnings(30,didWin);
+                                backend.collectWinnings(winnings);
+                        }
+                        int[] llst = lReel.getReel();
+                        int[] mlst = mReel.getReel();
+                        int[] rlst = rReel.getReel();
+                        this.balance.setText("Balance: $"+Double.toString(backend.getPlayerBalance()));
+
+                        lTop.setImage(new Image(Integer.toString(lReel.getReel()[0])+".png"));
+                        lMid.setImage(new Image(Integer.toString(lReel.getReel()[1])+".png"));
+                        lBot.setImage(new Image(Integer.toString(lReel.getReel()[2])+".png"));
+
+                        mTop.setImage(new Image(Integer.toString(mReel.getReel()[0])+".png"));
+                        mMid.setImage(new Image(Integer.toString(mReel.getReel()[1])+".png"));
+                        mBot.setImage(new Image(Integer.toString(mReel.getReel()[2])+".png"));
+
+                        rTop.setImage(new Image(Integer.toString(rReel.getReel()[0])+".png"));
+                        rMid.setImage(new Image(Integer.toString(rReel.getReel()[1])+".png"));
+                        rBot.setImage(new Image(Integer.toString(rReel.getReel()[2])+".png"));
                 }
+
         }
 }
