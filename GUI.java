@@ -20,15 +20,18 @@ import javafx.scene.Parent;
 
 
 public class GUI extends Application {
-
+        //This is the main class for the GUI version of the game.
+    
+        //Set up the reels
         private Reel leftReel = new Reel(0);
         private Reel midReel = new Reel(1);
         private Reel rightReel = new Reel(2);
-
+        //Set up the game object
         private Game backend = new Game(leftReel,midReel,rightReel);
     
     @Override
     public void start(Stage stage) throws Exception {
+        //Set everything up (root, scene, stage, etc...)
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
         
         Scene scene = new Scene(root);
@@ -40,6 +43,8 @@ public class GUI extends Application {
 
 
     public static void main(String[] args) {
+        //The main method of the game
+        //The launch method is inherited from Applicaion
         launch(args);
     }
     
