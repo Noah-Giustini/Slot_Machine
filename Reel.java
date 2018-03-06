@@ -12,14 +12,14 @@ public class Reel{
         private int topBox;             // instance variable for the top box value
         private int middleBox;          //instance variable for the middle box value
         private int bottomBox;          //instance variable for the bottom box value
-        private int location;
+        private int location;           //0 = left reel, 1 = middle, 2 = right
         private static Random rand = new Random();
-        private static WeightedRandom.Item item1 = new WeightedRandom.Item(25); //cherry
-        private static WeightedRandom.Item item2 = new WeightedRandom.Item(25); //watermelon
-        private static WeightedRandom.Item item3 = new WeightedRandom.Item(20); //horseshoe
-        private static WeightedRandom.Item item4 = new WeightedRandom.Item(15); //diamond
-        private static WeightedRandom.Item item5 = new WeightedRandom.Item(10); //7
-        private static WeightedRandom.Item itemL = new WeightedRandom.Item(5); //lucky
+        private static WeightedRandom.Item item1 = new WeightedRandom.Item(45); //cherry
+        private static WeightedRandom.Item item2 = new WeightedRandom.Item(35); //watermelon
+        private static WeightedRandom.Item item3 = new WeightedRandom.Item(25); //horseshoe
+        private static WeightedRandom.Item item4 = new WeightedRandom.Item(10); //diamond
+        private static WeightedRandom.Item item5 = new WeightedRandom.Item(5); //7
+        private static WeightedRandom.Item itemL = new WeightedRandom.Item(2); //lucky
 
         private static ArrayList<WeightedRandom.Item> leftMidArray = new ArrayList(5);
         private static ArrayList<WeightedRandom.Item> rightArray = new ArrayList(6);
