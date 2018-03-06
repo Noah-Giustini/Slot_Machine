@@ -1,4 +1,6 @@
 import java.util.Random;        //import the random utilities for sudo random number generation
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /*
 *       This class is used to keep track of the data of each individual reel including the values of each of its 3 positions
@@ -8,9 +10,34 @@ import java.util.Random;        //import the random utilities for sudo random nu
 
 public class Reel{
         private int topBox;             // instance variable for the top box value
-        private int middlebox;          //instance variable for the middle box value
+        private int middleBox;          //instance variable for the middle box value
         private int bottomBox;          //instance variable for the bottom box value
         private int location;
+        private static Random rand = new Random();
+        private static WeightedRandom.Item item1 = new WeightedRandom.Item(25); //cherry
+        private static WeightedRandom.Item item2 = new WeightedRandom.Item(25); //watermelon
+        private static WeightedRandom.Item item3 = new WeightedRandom.Item(20); //horseshoe
+        private static WeightedRandom.Item item4 = new WeightedRandom.Item(15); //diamond
+        private static WeightedRandom.Item item5 = new WeightedRandom.Item(10); //7
+        private static WeightedRandom.Item itemL = new WeightedRandom.Item(5); //lucky
+
+        private static ArrayList<WeightedRandom.Item> leftMidArray = new ArrayList(5);
+        private static ArrayList<WeightedRandom.Item> rightArray = new ArrayList(6);
+        static {
+                leftMidArray.add(item1);
+                leftMidArray.add(item2);
+                leftMidArray.add(item3);
+                leftMidArray.add(item4);
+                leftMidArray.add(item5);
+                rightArray.add(item1);
+                rightArray.add(item2);
+                rightArray.add(item3);
+                rightArray.add(item4);
+                rightArray.add(item5);
+                rightArray.add(itemL);
+        }
+        private static WeightedRandom wr1 = new WeightedRandom(leftMidArray);
+        private static WeightedRandom wr2 = new WeightedRandom(rightArray);
 
         public Reel (int locat){
                 this.location = locat;
@@ -19,6 +46,7 @@ public class Reel{
         }
 
         public void rollReel(){         //method used to roll the reel changing the values in all three boxes while also ensuring there are no 2 same values on one reel
+                /*
                 int max;                //largest possible value for the reels
                 int min = 1;               //smallest possible value that can end up on the reels
                 if (this.location == 2){
@@ -33,6 +61,7 @@ public class Reel{
                 int tempTop = rand.nextInt((max - min) + 1) + min;      //generate a random number between min and max
                 this.topBox = tempTop;  //set the instance variable of the top box to the number we just created
                 int tempMid = rand.nextInt((max - min) + 1) + min;      //create a new random number between the min and max
+                
                 while (x != 1){         //while loop that is used to make sure that the top box number is not the same as what we just generated
                         if (tempMid != this.topBox){            //if the numbers are not the same
                                 this.middlebox = tempMid;       //set instance variable for the middle box to the sudo random number we created
@@ -53,10 +82,44 @@ public class Reel{
                                 tempBot = rand.nextInt((max - min) + 1) + min;          //generate a new random number between min and max
                         }
 
-                }
+                }*/
+
+                boolean good = false;
+                while (!good) {
+                        topBox = getRandom();
+                        middleBox = getRandom();
+                        bottomBox = getRandom();
+                        if (topBox != middleBox && topBox != bottomBox && middleBox != bottomBox) {
+                                good = true;
+                        }
+                } 
         }
+
+        private int getRandom() {
+                WeightedRandom.Item i;
+                if (location == 2) {
+                        i = wr2.get(rand);
+                } else {
+                        i = wr1.get(rand);
+                }
+                if (i == item1) {
+                        return 1;
+                } else if (i == item2) {
+                        return 2;
+                } else if (i == item3) {
+                        return 3;
+                } else if (i == item4) {
+                        return 4;
+                } else if (i == item5) {
+                        return 5;
+                } else if (i == itemL) {
+                        return 6;
+                }
+                return 0; //should never happen
+        }
+
         public int[] getReel(){         //method used to get the instance variables of the reel in the form of an array
-                int[] lst = {this.topBox,this.middlebox,this.bottomBox};        //create the array to be returned
+                int[] lst = {this.topBox,this.middleBox,this.bottomBox};        //create the array to be returned
                 return lst;             //return the array we created
         }
 }
