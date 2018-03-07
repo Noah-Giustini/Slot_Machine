@@ -20,12 +20,6 @@ import javafx.scene.Parent;
 
 
 public class GUI extends Application {
-
-        private Reel leftReel = new Reel(0);
-        private Reel midReel = new Reel(1);
-        private Reel rightReel = new Reel(2);
-
-        private Game backend = new Game(leftReel,midReel,rightReel);
     
     @Override
     public void start(Stage stage) throws Exception {
