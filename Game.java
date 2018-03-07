@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /*
 *       this class is the game class and is used to handle all of the basic functions of the game
 *       there are instance variables for each of the three reels of the slot machine and one for the players money.
@@ -12,11 +14,13 @@ public class Game{
         private Reel rightReel;         //instance variable for the right reel
         private int playerBalance;      //instance variable for the player's money
 
+        private final int[] winningList = new int[]{0,1,2,4,6,11}; //list of payout multipliers for the different symbols in the reels
+
         public Game(Reel l,Reel m,Reel r){      //constructor which takes parameters of 3 Reels for the left middle and right
                 this.leftReel = l;              //set the left reel
                 this.rightReel = r;             //set the right reel
                 this.midReel = m;               //set the middle reel
-                this.playerBalance = 100;       //set the player balance to 100
+                this.playerBalance = 10000;       //set the player balance to 100
         }
 
         public void showGame(){                         //method used to show the reels
@@ -64,29 +68,31 @@ public class Game{
                         if (rightList[x] != 6){
                                 if ((leftList[x] == midList[x]) && (leftList[x] == rightList[x]) && (midList[x] == rightList[x])){      //if the values in a line are all the same
                                         //wonOn[winLines] = x;
-                                        winLines++;             //increment winlines by one
+                                        winLines += winningList[leftList[x]];             //increment winlines by one
 
                                 }
                         }
                         else{
                                 if ((leftList[x] == midList[x]) && (6 == rightList[x])){      //if the values in a line are all the same
                                         //wonOn[winLines] = x;
-                                        winLines++;             //increment winlines by one
+                                        winLines += winningList[leftList[x]];                 //increment winlines by one
 
                                 }
                         }
                 }
-                if((leftList[0] == midList[1]) && (leftList[0] == rightList[2]) && (midList[1] == rightList[2])){       //chech to see if there is a win on the diagnol
-                        winLines++;                     //increment winLines by one
+                if(((leftList[0] == midList[1]) && (leftList[0] == rightList[2]) && (midList[1] == rightList[2])) ||
+                  (leftList[0] == midList[1] && rightList[2] == 6)){       //chechk to see if there is a win on the diagonal
+                        winLines += winningList[leftList[0]];                     //increment winLines by one
                 }
-                if((leftList[2] == midList[1]) && (leftList[2] == rightList[0]) && (midList[1] == rightList[0])){       //check the other diagnol
-                        winLines++;                     //increment winLines by one
+                if(((leftList[2] == midList[1]) && (leftList[2] == rightList[0]) && (midList[1] == rightList[0])) ||
+                  (leftList[2] == midList[1] && rightList[0] == 6)){       //chechk to see if there is a win on the diagonal
+                        winLines += winningList[leftList[2]];                     //increment winLines by one
                 }
                 return winLines;                        //return winLines
                         
         }
         public int winnings(int betamt,int linesWon){   //method to determine how much the player won
-                int win = (betamt*linesWon*2);          //calculate winnings
+                int win = (betamt*linesWon);          //calculate winnings
                 return win;                             //return winnings
         }
         public void mainGame(int bettings){
