@@ -11,7 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import java.util.Random;
 
-/** This class *** rolls the reels of the game to show the reel turning.
+/** This class SpinningReels rolls the reels of the game to show the reel turning.
   * code to do with the timelines was adapted from:
   * https://docs.oracle.com/javase/8/javafx/visual-effects-tutorial/basics.htm#BEIIDFJC
   *
@@ -35,10 +35,10 @@ import java.util.Random;
   * @var	reelRow - the row at which the reel is rotated
   *
   */
-public class SpinningReels extends Application{
-  private Timeline timeline = new Timeline();
-  private AnimationTimer timer;
-  private Image image = new Image ("1.png");
+public class SpinningReels implements EventHandler <ActionEvent>{
+	private Timeline timeline = new Timeline();
+ 	private AnimationTimer timer;
+	private Image image = new Image ("1.png");
 	private int timeMilli = 1;
 	private Random rand = new Random();
 	private PathTransition pt;
@@ -84,9 +84,9 @@ public class SpinningReels extends Application{
 	  *
 	  */
     @Override 
-	public void start(Stage stage) {
+	public void handle (ActionEvent event){
 		//Creates a new scene
-        Scene scene = new Scene(root);
+      		Scene scene = new Scene(root);
 		stage.setScene(scene);
 		stage.setWidth(500);
 		stage.setHeight(500);
@@ -94,42 +94,36 @@ public class SpinningReels extends Application{
 		//Creates a path by which the images will move
 		path.getElements().addAll(new MoveTo(reelRow, 50), new VLineTo(400));
 		//Sets how many times new images are added to the reel
-        timeline.setCycleCount(200);
+      		timeline.setCycleCount(200);
  
 		//Counts the amount of time that has passed since the animation
 		//began. Uses this number to change the timeMilli variable
 		timer = new AnimationTimer() {
-            @Override
-            public void handle(long l) {
-				timeMilli++;
-            }
- 
-        };
+            	@Override
+            	public void handle(long l) {
+			timeMilli++;
+		    }
+      		};
 		
-		//Generates a randome number and then apllies this number to 
+		//Generates a random number and then apllies this number to 
 		// choose an image which is imputted into the moveImage method
-        EventHandler nextImage = new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent t) {
-				randNum = rand.nextInt(5)+1;
-				image = new Image (randNum+".png");
-				moveImage (image);	
-            }
-        };
+       		EventHandler nextImage = new EventHandler<ActionEvent>() {
+            	public void handle(ActionEvent t) {
+			randNum = rand.nextInt(5)+1;
+			image = new Image (randNum+".png");
+			moveImage (image);	
+            		}
+        	};
 		 
 		//Adds the nextImage eventHandler to the timeline using a keyFrame
 		KeyFrame keyFrame = new KeyFrame(timeNextImage, nextImage);
-        timeline.getKeyFrames().addAll(keyFrame);
+       		timeline.getKeyFrames().addAll(keyFrame);
 		
 		//Starts the animation
-        timeline.play();
-        timer.start();
-		stage.show();
+      		timeline.play();
+       		timer.start();
 		
-    }
-        
-        
-    public static void main(String[] args) {
-        Application.launch(args);
-    }
+    		}
+
  
 }
