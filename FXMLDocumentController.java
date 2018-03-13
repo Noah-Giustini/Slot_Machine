@@ -104,6 +104,7 @@ public class FXMLDocumentController implements Initializable {
                         int[] mlst = mReel.getReel();
                         int[] rlst = rReel.getReel();
                         
+                        SpinningReelsGUI();
                         //Change the text of the reel
                         this.balance.setText("Balance: $"+Double.toString(backend.getPlayerBalance()));
                         
