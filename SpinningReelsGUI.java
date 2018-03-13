@@ -36,6 +36,7 @@ import java.util.Random;
   *
   */
 public class SpinningReelsGUI extends Application{
+	private Scene primaryScene;
    	private Timeline timeline = new Timeline();
    	private AnimationTimer timer;
   	private Image image;
@@ -49,7 +50,9 @@ public class SpinningReelsGUI extends Application{
 	private Duration timeNextImage = Duration.millis (100);
 	private int reelRow = 300;
 	
-	
+	SpinningReelsGUI ( Scene currentScene){
+		primaryScene = currentScene;
+	}
 	
 	/** The method, moveImage, produces an imputted image at the top of the 
 	  * screen and lets it fall to the bottom of the screen. It does this by
@@ -88,10 +91,7 @@ public class SpinningReelsGUI extends Application{
     @Override 
 	public void start(Stage stage) {
 		//Creates a new scene
-        Scene scene = new Scene(root);
-		stage.setScene(scene);
-		stage.setWidth(500);
-		stage.setHeight(500);
+	stage.setScene(scene);
 		
 		//Creates a path by which the images will move
 		path.getElements().addAll(new MoveTo(reelRow, 50), new VLineTo(400));
