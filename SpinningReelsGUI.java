@@ -20,7 +20,7 @@ import java.util.Random;
   *			has started.
   * @var	image - the image displayed for the particular animation 
   *			spot on the game reel
-  *	@var	timeMilli - the amount of time that has passed since the
+  *@var		timeMilli - the amount of time that has passed since the
   *			animation began
   * @var	rand - a random number generator.
   * @var	pt - the path transition that each image follows
@@ -36,9 +36,9 @@ import java.util.Random;
   *
   */
 public class SpinningReelsGUI extends Application{
-    private Timeline timeline = new Timeline();
-    private AnimationTimer timer;
-    private Image image = new Image ("1.png");
+   	private Timeline timeline = new Timeline();
+   	private AnimationTimer timer;
+  	private Image image;
 	private int timeMilli = 1;
 	private Random rand = new Random();
 	private PathTransition pt;
@@ -48,6 +48,8 @@ public class SpinningReelsGUI extends Application{
 	private int timeToMove = 10;
 	private Duration timeNextImage = Duration.millis (100);
 	private int reelRow = 300;
+	
+	
 	
 	/** The method, moveImage, produces an imputted image at the top of the 
 	  * screen and lets it fall to the bottom of the screen. It does this by
