@@ -36,7 +36,33 @@ public class Play {
 			} 
 		}
 		if (userChoice == 2 | userChoice == 5){		//if the user choses the option with no gui
-			Game game = new Game(leftReel,middleReel,rightReel);	//create a new instance of Game which is constructed with the reels we created
+			int gameChoice = 0;			//variable to keep track of the user's choice of game
+		    	while(gameChoice == 0){			//while loop that checks if the user's input is valid
+				System.out.println("Would you like to play a saved game? (Yes/No)");
+				String choice = sc.nextLine(); //take user input as a string
+				switch (choice.toUpperCase()) {//switch statement to go through all posibilities
+					case "YES":  gameChoice = 1;
+						break;
+					case "Y":  gameChoice = 1;
+						break;
+					case "NO":  gameChoice = 2;
+						break;
+					case "N":  gameChoice = 2;
+						break;
+					default: System.out.println("Invalid selection (yes/no)");
+						break;
+				}
+			}
+			
+			
+			Game game;
+			if (gameChoice == 1){
+				game = new SavedGame(leftReel,middleReel,rightReel);	//create a new instance of SavedGame which is constructed with the reels we created
+			}
+			else {
+				game = new Game(leftReel,middleReel,rightReel);	//create a new instance of SavedGame which is constructed with the reels we created
+			}
+			
 			game.rollAll();						//roll all reels so there will be data to display
 			game.showGame();					//show the reels
 			if(userChoice == 5){
@@ -61,6 +87,28 @@ public class Play {
 				}
 				if ((game.getPlayerBalance() - (userBet*10)) >=0){	//check to make sure the bet wont give the player a negative balace
 					game.mainGame(userBet);
+				}
+				
+				int saveChoice = 0;			//variable to keep track of the user's choice of game
+			    	while(saveChoice == 0){			//while loop that checks if the user's input is valid
+					System.out.println("Would you like to save? (Yes/No)");
+					String choice = sc.nextLine(); //take user input as a string
+					switch (choice.toUpperCase()) {//switch statement to go through all posibilities
+					case "YES":  saveChoice = 1;
+						break;
+					case "Y":  saveChoice = 1;
+						break;
+					case "NO":  saveChoice = 2;
+						break;
+					case "N":  saveChoice = 2;
+						break;
+					default: System.out.println("Invalid selection (yes/no)");
+						break;
+					}
+				}
+
+				if (saveChoice == 1){
+					game.saveGame();
 				}
 			}
 			System.out.println("You have no more money. oops! ");		//tell the player they have no more money (need to re-evaluate life choices)
