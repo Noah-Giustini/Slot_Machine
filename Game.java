@@ -33,6 +33,30 @@ public class Game{
                         System.out.println(leftList[var]+"          "+midList[var]+"          "+rightList[var]);      //print the top line
                 }
         }
+        
+        //The method save game writes the new game to the save file
+        public void saveGame (){
+	        int[] leftList = leftReel.getReel();    //get the data from left reel
+                int[] midList = midReel.getReel();      //get data from middle reel
+                int[] rightList = rightReel.getReel();  //get data from the right reel
+		int[][] allReels = {leftList, midList, rightList};	//Array of all three reel values
+                
+                //Writes balance and reel values to the save file
+                try{
+                        BufferedWriter writer = new BufferedWriter (new FileWriter ("saveFile.txt"));
+                        writer.write (playerBalance + "\n");
+                        for (int arrayPlacement = 0; arrayPlacement < allReels.length; arrayPlacement ++){
+                                for (int arraySpace = 0 ; arraySpace < leftList.length; arraySpace ++){
+                                        writer.write(allReels [arrayPlacement] [arraySpace] + "\n");
+                                }
+                        }
+                        writer.close();
+                }
+                catch (IOException i){
+                        System.out.println("io exception");
+                }
+	}    
+     
         public int[] getLeftList(){
                 return leftReel.getReel();
         }
