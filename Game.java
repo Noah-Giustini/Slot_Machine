@@ -20,7 +20,7 @@ public class Game{
                 this.leftReel = l;              //set the left reel
                 this.rightReel = r;             //set the right reel
                 this.midReel = m;               //set the middle reel
-                this.playerBalance = 10000;       //set the player balance to 100
+                this.playerBalance = 100;       //set the player balance to 100
         }
 
         public void showGame(){                         //method used to show the reels
@@ -28,7 +28,7 @@ public class Game{
                 int[] midList = midReel.getReel();      //get data from middle reel
                 int[] rightList = rightReel.getReel();  //get data from right reel
                 int var;
-                System.out.print("\033[H\033[2J");
+                clearConsole();
                 for(var=0;var<3;var++){
                         System.out.println(leftList[var]+"          "+midList[var]+"          "+rightList[var]);      //print the top line
                 }
@@ -106,6 +106,11 @@ public class Game{
                         collectWinnings(winnings);			//collect winnings
                         System.out.println("YOU HAVE WON $"+winnings+"!");//tell player how much they have won
                 }
+        }
+        public final static void clearConsole(){
+                System.out.println();
+                System.out.println();
+                System.out.println();
         }
 }
 

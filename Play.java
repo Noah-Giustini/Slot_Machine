@@ -27,14 +27,21 @@ public class Play {
 				break;
 			case "Q":  userChoice = 3;
 				break;
+			case "YES I AM RICH": userChoice = 4;
+				break;
+			case "NO I AM RICH": userChoice = 5;
+				break;
 			default: System.out.println("Invalid selection (yes/no/quit)");
 				break;
 			} 
 		}
-		if (userChoice == 2){		//if the user choses the option with no gui
+		if (userChoice == 2 | userChoice == 5){		//if the user choses the option with no gui
 			Game game = new Game(leftReel,middleReel,rightReel);	//create a new instance of Game which is constructed with the reels we created
 			game.rollAll();						//roll all reels so there will be data to display
 			game.showGame();					//show the reels
+			if(userChoice == 5){
+				game.collectWinnings(99900);
+			}
 			while(game.getPlayerBalance()>0){			//while the player has money
 				System.out.println("You have "+game.getPlayerBalance()+"$, how much would you like to bet? (10/20/30)");
 				int userBet = 0;				//variable to keep track of the users bet

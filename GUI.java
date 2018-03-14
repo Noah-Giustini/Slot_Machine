@@ -20,18 +20,7 @@ import javafx.scene.Parent;
 
 
 public class GUI extends Application {
-<<<<<<< HEAD
-=======
         //This is the main class for the GUI version of the game.
-    
-        //Set up the reels
-        private Reel leftReel = new Reel(0);
-        private Reel midReel = new Reel(1);
-        private Reel rightReel = new Reel(2);
-        //Set up the game object
-        private Game backend = new Game(leftReel,midReel,rightReel);
->>>>>>> 8a854dc7a4f382d53ef6eb421caa0bdd38d4ca4c
-    
     @Override
     public void start(Stage stage) throws Exception {
         //Set everything up (root, scene, stage, etc...)
