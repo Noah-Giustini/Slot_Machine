@@ -1,4 +1,5 @@
 import java.util.Scanner;		//import the scanner utility
+import java.io.*;
 /*
 *	The play class is the main game which will be played. it incorporates the Game and Reel classes 
 *	it has no instance variables and its only method is the main method in which the game runs.
