@@ -70,26 +70,6 @@ public class Play {
 				game.collectWinnings(99900);
 			}
 			while(game.getPlayerBalance()>0){			//while the player has money
-				System.out.println("You have "+game.getPlayerBalance()+"$, how much would you like to bet? (10/20/30)");
-				int userBet = 0;				//variable to keep track of the users bet
-				int didWin = 0;					//variable to see if the user won
-				while(userBet == 0){				//while the user has not bet a valid amount
-					String betVal = sc.nextLine();		//take in user input
-					switch (betVal) {			//switch statement to go through the possibilities of the user's bet
-					case "10":  userBet = 1;
-						break;
-					case "20":  userBet = 2;
-						break;
-					case "30":  userBet = 3;
-						break;
-					default: System.out.println("Invalid selection (10/20/30)");
-						break;
-					}
-				}
-				if ((game.getPlayerBalance() - (userBet*10)) >=0){	//check to make sure the bet wont give the player a negative balace
-					game.mainGame(userBet);
-				}
-				
 				int saveChoice = 0;			//variable to keep track of the user's choice of game
 			    	while(saveChoice == 0){			//while loop that checks if the user's input is valid
 					System.out.println("Would you like to save? (Yes/No)");
@@ -111,6 +91,27 @@ public class Play {
 				if (saveChoice == 1){
 					game.saveGame();
 				}
+				System.out.println("You have "+game.getPlayerBalance()+"$, how much would you like to bet? (10/20/30)");
+				int userBet = 0;				//variable to keep track of the users bet
+				int didWin = 0;					//variable to see if the user won
+				while(userBet == 0){				//while the user has not bet a valid amount
+					String betVal = sc.nextLine();		//take in user input
+					switch (betVal) {			//switch statement to go through the possibilities of the user's bet
+					case "10":  userBet = 1;
+						break;
+					case "20":  userBet = 2;
+						break;
+					case "30":  userBet = 3;
+						break;
+					default: System.out.println("Invalid selection (10/20/30)");
+						break;
+					}
+				}
+				if ((game.getPlayerBalance() - (userBet*10)) >=0){	//check to make sure the bet wont give the player a negative balace
+					game.mainGame(userBet);
+				}
+				
+				
 			}
 			System.out.println("You have no more money. oops! ");		//tell the player they have no more money (need to re-evaluate life choices)
 		}
