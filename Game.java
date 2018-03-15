@@ -24,6 +24,14 @@ public class Game{
                 this.playerBalance = 100;       //set the player balance to 100
         }
 
+	/** Sets the balance to the new balance. Protected and can only be used by super classes to 
+	  * set an initial balance
+	  */
+	protected void setPlayerBalance (int newBalance){
+			this.playerBalance =  newBalance;
+		}
+	
+	
         public void showGame(){                         //method used to show the reels
                 int[] leftList = leftReel.getReel();    //get data from left reel
                 int[] midList = midReel.getReel();      //get data from middle reel
