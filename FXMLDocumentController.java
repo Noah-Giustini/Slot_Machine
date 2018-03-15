@@ -30,6 +30,8 @@ public class FXMLDocumentController implements Initializable {
         private Button bet20;
         @FXML
         private Button bet10;
+        @FXML
+        private Button save;
 
         //Set up the VBoxes
         @FXML
@@ -86,6 +88,12 @@ public class FXMLDocumentController implements Initializable {
         @FXML
         private void bet30Click(ActionEvent event) {
             betClick(event, 30); //When you bet 30
+        }
+        
+        @FXML
+        //Someone wants to save the game, the save game button has been pressed
+        private void saveClick(ActionEvent event){
+                backend.saveGame();
         }
         
         private void betClick(ActionEvent event, int amount) {
