@@ -104,6 +104,7 @@ public class FXMLDocumentController implements Initializable {
         private void playSavedGame (ActionEvent event){
                 backend = new SavedGame(lReel, mReel, rReel);
                 startGame(event);
+		showScreen(event);
         }
 		
         @FXML
@@ -124,7 +125,7 @@ public class FXMLDocumentController implements Initializable {
                 backend.saveGame(); //game is saved
         }
 
-        //This method removes the starting buttons and brings up the betting buttons and shows the screen
+        //This method removes the starting buttons and brings up the betting buttons
         private void startGame(ActionEvent event){
                 bet30.setVisible(true);
                 bet20.setVisible(true);
@@ -133,7 +134,6 @@ public class FXMLDocumentController implements Initializable {
                 save.setVisible(true);
                 savedGame.setVisible(false);
                 normalGame.setVisible(false);
-		showScreen(event);
         }
 
         //Shows the screen where all the images etc. are
