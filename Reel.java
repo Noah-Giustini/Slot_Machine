@@ -122,4 +122,19 @@ public class Reel{
                 int[] lst = {this.topBox,this.middleBox,this.bottomBox};        //create the array to be returned
                 return lst;             //return the array we created
         }
+        
+        //method used to set the initial reel values for the saved game
+        public void setReelValues(int [] reelValues){
+                if ((reelValues[0] < 6) &&(reelValues [0] > 0)){
+                        topBox = reelValues[0];
+                }
+                if ((reelValues[1] < 6) &&(reelValues [1] > 0)){
+                        middleBox = reelValues[1];
+                }
+                if ((reelValues[2] < 6) &&(reelValues [2] > 0)){
+                        bottomBox = reelValues[2];
+                }
+        }
+  
+}
 }
