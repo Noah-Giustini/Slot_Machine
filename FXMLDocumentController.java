@@ -96,7 +96,8 @@ public class FXMLDocumentController implements Initializable {
         private void playNormalGame (ActionEvent event){
                 backend = new Game(lReel, mReel, rReel);
                 startGame(event);
-		betClick (event, 0);
+		backend.rollAll();
+		showScreen(event);
 
         }
 
@@ -164,9 +165,7 @@ public class FXMLDocumentController implements Initializable {
             //This is the method that is called when you bet an amount
             //The amount variable is the amount of the bet (can be 10, 20, or 30)
             if ((backend.getPlayerBalance() - amount) >= 0){ //if we are not yet bankrupt
-		    	if (amount != 0){ //For a brand new game the reels need to be rolled in which case the amount is 0
-                        	backend.bet(amount); //bet the specified amount
-			}
+                        backend.bet(amount); //bet the specified amount
                         backend.rollAll(); //roll the reels
                         int didWin = backend.winTest(); //check if we won
                         if (didWin > 0){
