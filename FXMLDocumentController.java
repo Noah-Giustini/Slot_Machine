@@ -95,8 +95,8 @@ public class FXMLDocumentController implements Initializable {
         @FXML
         private void playNormalGame (ActionEvent event){
                 backend = new Game(lReel, mReel, rReel);
-                startGame(event);
 		backend.rollAll();
+		startGame(event);
         }
 
         //Sets up a game from a save file
