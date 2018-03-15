@@ -20,6 +20,7 @@ import javafx.scene.layout.HBox;
 import java.lang.Integer;
 import java.lang.Double;
 
+
 public class FXMLDocumentController implements Initializable {
         //This class handles all the screen elements, including the buttons, VBoxes, ImageViews, and labels.
         
@@ -32,7 +33,12 @@ public class FXMLDocumentController implements Initializable {
         private Button bet10;
         @FXML
         private Button save;
+        @FXML
+        private Button savedGame;
+        @FXML
+        private Button normalGame;
 
+		
         //Set up the VBoxes
         @FXML
         private VBox leftReel;
@@ -62,6 +68,7 @@ public class FXMLDocumentController implements Initializable {
         private ImageView mBot;
         @FXML
         private ImageView rBot;
+		
 
         //Set up the label that will display our balance.
         @FXML
@@ -71,12 +78,35 @@ public class FXMLDocumentController implements Initializable {
         private Reel lReel = new Reel(0);
         private Reel mReel = new Reel(1);
         private Reel rReel = new Reel(2);
-        private Game backend = new Game(lReel, mReel, rReel);
+        private Game backend;
 
         @Override
         public void initialize(URL url, ResourceBundle rb) {
+                //At the beginning of the game when the user is choosing which game to playNormalGame
+                // for this reason the bet buttons are invisible
+                bet30.setVisible(false);
+                bet20.setVisible(false);
+                bet10.setVisible(false);
+                balance.setVisible(false);
+                save.setVisible(false);
+        }
+		
+        //Sets up a normal game that has (ie. not a saved game)
+        @FXML
+        private void playNormalGame (ActionEvent event){
+                backend = new Game(lReel, mReel, rReel);
+                startGame(event);
+
         }
 
+        //Sets up a game from a save file
+        @FXML
+        private void playSavedGame (ActionEvent event){
+                backend = new SavedGame(lReel, mReel, rReel);
+                startGame(event);
+                showScreen(event);
+        }
+		
         @FXML
         private void bet10Click(ActionEvent event) {
             betClick(event, 10); //When you bet 10
@@ -89,13 +119,46 @@ public class FXMLDocumentController implements Initializable {
         private void bet30Click(ActionEvent event) {
             betClick(event, 30); //When you bet 30
         }
-        
+		
         @FXML
-        //Someone wants to save the game, the save game button has been pressed
         private void saveClick(ActionEvent event){
-                backend.saveGame();
+                backend.saveGame(); //game is saved
         }
-        
+
+        //This method removes the starting buttons and brings up the betting buttons
+        private void startGame(ActionEvent event){
+                bet30.setVisible(true);
+                bet20.setVisible(true);
+                bet10.setVisible(true);
+                balance.setVisible(true);
+                save.setVisible(true);
+                savedGame.setVisible(false);
+                normalGame.setVisible(false);
+        }
+
+        //Shows the screen where all the images etc. are
+        private void showScreen(ActionEvent event){
+                int[] llst = lReel.getReel();
+                int[] mlst = mReel.getReel();
+                int[] rlst = rReel.getReel();
+
+                //Change the text of the reel
+                this.balance.setText("Balance: $"+Double.toString(backend.getPlayerBalance()));
+
+                //Set up the new images
+                lTop.setImage(new Image(Integer.toString(lReel.getReel()[0])+".png"));
+                lMid.setImage(new Image(Integer.toString(lReel.getReel()[1])+".png"));
+                lBot.setImage(new Image(Integer.toString(lReel.getReel()[2])+".png"));
+
+                mTop.setImage(new Image(Integer.toString(mReel.getReel()[0])+".png"));
+                mMid.setImage(new Image(Integer.toString(mReel.getReel()[1])+".png"));
+                mBot.setImage(new Image(Integer.toString(mReel.getReel()[2])+".png"));
+
+                rTop.setImage(new Image(Integer.toString(rReel.getReel()[0])+".png"));
+                rMid.setImage(new Image(Integer.toString(rReel.getReel()[1])+".png"));
+                rBot.setImage(new Image(Integer.toString(rReel.getReel()[2])+".png"));
+        }
+		
         private void betClick(ActionEvent event, int amount) {
             //This is the method that is called when you bet an amount
             //The amount variable is the amount of the bet (can be 10, 20, or 30)
@@ -107,26 +170,10 @@ public class FXMLDocumentController implements Initializable {
                                 int winnings = backend.winnings(amount,didWin);
                                 backend.collectWinnings(winnings); //collect our moneys
                         }
+						
+						showScreen(event);
                         
-                        int[] llst = lReel.getReel();
-                        int[] mlst = mReel.getReel();
-                        int[] rlst = rReel.getReel();
                         
-                        //Change the text of the balance
-                        this.balance.setText("Balance: $"+Double.toString(backend.getPlayerBalance()));
-                        
-                        //Set up the new images
-                        lTop.setImage(new Image(Integer.toString(lReel.getReel()[0])+".png"));
-                        lMid.setImage(new Image(Integer.toString(lReel.getReel()[1])+".png"));
-                        lBot.setImage(new Image(Integer.toString(lReel.getReel()[2])+".png"));
-
-                        mTop.setImage(new Image(Integer.toString(mReel.getReel()[0])+".png"));
-                        mMid.setImage(new Image(Integer.toString(mReel.getReel()[1])+".png"));
-                        mBot.setImage(new Image(Integer.toString(mReel.getReel()[2])+".png"));
-
-                        rTop.setImage(new Image(Integer.toString(rReel.getReel()[0])+".png"));
-                        rMid.setImage(new Image(Integer.toString(rReel.getReel()[1])+".png"));
-                        rBot.setImage(new Image(Integer.toString(rReel.getReel()[2])+".png"));
                 }
 
         }
