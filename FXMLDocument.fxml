@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.embed.swing.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -7,54 +9,80 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXMLDocumentController">
    <children>
-      <Button fx:id="bet10" layoutX="100.0" layoutY="510.0" mnemonicParsing="false" onAction="#bet10Click" text="Bet $10" />
-      <Button fx:id="bet20" layoutX="265.0" layoutY="510.0" mnemonicParsing="false" onAction="#bet20Click" text="Bet $20" />
-      <Button fx:id="bet30" layoutX="443.0" layoutY="510.0" mnemonicParsing="false" onAction="#bet30Click" text="Bet $30" />
+      <Button fx:id="bet10" layoutX="107.0" layoutY="461.0" mnemonicParsing="false" onAction="#bet10Click" text="Bet $10" />
+      <Button fx:id="bet20" layoutX="272.0" layoutY="461.0" mnemonicParsing="false" onAction="#bet20Click" text="Bet $20" />
+      <Button fx:id="bet30" layoutX="450.0" layoutY="461.0" mnemonicParsing="false" onAction="#bet30Click" text="Bet $30" />
       <ImageView fx:id="mMid" fitHeight="118.0" fitWidth="118.0" layoutX="241.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@1.png" />
+            <Image url="@../../Documents/GitHub/Slot_Machine/1.png" />
          </image>
       </ImageView>
       <ImageView fx:id="mTop" fitHeight="118.0" fitWidth="118.0" layoutX="241.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@4.png" />
+            <Image url="@../../Documents/GitHub/Slot_Machine/4.png" />
          </image>
       </ImageView>
       <ImageView fx:id="mBot" fitHeight="118.0" fitWidth="118.0" layoutX="241.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@5.png" />
+            <Image url="@../../Documents/GitHub/Slot_Machine/5.png" />
          </image>
       </ImageView>
       <ImageView fx:id="lBot" fitHeight="118.0" fitWidth="118.0" layoutX="76.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@5.png" />
+            <Image url="@../../Documents/GitHub/Slot_Machine/5.png" />
          </image>
       </ImageView>
       <ImageView fx:id="lTop" fitHeight="118.0" fitWidth="118.0" layoutX="76.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@1.png" />
+            <Image url="@../../Documents/GitHub/Slot_Machine/1.png" />
          </image>
       </ImageView>
       <ImageView fx:id="lMid" fitHeight="118.0" fitWidth="118.0" layoutX="76.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@2.png" />
+            <Image url="@../../Documents/GitHub/Slot_Machine/2.png" />
          </image>
       </ImageView>
       <ImageView fx:id="rBot" fitHeight="118.0" fitWidth="118.0" layoutX="419.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@1.png" />
+            <Image url="@../../Documents/GitHub/Slot_Machine/1.png" />
          </image>
       </ImageView>
       <ImageView fx:id="rTop" fitHeight="118.0" fitWidth="118.0" layoutX="419.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@6.png" />
+            <Image url="@../../Documents/GitHub/Slot_Machine/6.png" />
          </image>
       </ImageView>
       <ImageView fx:id="rMid" fitHeight="118.0" fitWidth="118.0" layoutX="419.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@3.png" />
+            <Image url="@../../Documents/GitHub/Slot_Machine/3.png" />
          </image>
       </ImageView>
-      <Label fx:id="balance" layoutX="255.0" layoutY="413.0" text="Balance: $100" />
+      <Label fx:id="balance" layoutX="264.0" layoutY="419.0" text="Balance: $100" />
+      <ImageView fx:id="lTop1" fitHeight="118.0" fitWidth="118.0" layoutX="76.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Documents/GitHub/Slot_Machine/1.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="lTop2" fitHeight="118.0" fitWidth="118.0" layoutX="76.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Documents/GitHub/Slot_Machine/1.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="lTop3" fitHeight="118.0" fitWidth="118.0" layoutX="76.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Documents/GitHub/Slot_Machine/1.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="lTop4" fitHeight="118.0" fitWidth="118.0" layoutX="76.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Documents/GitHub/Slot_Machine/1.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="lTop5" fitHeight="118.0" fitWidth="118.0" layoutX="76.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Documents/GitHub/Slot_Machine/1.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="save" layoutX="261.0" layoutY="523.0" mnemonicParsing="false" onAction="#saveClick" prefHeight="25.0" prefWidth="80.0" text="Save" />
    </children>
 </AnchorPane>
