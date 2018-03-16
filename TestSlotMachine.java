@@ -72,15 +72,15 @@ public class TestSlotMachine {
         Reel reel2 = new Reel(1);
         Reel reel3 = new Reel(2);
         Game g = new Game(reel1, reel2, reel3);
-        assertEquals("Reel1 should match", reel1.getReel()[1], g.getLeftList()[1]);
-	assertEquals("Reel1 should match", reel1.getReel()[2], g.getLeftList()[2]);
-	assertEquals("Reel1 should match", reel1.getReel()[3], g.getLeftList()[3]);
-        assertEquals("Reel2 should match", reel2.getReel()[1], g.getMidList()[1]);
-	assertEquals("Reel2 should match", reel2.getReel()[2], g.getMidList()[2]);
-	assertEquals("Reel2 should match", reel2.getReel()[3], g.getMidList()[3]);
-        assertEquals("Reel3 should match", reel3.getReel()[1], g.getRightList()[1]);
-	assertEquals("Reel3 should match", reel3.getReel()[2], g.getRightList()[2]);
-	assertEquals("Reel3 should match", reel3.getReel()[3], g.getRightList()[3]);
+        assertEquals("Reel1 should match", reel1.getReel()[0], g.getLeftList()[1]);
+	assertEquals("Reel1 should match", reel1.getReel()[1], g.getLeftList()[2]);
+	assertEquals("Reel1 should match", reel1.getReel()[2], g.getLeftList()[3]);
+        assertEquals("Reel2 should match", reel2.getReel()[0], g.getMidList()[1]);
+	assertEquals("Reel2 should match", reel2.getReel()[1], g.getMidList()[2]);
+	assertEquals("Reel2 should match", reel2.getReel()[2], g.getMidList()[3]);
+        assertEquals("Reel3 should match", reel3.getReel()[0], g.getRightList()[1]);
+	assertEquals("Reel3 should match", reel3.getReel()[1], g.getRightList()[2]);
+	assertEquals("Reel3 should match", reel3.getReel()[2], g.getRightList()[3]);
 	}
     
     @Test
