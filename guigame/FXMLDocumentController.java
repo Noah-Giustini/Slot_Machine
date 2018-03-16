@@ -1,3 +1,5 @@
+package guigame;
+
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -22,7 +24,7 @@ import java.lang.Double;
 import javafx.scene.control.CheckBox;
 import java.gamelogic.*;
 
-package guigame;
+
 
 public class FXMLDocumentController implements Initializable {
         //This class handles all the screen elements, including the buttons, VBoxes, ImageViews, and labels.
