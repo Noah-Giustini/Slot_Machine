@@ -1,4 +1,4 @@
-package Slot_Machine.gamelogic;
+package slots.gamelogic;
 
 import java.util.Arrays;
 import java.io.*;
