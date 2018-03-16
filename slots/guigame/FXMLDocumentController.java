@@ -1,4 +1,4 @@
-package guigame;
+package slots.guigame;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -22,7 +22,7 @@ import javafx.scene.layout.HBox;
 import java.lang.Integer;
 import java.lang.Double;
 import javafx.scene.control.CheckBox;
-import Slot_Machine.gamelogic.*;
+import slots.gamelogic.*;
 
 
 
