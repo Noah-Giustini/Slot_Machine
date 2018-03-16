@@ -17,7 +17,7 @@ import java.lang.Integer;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 
-package GUIGame;
+package guigame;
 
 public class GUI extends Application {
         //This is the main class for the GUI version of the game.
