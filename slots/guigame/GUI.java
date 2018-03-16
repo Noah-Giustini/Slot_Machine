@@ -1,4 +1,4 @@
-package guigame;
+package slots.guigame;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
