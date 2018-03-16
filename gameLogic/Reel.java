@@ -2,7 +2,7 @@ import java.util.Random;        //import the random utilities for sudo random nu
 import java.util.ArrayList;
 import java.util.Arrays;
 
-package GameLogic;
+package gameLogic;
 
 /*
 *       This class is used to keep track of the data of each individual reel including the values of each of its 3 positions
