@@ -2,6 +2,8 @@ import java.util.Random;        //import the random utilities for sudo random nu
 import java.util.ArrayList;
 import java.util.Arrays;
 
+package GameLogic;
+
 /*
 *       This class is used to keep track of the data of each individual reel including the values of each of its 3 positions
 *       stored in instance variables, as well as methods to roll the reel changing the values as well as a method to return 
