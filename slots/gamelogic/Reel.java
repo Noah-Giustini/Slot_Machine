@@ -1,4 +1,4 @@
-package gamelogic;
+package slots.gamelogic;
 import java.util.Random;        //import the random utilities for sudo random number generation
 import java.util.ArrayList;
 import java.util.Arrays;
