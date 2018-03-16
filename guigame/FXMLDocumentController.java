@@ -20,9 +20,9 @@ import javafx.scene.layout.HBox;
 import java.lang.Integer;
 import java.lang.Double;
 import javafx.scene.control.CheckBox;
-import java.gameLogic.*;
+import java.gamelogic.*;
 
-package GUIGame;
+package guigame;
 
 public class FXMLDocumentController implements Initializable {
         //This class handles all the screen elements, including the buttons, VBoxes, ImageViews, and labels.
