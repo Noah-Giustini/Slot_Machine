@@ -1,9 +1,9 @@
-package rungame;
+package slots.rungame;
 
 import java.util.Scanner;		//import the scanner utility
 import java.io.*;
-import gamelogic.*;
-import guigame.*;
+import slots.gamelogic.*;
+import slots.guigame.*;
 
 
 /*
