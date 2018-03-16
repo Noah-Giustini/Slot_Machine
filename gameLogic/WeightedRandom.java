@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Random;
 
-package GameLogic;
+package gameLogic;
 
 public class WeightedRandom {
     //This class generates weighted random numbers
