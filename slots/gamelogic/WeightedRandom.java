@@ -1,4 +1,4 @@
-package gamelogic;
+package slots.gamelogic;
 
 import java.util.ArrayList;
 import java.util.Random;
