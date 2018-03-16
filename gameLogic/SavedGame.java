@@ -1,6 +1,6 @@
 import java.io.*;
 
-package GameLogic
+package gameLogic
 
 /** The class SavedGame begins a game that has already been saved by the user. It takes in
   * the past games balance and then makes it the starting balance of the next game.
