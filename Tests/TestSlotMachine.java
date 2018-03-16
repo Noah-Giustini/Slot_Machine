@@ -1,28 +1,8 @@
-//THESE IMPORT STATEMENTS CRASH!!!!!!!!
-//I DON'T KNOW WHY!!!!!!!!
-//THESE IMPORT STATEMENTS CRASH!!!!!!!!
-//I DON'T KNOW WHY!!!!!!!!
-//THESE IMPORT STATEMENTS CRASH!!!!!!!!
-//I DON'T KNOW WHY!!!!!!!!
-//THESE IMPORT STATEMENTS CRASH!!!!!!!!
-//I DON'T KNOW WHY!!!!!!!!
-//THESE IMPORT STATEMENTS CRASH!!!!!!!!
-//I DON'T KNOW WHY!!!!!!!!
-//THESE IMPORT STATEMENTS CRASH!!!!!!!!
-//I DON'T KNOW WHY!!!!!!!!
-//THESE IMPORT STATEMENTS CRASH!!!!!!!!
-//I DON'T KNOW WHY!!!!!!!!
-//THESE IMPORT STATEMENTS CRASH!!!!!!!!
-//I DON'T KNOW WHY!!!!!!!!
-
 import static org.junit.Assert.*;
-
 import org.junit.Test;
+import java.
 
-///////////////////////////////////
-
-///////////////////////////////////
-
+package tests;
 
 
 public class TestSlotMachine {
