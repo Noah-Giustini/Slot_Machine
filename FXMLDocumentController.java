@@ -96,6 +96,8 @@ public class FXMLDocumentController implements Initializable {
                 bet10.setVisible(false);
                 balance.setVisible(false);
                 save.setVisible(false);
+		holdButton.setVisible(false);
+		holdStatusLabel.setVisible(false);
         }
 		
         //Sets up a normal game that has (ie. not a saved game)
@@ -140,6 +142,8 @@ public class FXMLDocumentController implements Initializable {
                 save.setVisible(true);
                 savedGame.setVisible(false);
                 normalGame.setVisible(false);
+		holdButton.setVisible(true);
+		holdStatusLabel.setVisible(true);
 		showScreen(event);
         }
 
