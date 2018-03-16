@@ -1,6 +1,8 @@
 import java.util.Arrays;
 import java.io.*;
 
+package GameLogic
+	
 /*
 *       this class is the game class and is used to handle all of the basic functions of the game
 *       there are instance variables for each of the three reels of the slot machine and one for the players money.
