@@ -107,8 +107,37 @@ public class Play {
 						break;
 					}
 				}
+				int holdChoice = 0;
+			    	while(holdChoice == 0){	
+					System.out.println("Would you like to hold the middle reel for $10?");
+					String holdchoice = sc.nextLine();
+					switch (holdchoice.toUpperCase()) {
+					case "YES":  holdChoice = 1;
+						break;
+					case "Y":  holdChoice = 1;
+						break;
+					case "NO":  holdChoice = 2;
+						break;
+					case "N":  holdChoice = 2;
+						break;
+					default: System.out.println("Invalid selection (yes/no)");
+						break;
+					}
+				}
+
 				if ((game.getPlayerBalance() - (userBet*10)) >=0){	//check to make sure the bet wont give the player a negative balace
-					game.mainGame(userBet);
+					if(holdChoice == 1){
+						if((game.getPlayerBalance() - (userBet*10) - 10) >=0){
+							game.mainGame(userBet,10);
+						}
+						else{
+							System.out.println("You did not have enough to hold the reel and bet that amount");
+							game.mainGame(userBet,0);
+						}
+					}
+					if (holdChoice == 2){
+						game.mainGame(userBet,0);
+					}
 				}
 				
 				

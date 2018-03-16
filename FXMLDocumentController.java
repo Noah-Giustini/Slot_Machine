@@ -19,6 +19,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
 import java.lang.Integer;
 import java.lang.Double;
+import javafx.scene.control.CheckBox;
 
 
 public class FXMLDocumentController implements Initializable {
@@ -37,6 +38,8 @@ public class FXMLDocumentController implements Initializable {
         private Button savedGame;
         @FXML
         private Button normalGame;
+        @FXML
+        private Button holdButton;
 
 		
         //Set up the VBoxes
@@ -73,12 +76,16 @@ public class FXMLDocumentController implements Initializable {
         //Set up the label that will display our balance.
         @FXML
         private Label balance;
+        @FXML
+        private Label holdStatusLabel;
         
         //Set up the reel and game objects
         private Reel lReel = new Reel(0);
         private Reel mReel = new Reel(1);
         private Reel rReel = new Reel(2);
         private Game backend;
+        private int hold = 1;
+        private String holdStatus;
 
         @Override
         public void initialize(URL url, ResourceBundle rb) {
@@ -138,9 +145,6 @@ public class FXMLDocumentController implements Initializable {
 
         //Shows the screen where all the images etc. are
         private void showScreen(ActionEvent event){
-                int[] llst = lReel.getReel();
-                int[] mlst = mReel.getReel();
-                int[] rlst = rReel.getReel();
 
                 //Change the text of the reel
                 this.balance.setText("Balance: $"+Double.toString(backend.getPlayerBalance()));
@@ -158,17 +162,46 @@ public class FXMLDocumentController implements Initializable {
                 rMid.setImage(new Image(Integer.toString(rReel.getReel()[1])+".png"));
                 rBot.setImage(new Image(Integer.toString(rReel.getReel()[2])+".png"));
         }
+        @FXML
+        private void holdClick(ActionEvent event){
+                this.hold++;
+                statusCalculate();
+                this.holdStatusLabel.setText(holdStatus);
+        }
+        private void statusCalculate(){
+                if ((this.hold % 2) == 0){
+                        this.holdStatus = "Held";
+                }
+                else{
+                        this.holdStatus = "Not Held";
+                }
+        }
 		
         private void betClick(ActionEvent event, int amount) {
-            //This is the method that is called when you bet an amount
-            //The amount variable is the amount of the bet (can be 10, 20, or 30)
-            if ((backend.getPlayerBalance() - amount) >= 0){ //if we are not yet bankrupt
-                        backend.bet(amount); //bet the specified amount
-                        backend.rollAll(); //roll the reels
-                        int didWin = backend.winTest(); //check if we won
-                        if (didWin > 0){
-                                int winnings = backend.winnings(amount,didWin);
-                                backend.collectWinnings(winnings); //collect our moneys
+                //This is the method that is called when you bet an amount
+                //The amount variable is the amount of the bet (can be 10, 20, or 30)
+                if ((backend.getPlayerBalance() - amount) >= 0){ //if we are not yet bankrupt
+                System.out.println(this.hold);
+                        if ((this.hold%2) == 0){
+                                if ((backend.getPlayerBalance() - amount - 10) >= 0){
+                                        backend.bet(amount);
+                                        backend.bet(10);
+                                        backend.rollNotAll();
+                                        int didWin = backend.winTest(); //check if we won
+                                        if (didWin > 0){
+                                        int winnings = backend.winnings(amount,didWin);
+                                         backend.collectWinnings(winnings); //collect our moneys
+                                         }
+                                }
+                        }
+                        if (((this.hold+1)%2)== 0){
+                                backend.bet(amount); //bet the specified amount
+                                backend.rollAll(); //roll the reels
+                                int didWin = backend.winTest(); //check if we won
+                                if (didWin > 0){
+                                        int winnings = backend.winnings(amount,didWin);
+                                        backend.collectWinnings(winnings); //collect our moneys
+                                }
                         }
 						
 			showScreen(event);

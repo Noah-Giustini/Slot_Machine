@@ -10,9 +10,15 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXMLDocumentController">
    <children>
+      <Button fx:id="holdButton" layoutX="57.0" layoutY="523.0" mnemonicParsing="false" onAction="#holdClick" text="Hold Middle Reel" />
       <Button fx:id="bet10" layoutX="107.0" layoutY="461.0" mnemonicParsing="false" onAction="#bet10Click" text="Bet $10" />
       <Button fx:id="bet20" layoutX="272.0" layoutY="461.0" mnemonicParsing="false" onAction="#bet20Click" text="Bet $20" />
       <Button fx:id="bet30" layoutX="450.0" layoutY="461.0" mnemonicParsing="false" onAction="#bet30Click" text="Bet $30" />
+      <ImageView fx:id="mBot" fitHeight="118.0" fitWidth="118.0" layoutX="241.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Documents/GitHub/Slot_Machine/5.png" />
+         </image>
+      </ImageView>
       <ImageView fx:id="mMid" fitHeight="118.0" fitWidth="118.0" layoutX="241.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Documents/GitHub/Slot_Machine/1.png" />
@@ -21,11 +27,6 @@
       <ImageView fx:id="mTop" fitHeight="118.0" fitWidth="118.0" layoutX="241.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Documents/GitHub/Slot_Machine/4.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="mBot" fitHeight="118.0" fitWidth="118.0" layoutX="241.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../Documents/GitHub/Slot_Machine/5.png" />
          </image>
       </ImageView>
       <ImageView fx:id="lBot" fitHeight="118.0" fitWidth="118.0" layoutX="76.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
@@ -62,5 +63,6 @@
       <Button fx:id="save" layoutX="261.0" layoutY="523.0" mnemonicParsing="false" onAction="#saveClick" prefHeight="25.0" prefWidth="80.0" text="Save" />
       <Button fx:id="normalGame" layoutX="135.0" layoutY="486.0" mnemonicParsing="false" onAction="#playNormalGame" prefHeight="33.0" prefWidth="118.0" text="Play New Game" />
       <Button fx:id="savedGame" layoutX="360.0" layoutY="486.0" mnemonicParsing="false" onAction="#playSavedGame" prefHeight="33.0" prefWidth="118.0" text="Play Saved Game" />
+      <Label fx:id="holdStatusLabel" layoutX="272.0" layoutY="392.0" text="Not Held" />
    </children>
 </AnchorPane>

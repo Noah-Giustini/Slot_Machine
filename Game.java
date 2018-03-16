@@ -80,6 +80,10 @@ public class Game{
                 rightReel.rollReel();   //roll the right reel
                 midReel.rollReel();     //roll the middle reel
         }
+        public void rollNotAll(){          //method used to roll all reels
+                leftReel.rollReel();    //roll the left reel
+                rightReel.rollReel();   //roll the right reel
+        }
         public int getPlayerBalance(){          //getter for the player balance
                 return this.playerBalance;      //return the player balance
         }
@@ -128,10 +132,16 @@ public class Game{
                 int win = (betamt*linesWon);          //calculate winnings
                 return win;                             //return winnings
         }
-        public void mainGame(int bettings){
+        public void mainGame(int bettings,int hold){
                 int value = (bettings * 10);
                 bet(value);				//bet
-                rollAll();				//roll all reels
+                bet(hold);
+                if (hold == 0){
+                        rollAll();				//roll all reels
+                }
+                if(hold == 10){
+                        rollNotAll();
+                }
                 int didWin = winTest();		//test to see if the player has won
                 showGame();			//show the reels
                 if (didWin > 0){			//if the player won
