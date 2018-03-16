@@ -2,8 +2,8 @@ package rungame;
 
 import java.util.Scanner;		//import the scanner utility
 import java.io.*;
-import java.gameLogic.*;
-import java.GUIGame.*;
+import java.gamelogic.*;
+import java.guigame.*;
 
 
 /*
