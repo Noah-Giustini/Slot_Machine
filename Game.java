@@ -45,10 +45,10 @@ public class Game{
         
         //The method save game writes the new game to the save file
         public void saveGame (){
-	        int[] leftList = leftReel.getReel();    //get the data from left reel
+                int[] leftList = leftReel.getReel();    //get the data from left reel
                 int[] midList = midReel.getReel();      //get data from middle reel
                 int[] rightList = rightReel.getReel();  //get data from the right reel
-		int[][] allReels = {leftList, midList, rightList};	//Array of all three reel values
+                int[][] allReels = {leftList, midList, rightList};	//Array of all three reel values
                 
                 //Writes balance and reel values to the save file
                 try{
@@ -64,7 +64,7 @@ public class Game{
                 catch (IOException i){
                         System.out.println("io exception");
                 }
-	}    
+        }    
      
         public int[] getLeftList(){
                 return leftReel.getReel();

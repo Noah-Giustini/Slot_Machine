@@ -123,6 +123,10 @@ public class Reel{
                 return lst;             //return the array we created
         }
         
+        public int getLocation() {
+                return location;
+        }
+        
         //method used to set the initial reel values for the saved game
         public void setReelValues(int [] reelValues){
                 if ((reelValues[0] < 6) &&(reelValues [0] > 0)){
