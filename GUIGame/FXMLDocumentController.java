@@ -20,6 +20,7 @@ import javafx.scene.layout.HBox;
 import java.lang.Integer;
 import java.lang.Double;
 import javafx.scene.control.CheckBox;
+import java.gameLogic.*;
 
 package GUIGame;
 
