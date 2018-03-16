@@ -16,9 +16,8 @@ public class SavedGame extends Game{
 	public SavedGame(Reel l,Reel m,Reel r){
 		super (l,m,r);
 		readPastGame(l,m,r);
-		
-		
 	}
+	
 	
 	/** Overridden rollAll method. This method runs the super classes rollAll method 
 	  * if the round is not the first round being played. Otherwise nothing happens
@@ -35,6 +34,7 @@ public class SavedGame extends Game{
 		}
 	}
 	
+	
 	/** The method readPastGame, reads a text file whih has all of the information
 	  * from the past game written to a buffered reader is used to do the reading
 	  * for each line of the saveFile. The the balance and values of the reels 
@@ -50,7 +50,6 @@ public class SavedGame extends Game{
 		int [] lReelValues = new int [3];
 		int [] mReelValues = new int [3];
 		int [] rReelValues = new int [3];
-		
 		
 		try{
 			in = new BufferedReader( new FileReader("saveFile.txt"));
@@ -102,15 +101,9 @@ public class SavedGame extends Game{
 		}
 		
 		catch (Exception e){
-			isFirstRound = false;
-		}
+			super.rollAll();
+		}	
 		
-		
-		
-		
-		
-	}
-	
-		
+	}	
 		
 }
