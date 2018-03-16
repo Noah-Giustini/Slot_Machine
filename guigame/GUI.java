@@ -1,3 +1,5 @@
+package guigame;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.Group;
@@ -17,7 +19,6 @@ import java.lang.Integer;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 
-package guigame;
 
 public class GUI extends Application {
         //This is the main class for the GUI version of the game.
