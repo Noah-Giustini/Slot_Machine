@@ -1,9 +1,10 @@
+package rungame;
+
 import java.util.Scanner;		//import the scanner utility
 import java.io.*;
 import java.gameLogic.*;
 import java.GUIGame.*;
 
-package runGame;
 
 /*
 *	The play class is the main game which will be played. it incorporates the Game and Reel classes 
