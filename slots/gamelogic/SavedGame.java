@@ -1,4 +1,4 @@
-package gamelogic;
+package slots.gamelogic;
 
 import java.io.*;
 
