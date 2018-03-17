@@ -1,4 +1,4 @@
-//package slots.tests;
+package slots.gamelogic;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
@@ -25,20 +25,20 @@ public class TestSlotMachine {
     
     @Test
     public void test_constructors() {
-        slots.gamelogic.Reel reel1 = new slots.gamelogic.Reel(0);
-        slots.gamelogic.Reel reel2 = new slots.gamelogic.Reel(1);
-        slots.gamelogic.Reel reel3 = new slots.gamelogic.Reel(2);
+        Reel reel1 = new Reel(0);
+        Reel reel2 = new Reel(1);
+        Reel reel3 = new Reel(2);
         assertEquals("Left reel needs location of 0", 0, reel1.getLocation());
         assertEquals("Middle reel needs location of 1", 1, reel2.getLocation());
         assertEquals("Right reel needs location of 2", 2, reel3.getLocation());
-        slots.gamelogic.Game g = new slots.gamelogic.Game(reel1, reel2, reel3);
+        Game g = new Game(reel1, reel2, reel3);
         assertEquals("Should have balance of $100", 100, g.getPlayerBalance());
     }
     
     @Test
     public void test_money() {
-        slots.gamelogic.Reel reel1 = new slots.gamelogic.Reel(0);
-        slots.gamelogic.Reel reel2 = new slots.gamelogic.Reel(1);
+        Reel reel1 = new Reel(0);
+        Reel reel2 = new Reel(1);
         slots.gamelogic.Reel reel3 = new slots.gamelogic.Reel(2);
         slots.gamelogic.Game g = new slots.gamelogic.Game(reel1, reel2, reel3);
         assertEquals("Should have balance of $100", 100, g.getPlayerBalance());
