@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import slots.gamelogic.*;
 import slots.guigame.*;
+import java.util.Scanner;
 
 
 
