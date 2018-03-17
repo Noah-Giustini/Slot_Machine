@@ -25,7 +25,7 @@ public class TestSlotMachine {
     
     @Test
     public void test_constructors() {
-        Reel reel1 = new Reel(0);
+        slots.gamelogic.Reel reel1 = new slots.gamelogic.Reel(0);
         Reel reel2 = new Reel(1);
         Reel reel3 = new Reel(2);
         assertEquals("Left reel needs location of 0", 0, reel1.getLocation());
