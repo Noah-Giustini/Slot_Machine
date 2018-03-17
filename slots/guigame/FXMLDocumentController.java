@@ -189,7 +189,6 @@ public class FXMLDocumentController implements Initializable {
                 //This is the method that is called when you bet an amount
                 //The amount variable is the amount of the bet (can be 10, 20, or 30)
                 if ((backend.getPlayerBalance() - amount) >= 0){ //if we are not yet bankrupt
-                System.out.println(this.hold);
                         if ((this.hold%2) == 0){
                                 if ((backend.getPlayerBalance() - amount - 10) >= 0){
                                         backend.bet(amount);
