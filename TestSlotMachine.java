@@ -1,7 +1,8 @@
-package slots.gamelogic;
+
 
 import static org.junit.Assert.*;
 import org.junit.Test;
+import slots.gamelogic.*;
 
 
 
@@ -39,8 +40,8 @@ public class TestSlotMachine {
     public void test_money() {
         Reel reel1 = new Reel(0);
         Reel reel2 = new Reel(1);
-        slots.gamelogic.Reel reel3 = new slots.gamelogic.Reel(2);
-        slots.gamelogic.Game g = new slots.gamelogic.Game(reel1, reel2, reel3);
+        Reel reel3 = new Reel(2);
+        Game g = new Game(reel1, reel2, reel3);
         assertEquals("Should have balance of $100", 100, g.getPlayerBalance());
         g.bet(33);
         assertEquals("Should have balance of $67 after betting $33", 67, g.getPlayerBalance());
@@ -50,10 +51,10 @@ public class TestSlotMachine {
     
     @Test
     public void test_getReels() {
-	slots.gamelogic.Reel reel1 = new slots.gamelogic.Reel(0);
-        slots.gamelogic.Reel reel2 = new slots.gamelogic.Reel(1);
-        slots.gamelogic.Reel reel3 = new slots.gamelogic.Reel(2);
-        slots.gamelogic.Game g = new slots.gamelogic.Game(reel1, reel2, reel3);
+	Reel reel1 = new Reel(0);
+        Reel reel2 = new Reel(1);
+        Reel reel3 = new Reel(2);
+        Game g = new Game(reel1, reel2, reel3);
         assertEquals("Reel1 should match", reel1.getReel()[0], g.getLeftList()[0]);
 	assertEquals("Reel1 should match", reel1.getReel()[1], g.getLeftList()[1]);
 	assertEquals("Reel1 should match", reel1.getReel()[2], g.getLeftList()[2]);
@@ -67,10 +68,10 @@ public class TestSlotMachine {
     
     @Test
     public void test_rollReels() {
-	slots.gamelogic.Reel reel1 = new slots.gamelogic.Reel(0);
-	slots.gamelogic.Reel reel2 = new slots.gamelogic.Reel(1);
-	slots.gamelogic.Reel reel3 = new slots.gamelogic.Reel(2);
-	slots.gamelogic.Game g = new slots.gamelogic.Game(reel1, reel2, reel3);
+	Reel reel1 = new Reel(0);
+	Reel reel2 = new Reel(1);
+	Reel reel3 = new Reel(2);
+	Game g = new Game(reel1, reel2, reel3);
 	g.rollAll();
 	assertTrue("Left reel needs to have all different items", testReel(reel1));
 	assertTrue("Middle reel needs to have all different items", testReel(reel2));
