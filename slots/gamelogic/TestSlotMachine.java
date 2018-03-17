@@ -1,6 +1,5 @@
 //package slots.tests;
 
-import slots.gamelogic.*;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
