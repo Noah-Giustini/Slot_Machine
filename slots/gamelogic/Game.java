@@ -52,25 +52,11 @@ public class Game{
         }
 	
 	
-	
-	/** Constructor
-	  *
-	  * A constructor which takes parameters of thhe 3 Reels for the left middle and right reels in order to
-	  * set up the game. The lefReel variable is set to l, the midReel variable is set to m and the rightReel
-	  * variable is set to r. The player balance is also set to a the imputted balance
-	  *
-	  * @var	l - an instance of the Reel class for the left reel
-	  * @var	m - an instance of the Reel class for the middle reel
-	  * @var	r - an instance of the Reel class for the right reel
-	  * @var	newPlayerBalance - a starting balance for a particular game
-	  *
-	  */
-        public Game(Reel l,Reel m,Reel r, int newPlayerBalance){     
-                this.leftReel = l;             
-                this.rightReel = r;            
-                this.midReel = m;           
-               	this.playerBalance = newPlayerBalance;      
-        }
+	protected void setBalance(int startBalance){
+		if (startBalance > 0){
+			this.playerBalance = startBalance;
+		}
+	}
 
 	
 	
