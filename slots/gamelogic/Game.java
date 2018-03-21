@@ -4,34 +4,74 @@ import java.util.Arrays;
 import java.io.*;
 	
 /*
-*       this class is the game class and is used to handle all of the basic functions of the game
-*       there are instance variables for each of the three reels of the slot machine and one for the players money.
-*       This class also contains method variables to show the reels, roll the reels, get the player balance, bet money, collect winnings
-*       and test if the player won. this class also has a constructor that is to be used setting the instance variables for the left, middle,
-*       and right reels as well as the player balance to the default value of 100.
-*/
+ * @author	Noah Guistini 
+ * @author      Erin Brintnell
+ * @author	Brian Kehrig
+ *  
+ * @version     3.0
+ *       
+ * The Game class is used to handle all of the basic functions of the slot machine. It contains the three reels of the 
+ * slot machine and calculates the amount of money that the user has after each time the reels are rolled.
+ *
+ *
+ * @var		leftReel - an instance of the Reel class that contains the information for the reel on the left
+ * @var		midReel - an instance of the Reel class that contains the information for the reel in the middle
+ * @var		rightReel - an instance of the Reel class that contains the information for the reel on the right
+ * @var		playerBalance - an integer value of the amount of money the user has.
+ * @var		winningList - an array of the payout multipliers for the different symbols on each of the reels
+ *       there are instance variables for each of the three reels of the slot machine and one for the players money.
+ *       This class also contains method variables to show the reels, roll the reels, get the player balance, bet money, collect winnings
+ *       and test if the player won. this class also has a constructor that is to be used setting the instance variables for the left, middle,
+ *       and right reels as well as the player balance to the default value of 100.pl
+ */
 
 public class Game{
-        private Reel leftReel;          //instance variable for the left reel
-        private Reel midReel;           //instance variable for the middle reel
-        private Reel rightReel;         //instance variable for the right reel
-        private int playerBalance;      //instance variable for the player's money
+        private Reel leftReel;          
+        private Reel midReel;          
+        private Reel rightReel;  
+        private int playerBalance; 
+        private final int[] winningList = new int[]{0,1,2,4,6,11}; 
 
-        private final int[] winningList = new int[]{0,1,2,4,6,11}; //list of payout multipliers for the different symbols in the reels
-
-        public Game(Reel l,Reel m,Reel r){      //constructor which takes parameters of 3 Reels for the left middle and right
-                this.leftReel = l;              //set the left reel
-                this.rightReel = r;             //set the right reel
-                this.midReel = m;               //set the middle reel
-                this.playerBalance = 100;       //set the player balance to 100
+	
+	/** Constructor
+	  *
+	  * A constructor which takes parameters of thhe 3 Reels for the left middle and right reels in order to
+	  * set up the game. The lefReel variable is set to l, the midReel variable is set to m and the rightReel
+	  * variable is set to r. The player balance is also set to a default value of $100.
+	  *
+	  * @var	l - an instance of the Reel class for the left reel
+	  * @var	m - an instance of the Reel class for the middle reel
+	  * @var	r - an instance of the Reel class for the right reel
+	  *
+	  */
+        public Game(Reel l,Reel m,Reel r){     
+                this.leftReel = l;             
+                this.rightReel = r;            
+                this.midReel = m;           
+               	this.playerBalance = 100;      
+        }
+	
+	
+	
+	/** Constructor
+	  *
+	  * A constructor which takes parameters of thhe 3 Reels for the left middle and right reels in order to
+	  * set up the game. The lefReel variable is set to l, the midReel variable is set to m and the rightReel
+	  * variable is set to r. The player balance is also set to a the imputted balance
+	  *
+	  * @var	l - an instance of the Reel class for the left reel
+	  * @var	m - an instance of the Reel class for the middle reel
+	  * @var	r - an instance of the Reel class for the right reel
+	  * @var	newPlayerBalance - a starting balance for a particular game
+	  *
+	  */
+        public Game(Reel l,Reel m,Reel r, int newPlayerBalance){     
+                this.leftReel = l;             
+                this.rightReel = r;            
+                this.midReel = m;           
+               	this.playerBalance = newPlayerBalance;      
         }
 
-	/** Sets the balance to the new balance. Protected and can only be used by super classes to 
-	  * set an initial balance
-	  */
-	protected void setPlayerBalance (int newBalance){
-			this.playerBalance =  newBalance;
-		}
 	
 	
         public void showGame(){                         //method used to show the reels
