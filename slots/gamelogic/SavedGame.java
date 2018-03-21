@@ -18,8 +18,8 @@ public class SavedGame extends Game{
 	  *
 	  */
 	public SavedGame(Reel l,Reel m,Reel r){
-		super (l,m,r);
-		readPastGame(l,m,r);
+		int initialBalance = readPastGame(l,m,r);
+		super (l,m,r,initialBalance);
 	}
 	
 	
@@ -54,6 +54,7 @@ public class SavedGame extends Game{
 		int [] lReelValues = new int [3];
 		int [] mReelValues = new int [3];
 		int [] rReelValues = new int [3];
+		int initialBalance = 100;
 		
 		try{
 			in = new BufferedReader( new FileReader("saveFile.txt"));
@@ -65,7 +66,7 @@ public class SavedGame extends Game{
 				//The first line of the document is the player balance, this is set
 				// to the player's balance
 				if (numLinesRead == 0){
-					setPlayerBalance (Integer.parseInt(lineRead));
+					initialBalance = Integer.parseInt(lineRead));
 					numLinesRead ++;
 				}
 				
@@ -107,6 +108,8 @@ public class SavedGame extends Game{
 		catch (Exception e){
 			super.rollAll();
 		}	
+		
+		return initialBalance;
 		
 	}	
 		
