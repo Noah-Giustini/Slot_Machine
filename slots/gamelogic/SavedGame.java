@@ -46,7 +46,7 @@ public class SavedGame extends Game{
 	  *
 	  * @param 	1,m,r the three reels of the game
 	  */
-	private void readPastGame(Reel l, Reel m, Reel r){
+	private int readPastGame(Reel l, Reel m, Reel r){
 		//Initializes necessary variables
 		String lineRead = "";
 		BufferedReader in = null;
