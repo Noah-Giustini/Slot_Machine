@@ -49,18 +49,27 @@ public class Game{
                 this.leftReel = l;             
                 this.rightReel = r;            
                 this.midReel = m;
-               	setBalance(100); 
+               	setPlayerBalance(100); 
+        }
+	
+	/** The method, getPlayerBalance, is a getter for the players balance within the slot machine.
+	  *
+	  * @return 	this.playerBalance - the current player balance for the user of the slot machine.
+	  *
+	  */
+	public int getPlayerBalance(){        
+                return this.playerBalance;     
         }
 	
 	
-	/** The method, setBalance, sets the balance of the bank account to the value given as the startBalance. 
+	/** The set method, setPlayerBalance, sets the balance of the bank account to the value given as the startBalance. 
 	  * since one will never have a negative balance on the game as they must stop playing when they run
 	  * out of money, the method throws and exception if the given balance is a negative number. 
 	  *
 	  * @var	startBalance - the starting balance for the slot machine.
 	  *
 	  */	  
-	protected void setBalance(int startBalance){
+	protected void setPlayerBalance(int startBalance){
 		try{
 			if (startBalance > 0){
 				this.playerBalance = startBalance;
@@ -73,6 +82,37 @@ public class Game{
 		catch (NegativeBalanceException e){
 		}
 	}
+	
+	
+	/** The method getLeftList returns the values of the left most reel in the slot machine.
+	  *
+	  * @return	The numerical representations of the data within the left reel of the machine.
+	  *
+	  */
+        public int[] getLeftList(){
+                return leftReel.getReel();
+        }
+	
+	
+	/** The method getMidList returns the values of the middle reel in the slot machine.
+	  *
+	  * @return	The numerical representations of the data within the middle reel of the machine.
+	  *
+	  */
+	public int[] getMidList(){
+                return midReel.getReel();
+        }
+	
+	
+	/** The method getRightList returns the values of the right most reel in the slot machine.
+	  *
+	  * @return	The numerical representations of the data within the right reel of the machine.
+	  *
+	  */
+        public int[] getRightList(){
+                return rightReel.getReel();
+        }
+	
 
 	
 	/** The method showGame shows the state of the three reels for the slot machine. It does this by getting
@@ -134,27 +174,27 @@ public class Game{
         }    
      
 	
-        public int[] getLeftList(){
-                return leftReel.getReel();
+	
+	/** The method, rollAll, rolls all three of the reels within the slot machine by calling the rollReel
+	  * methods in the Reel objects. This stimulates how the reels spinning around on a physical slot machine.
+	  *
+	  */
+        public void rollAll(){  
+                leftReel.rollReel();   
+                rightReel.rollReel();   
+                midReel.rollReel();  
         }
-        public int[] getMidList(){
-                return midReel.getReel();
+	
+	
+	/** The method, rollNotAll, rolls the left and the right reels but does not roll the middle reel. This method
+	  * is called when the middle reel is held simulating the outside reels rotating on a physical slot machine.
+	  *
+	  */
+        public void rollNotAll(){   
+                leftReel.rollReel();    
+                rightReel.rollReel(); 
         }
-        public int[] getRightList(){
-                return rightReel.getReel();
-        }
-        public void rollAll(){          //method used to roll all reels
-                leftReel.rollReel();    //roll the left reel
-                rightReel.rollReel();   //roll the right reel
-                midReel.rollReel();     //roll the middle reel
-        }
-        public void rollNotAll(){          //method used to roll all reels
-                leftReel.rollReel();    //roll the left reel
-                rightReel.rollReel();   //roll the right reel
-        }
-        public int getPlayerBalance(){          //getter for the player balance
-                return this.playerBalance;      //return the player balance
-        }
+       
         public void bet(int amnt){              //method used to bet
                 this.playerBalance -= amnt;     //subtract bet amount from playerBalance
         }
