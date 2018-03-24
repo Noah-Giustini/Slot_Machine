@@ -65,7 +65,7 @@ public class Game{
 			this.playerBalance = startBalance;
 		}
 		else{
-			throw NegativeBalanceException;
+			throw NegativeBalanceException();
 		}
 	}
 
