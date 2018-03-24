@@ -61,11 +61,16 @@ public class Game{
 	  *
 	  */	  
 	protected void setBalance(int startBalance){
-		if (startBalance > 0){
-			this.playerBalance = startBalance;
+		try{
+			if (startBalance > 0){
+				this.playerBalance = startBalance;
+			}
+			else{
+				throw new NegativeBalanceException("Tried to set balance to negative number");
+			}
 		}
-		else{
-			throw new NegativeBalanceException();
+		//I do not know what to put here if either of you have any ideas please let me know
+		catch (NegativeBalanceException e){
 		}
 	}
 
