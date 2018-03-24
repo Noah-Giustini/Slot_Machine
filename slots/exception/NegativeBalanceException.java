@@ -1,3 +1,5 @@
+package slots.exception;
+
 /**
   * @author  Erin Brintnell
   *  
