@@ -125,12 +125,12 @@ public class Game{
                         }
                         writer.close();
                 }
-                catch (IOException e){
-                        System.out.println("There has been a problem within the file IO of the game, unable to save");
-                }
 		catch (FileNotFoundException e){
 			System.out.println("I'm sorry I can't find the save file and will be unable to save.");
 		}
+                catch (IOException e){
+                        System.out.println("There has been a problem within the file IO of the game, unable to save");
+                }
         }    
      
 	
