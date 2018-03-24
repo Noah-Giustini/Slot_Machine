@@ -126,7 +126,7 @@ public class Game{
                 int[] leftList = leftReel.getReel();    
                 int[] midList = midReel.getReel();     
                 int[] rightList = rightReel.getReel(); 
-                clearConsole();
+                System.out.print ("\n\n\n");
 		try{
 			for(int rowPos=0;rowPos<3;rowPos++){
 				System.out.println(leftList[rowPos]+"          "+midList[rowPos]+"          "+rightList[rowPos]); 
@@ -195,69 +195,120 @@ public class Game{
                 rightReel.rollReel(); 
         }
        
-        public void bet(int amnt){              //method used to bet
-                this.playerBalance -= amnt;     //subtract bet amount from playerBalance
+	
+	/** The method, bet, allows the user to bet a certain amount of money on a particular game board set up. 
+	  * this amount of money is then substracted from that users current balance.
+	  *
+	  * @param	amnt - the amount of money that the user is betting.
+	  *
+	  */
+        public void bet(int amnt){    
+                this.playerBalance -= amnt;    
         }
-        public void collectWinnings(int moneys){        //method to collect winnings
-                this.playerBalance += moneys;           //add winnings to player balance
+	
+	
+	/** The method, collectWinnings, adds the winnings of a certian game to the users current account
+	  * balance game. 
+	  *
+	  * @param 	moneys - the amount of money that the user has won from a particular round
+	  *
+	  */
+        public void collectWinnings(int moneys){    
+                this.playerBalance += moneys;       
         }
-        public int winTest(){                           //method to test if the player won
-                int[] leftList = leftReel.getReel();    //get the data from left reel
-                int[] midList = midReel.getReel();      //get data from middle reel
-                int[] rightList = rightReel.getReel();  //get data from right reel
+	
+	
+	/**The method, winTest, tests to see if the user has won any money according to the current game board
+	  * set up. It does this by getting information from each of the reels and then iterating through the
+	  * arrays containing this information to check for winning sequences (ie. 3 in a row horizontally, vertically
+	  * or diagonally). The variable winLines counts how many times the game has been won, each time their 
+	  * is a winning sequence winLines is incremented.
+	  *
+	  * @return	winLines - the number of lines that the user has won on (these could be horizontal, diagonal or vertical)
+	  */
+        public int winTest(){                          
+                int[] leftList = leftReel.getReel();   
+                int[] midList = midReel.getReel();    
+                int[] rightList = rightReel.getReel();  
 
-                int winLines = 0;                       //variable to count how many lines were won on
+                int winLines = 0;                    
                 //int[] wonOn = new ArrayList<>(5);
-                int x = 0;                              //variable for itteration
-                for(x=0;x<3;x++){                       //loop to itterate through and see if the player won on the horizontal lines
+                for(int x=0;x<3;x++){                       //loop to itterate through and see if the player won on the horizontal lines
                         if (rightList[x] != 6){
-                                if ((leftList[x] == midList[x]) && (leftList[x] == rightList[x]) && (midList[x] == rightList[x])){      //if the values in a line are all the same
+                                if ((leftList[x] == midList[x]) && (leftList[x] == rightList[x]) && (midList[x] == rightList[x])){     
                                         //wonOn[winLines] = x;
-                                        winLines += winningList[leftList[x]];             //increment winlines by one
+                                        winLines += winningList[leftList[x]];         
 
                                 }
                         }
                         else{
-                                if ((leftList[x] == midList[x]) && (6 == rightList[x])){      //if the values in a line are all the same
+                                if ((leftList[x] == midList[x]) && (6 == rightList[x])){    
                                         //wonOn[winLines] = x;
-                                        winLines += winningList[leftList[x]];                 //increment winlines by one
+                                        winLines += winningList[leftList[x]];               
 
                                 }
                         }
                 }
                 if(((leftList[0] == midList[1]) && (leftList[0] == rightList[2]) && (midList[1] == rightList[2])) ||
-                  (leftList[0] == midList[1] && rightList[2] == 6)){       //chechk to see if there is a win on the diagonal
-                        winLines += winningList[leftList[0]];                     //increment winLines by one
+                  (leftList[0] == midList[1] && rightList[2] == 6)){       //checks to see if there is a win on the diagonal
+                        winLines += winningList[leftList[0]];                   
                 }
                 if(((leftList[2] == midList[1]) && (leftList[2] == rightList[0]) && (midList[1] == rightList[0])) ||
-                  (leftList[2] == midList[1] && rightList[0] == 6)){       //chechk to see if there is a win on the diagonal
-                        winLines += winningList[leftList[2]];                     //increment winLines by one
+                  (leftList[2] == midList[1] && rightList[0] == 6)){       //checks to see if there is a win on the diagonal
+                        winLines += winningList[leftList[2]];              
                 }
-                return winLines;                        //return winLines
+                return winLines;                      
                         
         }
-        public int winnings(int betamt,int linesWon){   //method to determine how much the player won
-                int win = (betamt*linesWon);          //calculate winnings
-                return win;                             //return winnings
+	
+	
+	/** The method winnings determines how much money the player has won for a particular round. It does this
+	  * by multiplying the amount a user bet by the number of lines that they won on.
+	  *
+	  * @param 	betAmt - the amount of money that the user bet for a particular round
+	  * @param	linesWon - the number of lines that the user has won on for a particular game set up
+	  * @return	win - the amount of money that the user has won calculated by multiplying the users
+	  *		bet by the number of lines they won on.
+	  *
+	  */
+        public int winnings(int betAmt,int linesWon){
+                int win = (betAmt*linesWon);      
+                return win;                          
         }
+	
+	
+	/** The method mainGame runs the main game play for a particular round on the slot machine. First the method 
+	  * bets the amount of money that the user wants to bet. It also uses the bet method to substract the amount
+	  * of money needed to hold the middle reel ($10). If the reel is not held (ie. the hold value is 0) the method
+	  * then rolls all the reels, otherwise it rolls all the reels except the middle one. The game then tests for 
+	  * a win and shows the gameBoard. If the game was won, winnings are calculated and the user is shown their 
+	  * winnings. This method is only used for the text version of the game.
+	  *
+	  * @param	bettings - the amount of money the player is betting on a current round
+	  * @param	hold - the value needed to either hold or not hold the reels, this value is either 10 or 0
+	  * 		dependant upon whether the middle reel is held or not.
+	  *
+	  */
         public void mainGame(int bettings,int hold){
                 int value = (bettings * 10);
-                bet(value);				//bet
+                bet(value);				
                 bet(hold);
                 if (hold == 0){
-                        rollAll();				//roll all reels
+                        rollAll();				
                 }
                 if(hold == 10){
                         rollNotAll();
                 }
-                int didWin = winTest();		//test to see if the player has won
-                showGame();			//show the reels
-                if (didWin > 0){			//if the player won
-                        int winnings = winnings(value,didWin);	//calculate winnings
-                        collectWinnings(winnings);			//collect winnings
-                        System.out.println("YOU HAVE WON $"+winnings+"!");//tell player how much they have won
+                int didWin = winTest();		
+                showGame();			
+                if (didWin > 0){			
+                        int winnings = winnings(value,didWin);	
+                        collectWinnings(winnings);			
+                        System.out.println("YOU HAVE WON $"+winnings+"!"); //tell player how much they have won
                 }
         }
+	
+	
         public final static void clearConsole(){
                 System.out.println();
                 System.out.println();
