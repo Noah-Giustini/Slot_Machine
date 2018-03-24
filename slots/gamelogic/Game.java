@@ -2,7 +2,7 @@ package slots.gamelogic;
 
 import java.util.Arrays;
 import java.io.*;
-import slots.exception.NegativeBalanceException;
+import slots.exceptions.NegativeBalanceException;
 	
 /*
  * @author	Noah Guistini 
