@@ -101,14 +101,20 @@ public class Game{
         
 		
 		
-        //The method save game writes the new game to the save file
+        /** The method save game writes the new game to the save file, called saveFile.txt, using the BufferedWriter
+	  * class of javas io package. The method first gets data pertaining to the state of each of the three reels
+	  * and puts this into an array that has the information for all three reels. The method then writes the 
+	  * players current balance on the first line of the text document before using a nested for loop to interate through
+	  * each of the reel arrays in the allReels array writing the data from these arrays to the text document.
+	  * Exception handeling is used to ensure that the text document is written to properly.
+	  *
+	  */
         public void saveGame (){
-                int[] leftList = leftReel.getReel();    //get the data from left reel
-                int[] midList = midReel.getReel();      //get data from middle reel
-                int[] rightList = rightReel.getReel();  //get data from the right reel
-                int[][] allReels = {leftList, midList, rightList};	//Array of all three reel values
+                int[] leftList = leftReel.getReel();    
+                int[] midList = midReel.getReel();      
+                int[] rightList = rightReel.getReel(); 
+                int[][] allReels = {leftList, midList, rightList};	
                 
-                //Writes balance and reel values to the save file
                 try{
                         BufferedWriter writer = new BufferedWriter (new FileWriter ("saveFile.txt"));
                         writer.write (playerBalance + "\n");
@@ -119,11 +125,14 @@ public class Game{
                         }
                         writer.close();
                 }
-                catch (IOException i){
-                        System.out.println("io exception");
+                catch (IOException e){
+                        System.out.println("There has been a problem within the file IO of the game, unable to save");
                 }
+		catch (FileNotFoundException e){
+			System.out.println("I'm sorry I can't find the save file and will be unable to save.");
         }    
      
+	
         public int[] getLeftList(){
                 return leftReel.getReel();
         }
