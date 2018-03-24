@@ -75,18 +75,31 @@ public class Game{
 	}
 
 	
-	
-        public void showGame(){                         //method used to show the reels
-                int[] leftList = leftReel.getReel();    //get data from left reel
-                int[] midList = midReel.getReel();      //get data from middle reel
-                int[] rightList = rightReel.getReel();  //get data from right reel
-                int var;
+	/** The method showGame shows the state of the three reels for the slot machine. It does this by getting
+	  * the data from each of the three reels in the form of arrays and then it uses a for loop to print out
+	  * each row of the game at a time. Until three rows have been printed (the number of placements on the 
+	  * reels. Exception handeling is used to ensure that there is a spot at each position in these arrays.
+	  * If there is not a spot within the arrays the program will close.
+	  *
+	  */
+        public void showGame(){                         
+                int[] leftList = leftReel.getReel();    
+                int[] midList = midReel.getReel();     
+                int[] rightList = rightReel.getReel(); 
                 clearConsole();
-                for(var=0;var<3;var++){
-                        System.out.println(leftList[var]+"          "+midList[var]+"          "+rightList[var]);      //print the top line
-                }
+		try{
+			for(int rowPos=0;rowPos<3;rowPos++){
+				System.out.println(leftList[var]+"          "+midList[var]+"          "+rightList[var]); 
+			}
+		}
+		catch (ArrayIndexOutOfBoundsException e){
+			System.out.println("It looks as if the reels within the slot machine may have incorrect formatting, " +
+					   "the slot machine will now close. Try recompiling the program");
+			System.exit(0);
         }
         
+		
+		
         //The method save game writes the new game to the save file
         public void saveGame (){
                 int[] leftList = leftReel.getReel();    //get the data from left reel
