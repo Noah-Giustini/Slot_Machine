@@ -2,6 +2,7 @@ package slots.gamelogic;
 
 import java.util.Arrays;
 import java.io.*;
+import slots.exception.NegativeBalanceException;
 	
 /*
  * @author	Noah Guistini 
@@ -62,6 +63,9 @@ public class Game{
 	protected void setBalance(int startBalance){
 		if (startBalance > 0){
 			this.playerBalance = startBalance;
+		}
+		else{
+			throw NegativeBalanceException;
 		}
 	}
 
