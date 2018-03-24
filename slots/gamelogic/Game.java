@@ -48,10 +48,17 @@ public class Game{
                 this.leftReel = l;             
                 this.rightReel = r;            
                 this.midReel = m;           
-               	this.playerBalance = 100;      
+               	setBalance(100);      
         }
 	
 	
+	/** The method, setBalance, sets the balance of the bank account to the value given as the startBalance. 
+	  * since one will never have a negative balance on the game as they must stop playing when they run
+	  * out of money, the method throws and exception if the given balance is a negative number. 
+	  *
+	  * @var	startBalance - the starting balance for the slot machine.
+	  *
+	  */	  
 	protected void setBalance(int startBalance){
 		if (startBalance > 0){
 			this.playerBalance = startBalance;
