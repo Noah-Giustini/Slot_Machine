@@ -96,6 +96,7 @@ public class Game{
 			System.out.println("It looks as if the reels within the slot machine may have incorrect formatting, " +
 					   "the slot machine will now close. Try recompiling the program");
 			System.exit(0);
+		}
         }
         
 		
