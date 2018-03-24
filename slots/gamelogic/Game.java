@@ -49,12 +49,7 @@ public class Game{
                 this.leftReel = l;             
                 this.rightReel = r;            
                 this.midReel = m;
-		try{
-               		setBalance(100); 
-		}
-		catch(NegativeBalanceException e){
-			System.out.println("You cannot set the balance to a negative value.");
-		}
+               	setBalance(100); 
         }
 	
 	
