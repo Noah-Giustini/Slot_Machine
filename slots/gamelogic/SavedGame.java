@@ -65,7 +65,7 @@ public class SavedGame extends Game{
 				//The first line of the document is the player balance, this is set
 				// to the player's balance
 				if (numLinesRead == 0){
-					super.setBalance( Integer.parseInt(lineRead));
+					super.setPlayerBalance( Integer.parseInt(lineRead));
 					numLinesRead ++;
 				}
 				
