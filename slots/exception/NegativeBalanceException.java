@@ -18,7 +18,7 @@ public class NegativeBalanceException extends Exception{
     * exception, thus the super class is called with no exception message.
     */
   public NegativeBalanceException(){
-    Super();
+    super();
   }
   
   /** Constructor
@@ -30,7 +30,7 @@ public class NegativeBalanceException extends Exception{
     *
     */
   public NegativeBalanceException(String message){
-    Super(message);
+    super(message);
   }
 
 }
