@@ -130,6 +130,7 @@ public class Game{
                 }
 		catch (FileNotFoundException e){
 			System.out.println("I'm sorry I can't find the save file and will be unable to save.");
+		}
         }    
      
 	
