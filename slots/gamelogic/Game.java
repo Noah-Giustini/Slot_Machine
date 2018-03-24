@@ -89,7 +89,7 @@ public class Game{
                 clearConsole();
 		try{
 			for(int rowPos=0;rowPos<3;rowPos++){
-				System.out.println(leftList[var]+"          "+midList[var]+"          "+rightList[var]); 
+				System.out.println(leftList[rowPos]+"          "+midList[rowPos]+"          "+rightList[rowPos]); 
 			}
 		}
 		catch (ArrayIndexOutOfBoundsException e){
