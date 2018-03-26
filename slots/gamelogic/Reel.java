@@ -117,17 +117,17 @@ public class Reel{
                 } else {
                         i = wr1.get(rand);
                 }
-                if (i == item1) {
+                if (i == cherry) {
                         return 1;
-                } else if (i == item2) {
+                } else if (i == watermelon) {
                         return 2;
-                } else if (i == item3) {
+                } else if (i == horseshoe) {
                         return 3;
-                } else if (i == item4) {
+                } else if (i == diamond) {
                         return 4;
-                } else if (i == item5) {
+                } else if (i == seven) {
                         return 5;
-                } else if (i == itemL) {
+                } else if (i == lucky) {
                         return 6;
                 }
                 return 0; //should never happen
