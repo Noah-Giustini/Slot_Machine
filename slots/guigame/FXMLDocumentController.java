@@ -23,6 +23,7 @@ import java.lang.Integer;
 import java.lang.Double;
 import javafx.scene.control.CheckBox;
 import slots.gamelogic.*;
+import slots.exception.ReelException;
 
 
 
