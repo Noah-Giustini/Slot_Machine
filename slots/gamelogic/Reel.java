@@ -85,6 +85,7 @@ public class Reel{
         public Reel (int locat) throws ReelException{
                 if ((locat >= 0) && (locat <= 2)){
                         this.location = locat;
+                        System.out.println("Valid location");
                 }
                 else {
                         throw new ReelException();
