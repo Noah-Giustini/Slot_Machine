@@ -3,6 +3,7 @@ package slots.gamelogic;
 import java.util.Random;      
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 import slots.exception.ReelException;
 
 
@@ -40,6 +41,7 @@ public class Reel{
         private int middleBox;         
         private int bottomBox;        
         private int location; 
+        private static Random rand = new Random();
         
         private final static WeightedRandom.Item cherry = new WeightedRandom.Item(45); 
         private final static WeightedRandom.Item watermelon = new WeightedRandom.Item(35);
