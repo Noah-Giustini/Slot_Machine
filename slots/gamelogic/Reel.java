@@ -82,17 +82,12 @@ public class Reel{
           *
           * @param      locat - the location of the reel.
           */
-        public Reel (int locat){
-                try{
-                        if ((locat >= 0) && (locat <= 2)){
-                                this.location = locat;
-                        }
-                        else {
-                                throw new ReelException();
-                        }
+        public Reel (int locat) throws ReelException{
+                if ((locat >= 0) && (locat <= 2)){
+                        this.location = locat;
                 }
-                catch (ReelException e){
-                        e.exitTextGame();
+                else {
+                        throw new ReelException();
                 }
                         
         }
