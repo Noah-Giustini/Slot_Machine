@@ -73,7 +73,11 @@ public class Reel{
         private final static WeightedRandom wr1 = new WeightedRandom(leftMidArray);
         private final static WeightedRandom wr2 = new WeightedRandom(rightArray);
 
-        
+        /** Default Constuctor
+          *
+          * No arguments have been given as to the location of the reel.
+          *
+          */
         public Reel (){
         }
         
