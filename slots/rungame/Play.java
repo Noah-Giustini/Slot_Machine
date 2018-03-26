@@ -13,9 +13,9 @@ import slots.exception.ReelException;
 */
 public class Play {
         public static void main(String[] args){		//main method (this is where the magic happens ;) 
-		Reel leftReel;
-		Reel middleReel;
-		Reel rightReel;
+		Reel leftReel = null;
+		Reel middleReel = null;
+		Reel rightReel = null;
 		try{
 			leftReel = new Reel(0);		//create the left reel
 			middleReel = new Reel(1);		//create the middle reel
