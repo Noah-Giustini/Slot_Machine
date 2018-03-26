@@ -1,21 +1,33 @@
 package slots.gamelogic;
-import java.util.Random;        //import the random utilities for sudo random number generation
+
+import java.util.Random;      
 import java.util.ArrayList;
 import java.util.Arrays;
 
 
 /*
-*       This class is used to keep track of the data of each individual reel including the values of each of its 3 positions
-*       stored in instance variables, as well as methods to roll the reel changing the values as well as a method to return 
-*       these values in an array.
-*/
+ * @author	Noah Guistini 
+ * @author      Brian Kehrig
+ *  
+ * @version     2.0
+ *       
+ * The class, Reel is used to keep track of the data of each individual reel including the values of each of its 3 positions
+ * stored in instance variables, as well as methods to roll the reel changing the values as well as a method to return 
+ * these values in an array.
+ *
+ * @var   topBox - the top position in the reel of the slot that keeps track of which symbol is in the position
+ * @var   middleBox - the middle position in the reel of the slot that keeps track of which symbol is in the position
+ * @var   bottomBox - the bottom position in the reel of the slot that keeps track of which symbol is in the position
+ * @var   location - the placement of the particular reel. The location is 0 for the left reel, 1 for the middle reel
+ *        and 2 for the right reel
+ */
 
 public class Reel{
-        private int topBox;             // instance variable for the top box value
-        private int middleBox;          //instance variable for the middle box value
-        private int bottomBox;          //instance variable for the bottom box value
-        private int location;           //0 = left reel, 1 = middle, 2 = right
-        private static Random rand = new Random();
+        private int topBox;           
+        private int middleBox;         
+        private int bottomBox;        
+        private int location;        
+        //private static Random rand = new Random();
         private static WeightedRandom.Item item1 = new WeightedRandom.Item(45); //cherry
         private static WeightedRandom.Item item2 = new WeightedRandom.Item(35); //watermelon
         private static WeightedRandom.Item item3 = new WeightedRandom.Item(25); //horseshoe
@@ -48,43 +60,7 @@ public class Reel{
         }
 
         public void rollReel(){         //method used to roll the reel changing the values in all three boxes while also ensuring there are no 2 same values on one reel
-                /*
-                int max;                //largest possible value for the reels
-                int min = 1;               //smallest possible value that can end up on the reels
-                if (this.location == 2){
-                        max = 6;
-                }
-                else{
-                        max = 5;
-                }
-                int x = 0;              //variable for while loop
-                int i = 0;              //variable for while loop
-                Random rand = new Random(); //new instance of Random called rand
-                int tempTop = rand.nextInt((max - min) + 1) + min;      //generate a random number between min and max
-                this.topBox = tempTop;  //set the instance variable of the top box to the number we just created
-                int tempMid = rand.nextInt((max - min) + 1) + min;      //create a new random number between the min and max
                 
-                while (x != 1){         //while loop that is used to make sure that the top box number is not the same as what we just generated
-                        if (tempMid != this.topBox){            //if the numbers are not the same
-                                this.middlebox = tempMid;       //set instance variable for the middle box to the sudo random number we created
-                                x = 1;                          //break from the while loop
-                        }
-                        else{
-                                tempMid = rand.nextInt((max - min) + 1) + min;  //regenerate a new number and go back through the while loop
-                        }
-
-                }
-                int tempBot = rand.nextInt((max - min) + 1) + min;      //generate a new sudo random number between min and max
-                while (i != 1){        //while loop to ensure the top and middle numbers are not the same as the new one we just generated
-                        if (tempBot != this.topBox && tempBot != this.middlebox){       //if the numbers are not the same
-                                this.bottomBox = tempBot;                               //set the bottom box instance variable to the number we generated
-                                i = 1;  //break from the loop
-                        }
-                        else{
-                                tempBot = rand.nextInt((max - min) + 1) + min;          //generate a new random number between min and max
-                        }
-
-                }*/
 
                 boolean good = false;
                 while (!good) {
