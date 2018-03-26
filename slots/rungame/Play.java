@@ -17,6 +17,7 @@ public class Play {
 			Reel leftReel = new Reel(0);		//create the left reel
 			Reel middleReel = new Reel(1);		//create the middle reel
 			Reel rightReel = new Reel(15);		//create the right reel
+		}
 		catch (ReelException e){
 			e.exitTextGame();
 		}
