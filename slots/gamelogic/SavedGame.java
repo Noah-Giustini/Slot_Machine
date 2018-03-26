@@ -1,6 +1,7 @@
 package slots.gamelogic;
 
 import java.io.*;
+import slots.exception.NegativeBalanceException;
 
 
 
@@ -136,7 +137,11 @@ public class SavedGame extends Game{
 			System.out.println("There seems to be a problem with the state of the saved file, loading new game.");
 			super.rollAll();
 			
-		}	
+		}
+		catch (NegativeBalanceException e){
+			System.out.println("The game you are trying to load has a negative balance, loading a new game.");
+			syper.rollAll();
+		}
 		
 		
 	}	
