@@ -20,14 +20,26 @@ import java.util.Arrays;
  * @var         bottomBox - the bottom position in the reel of the slot that keeps track of which symbol is in the position
  * @var         location - the placement of the particular reel. The location is 0 for the left reel, 1 for the middle reel
  *              and 2 for the right reel
- * @var         item1 - the first potential item that can be chosen by the slot machine, in this case a cherry
+ * @var         cherry - the first potential item that can be chosen by the slot machine, which is chosen the most often
+ * @var         watermelon - the second potential item that can be chosen by the slot machine, which is chosen the second most often
+ * @var         horseshoe - the third potential item that can be chosen by the slot machine, which is chosen the third most often
+ * @var         diamond - the forth potential item that can be chosen by the slot machine, which relatively rare and chosen the 
+ *              second least often
+ * @var         seven - the fifth potential item that can be chosen by the slot machine, which is the most valuable and rare
+ *              and chosen the least often
+ * @var         lucky - the reel item only present in the right reel that is very rare and special
+ * @var         leftMidArray - an array list showing the potential items in the left and middle reels
+ * @var         rightArray - an array list showing the potential items in the right reel
+ * @var         wr1 - an instance of the weighted random class which choses items for the left and middle reels
+ * @var         wr2 - an instance of teh weighted random class which choses items for the right reel
  */
 
 public class Reel{
         private int topBox;           
         private int middleBox;         
         private int bottomBox;        
-        private int location;        
+        private int location; 
+        
         private final static WeightedRandom.Item cherry = new WeightedRandom.Item(45); 
         private final static WeightedRandom.Item watermelon = new WeightedRandom.Item(35);
         private final static WeightedRandom.Item horseshoe = new WeightedRandom.Item(25); 
@@ -37,6 +49,10 @@ public class Reel{
 
         private static ArrayList<WeightedRandom.Item> leftMidArray = new ArrayList(5);
         private static ArrayList<WeightedRandom.Item> rightArray = new ArrayList(6);
+        
+        /** This static statement adds each of the items to their repective array lists, the leftMidArray arraylist
+          * gets all of the items except the lucky item. The rightArray arraylist gets all of the items.
+          */
         static {
                 leftMidArray.add(cherry);
                 leftMidArray.add(watermelon);
@@ -50,11 +66,24 @@ public class Reel{
                 rightArray.add(seven);
                 rightArray.add(lucky);
         }
+        
         private final static WeightedRandom wr1 = new WeightedRandom(leftMidArray);
         private final static WeightedRandom wr2 = new WeightedRandom(rightArray);
 
+        
+        /** Constructor
+          *
+          * This constructor sets up a reel according to a particular location given as a parameter by setting the
+          * location to the parameter.
+          *
+          * @param      locat - the location of the reel.
+          */
         public Reel (int locat){
-                this.location = locat;
+                if ((locat >= 0) && (locat <= 2){
+                        this.location = locat;
+                }
+                else {
+                        
         }
         public Reel (){
         }
