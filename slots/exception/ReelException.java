@@ -10,7 +10,7 @@ package slots.exception;
   * properly on the gameboard.
   *
   */
-public class NegativeBalanceException extends Exception{
+public class ReelException extends Exception{
     /** Default Constructor
       *
       * No parameters are given when the exception is thrown. Thus there is no detailed message about the 
