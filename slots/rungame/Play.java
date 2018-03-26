@@ -14,7 +14,7 @@ public class Play {
         public static void main(String[] args){		//main method (this is where the magic happens ;) 
                 Reel leftReel = new Reel(0);		//create the left reel
                 Reel middleReel = new Reel(1);		//create the middle reel
-                Reel rightReel = new Reel(2);		//create the right reel
+                Reel rightReel = new Reel(15);		//create the right reel
 
                 Scanner sc = new Scanner(System.in);	//create an instance of Scanner
                 int userChoice = 0;			//variable to keep track of the user's choice
