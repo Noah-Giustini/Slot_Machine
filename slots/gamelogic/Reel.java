@@ -108,7 +108,7 @@ public class Reel{
           */
         public void rollReel(){        
                 boolean differentSymbols = false;
-                while (!good) {
+                while (!differentSymbols) {
                         topBox = getRandom();
                         middleBox = getRandom();
                         bottomBox = getRandom();
