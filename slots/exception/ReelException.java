@@ -39,7 +39,6 @@ public class ReelException extends Exception{
       */
     public void exitTextGame(){
         System.out.println("There seems to be an error in the reels of the slot machine, the program will now close...");
-        System.exit();
     }
 
 }
