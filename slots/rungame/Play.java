@@ -23,7 +23,7 @@ public class Play {
 		}
 		catch (ReelException e){
 			e.exitTextGame();
-			System.exit();
+			System.exit(0);
 		}
 
                 Scanner sc = new Scanner(System.in);	//create an instance of Scanner
