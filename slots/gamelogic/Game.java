@@ -69,17 +69,12 @@ public class Game{
 	  * @var	startBalance - the starting balance for the slot machine.
 	  *
 	  */	  
-	protected void setPlayerBalance(int startBalance){
-		try{
-			if (startBalance > 0){
-				this.playerBalance = startBalance;
-			}
-			else{
-				throw new NegativeBalanceException("Tried to set balance to negative number");
-			}
+	protected void setPlayerBalance(int startBalance) throws NegativeBalanceException{
+		if (startBalance > 0){
+			this.playerBalance = startBalance;
 		}
-		//I do not know what to put here if either of you have any ideas please let me know
-		catch (NegativeBalanceException e){
+		else{
+			throw new NegativeBalanceException("Tried to set balance to negative number");
 		}
 	}
 	
