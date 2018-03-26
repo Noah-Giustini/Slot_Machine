@@ -118,6 +118,14 @@ public class Reel{
                 } 
         }
 
+        
+        /** The method, getRandom, gets a random symbol based upon its particular weight within the game
+          * if the reel with the random symbol to be gotten is the right or middle reel, wr1 will be used
+          * otherwise wr2 will be used. The method then returns a number dependant upon the value given.
+          *
+          * @return     a number that depends upon the value given by an instance of the weighted random
+          *             class.
+          */
         private int getRandom() {
                 WeightedRandom.Item i;
                 if (location == 2) {
@@ -141,25 +149,53 @@ public class Reel{
                 return 0; //should never happen
         }
 
-        public int[] getReel(){         //method used to get the instance variables of the reel in the form of an array
-                int[] lst = {this.topBox,this.middleBox,this.bottomBox};        //create the array to be returned
-                return lst;             //return the array we created
+        
+        /** The method, getReel, is used to get the instance variables of the reel in the form of an array. First
+          * an array of the three boxes on the reel is made on the lst variable. Then this variable is returned to
+          * the user.
+          *
+          * @return     lst - a list of the three boxes on the reel.
+          *
+          */
+        public int[] getReel(){        
+                int[] lst = {this.topBox,this.middleBox,this.bottomBox};     
+                return lst;        
         }
         
+        
+        /** The method, getLocation, returns where a particular reel is located in the slot machine.
+          *
+          * @return     location - the location of the reel in the slot machine.
+          *
+          */
         public int getLocation() {
                 return location;
         }
         
-        //method used to set the initial reel values for the saved game
-        public void setReelValues(int [] reelValues){
+        /** The method, setReelValues, is used to set the initial reel values for the saved game. The method
+          * checks to make sure that all of the values of the reels are actual values and then sets the reels
+          * to these values. If they are not actual values for the reels, a ReelException is thrown
+          *
+          * @param      reelValues - an array of the values of the symbols for the particular reel.
+          */
+        public void setReelValues(int [] reelValues) throws ReelException{
                 if ((reelValues[0] < 6) &&(reelValues [0] > 0)){
                         topBox = reelValues[0];
+                }
+                else{
+                        throw ReelException;
                 }
                 if ((reelValues[1] < 6) &&(reelValues [1] > 0)){
                         middleBox = reelValues[1];
                 }
+                else{
+                        throwReelException;
+                }
                 if ((reelValues[2] < 6) &&(reelValues [2] > 0)){
                         bottomBox = reelValues[2];
+                }
+                else{
+                        throwReelException;
                 }
         }
   
