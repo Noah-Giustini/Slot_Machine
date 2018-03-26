@@ -13,10 +13,13 @@ import slots.exception.ReelException;
 */
 public class Play {
         public static void main(String[] args){		//main method (this is where the magic happens ;) 
+		Reel leftReel;
+		Reel middleReel;
+		Reel rightReel;
 		try{
-			Reel leftReel = new Reel(0);		//create the left reel
-			Reel middleReel = new Reel(1);		//create the middle reel
-			Reel rightReel = new Reel(15);		//create the right reel
+			leftReel = new Reel(0);		//create the left reel
+			middleReel = new Reel(1);		//create the middle reel
+			rightReel = new Reel(15);		//create the right reel
 		}
 		catch (ReelException e){
 			e.exitTextGame();
