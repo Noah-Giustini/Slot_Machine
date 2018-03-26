@@ -20,7 +20,7 @@ import java.util.Arrays;
  * @var         bottomBox - the bottom position in the reel of the slot that keeps track of which symbol is in the position
  * @var         location - the placement of the particular reel. The location is 0 for the left reel, 1 for the middle reel
  *              and 2 for the right reel
- * @var         item1 - the 
+ * @var         item1 - the first potential item that can be chosen by the slot machine, in this case a cherry
  */
 
 public class Reel{
@@ -28,27 +28,27 @@ public class Reel{
         private int middleBox;         
         private int bottomBox;        
         private int location;        
-        private final static WeightedRandom.Item item1 = new WeightedRandom.Item(45); //cherry
-        private final static WeightedRandom.Item item2 = new WeightedRandom.Item(35); //watermelon
-        private final static WeightedRandom.Item item3 = new WeightedRandom.Item(25); //horseshoe
-        private final static WeightedRandom.Item item4 = new WeightedRandom.Item(10); //diamond
-        private final static WeightedRandom.Item item5 = new WeightedRandom.Item(5); //7
-        private final static WeightedRandom.Item itemL = new WeightedRandom.Item(2); //lucky
+        private final static WeightedRandom.Item cherry = new WeightedRandom.Item(45); 
+        private final static WeightedRandom.Item watermelon = new WeightedRandom.Item(35);
+        private final static WeightedRandom.Item horseshoe = new WeightedRandom.Item(25); 
+        private final static WeightedRandom.Item diamond = new WeightedRandom.Item(10);
+        private final static WeightedRandom.Item seven = new WeightedRandom.Item(5); 
+        private final static WeightedRandom.Item lucky = new WeightedRandom.Item(2); 
 
         private static ArrayList<WeightedRandom.Item> leftMidArray = new ArrayList(5);
         private static ArrayList<WeightedRandom.Item> rightArray = new ArrayList(6);
         static {
-                leftMidArray.add(item1);
-                leftMidArray.add(item2);
-                leftMidArray.add(item3);
-                leftMidArray.add(item4);
-                leftMidArray.add(item5);
-                rightArray.add(item1);
-                rightArray.add(item2);
-                rightArray.add(item3);
-                rightArray.add(item4);
-                rightArray.add(item5);
-                rightArray.add(itemL);
+                leftMidArray.add(cherry);
+                leftMidArray.add(watermelon);
+                leftMidArray.add(horseshoe);
+                leftMidArray.add(diamond);
+                leftMidArray.add(seven);
+                rightArray.add(cherry);
+                rightArray.add(watermelon);
+                rightArray.add(horseshoe);
+                rightArray.add(diamond);
+                rightArray.add(seven);
+                rightArray.add(lucky);
         }
         private final static WeightedRandom wr1 = new WeightedRandom(leftMidArray);
         private final static WeightedRandom wr2 = new WeightedRandom(rightArray);
