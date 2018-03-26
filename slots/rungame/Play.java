@@ -22,7 +22,8 @@ public class Play {
 			rightReel = new Reel(2);		//create the right reel
 		}
 		catch (ReelException e){
-			e.exitTextGame();
+			System.out.println("There seems to be a problem with the reels of the slot machine. The program" +
+					   "will now close... Try restarting it, if the problem persists please contact us");
 			System.exit(0);
 		}
 
