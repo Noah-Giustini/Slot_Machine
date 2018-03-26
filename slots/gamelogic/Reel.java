@@ -186,6 +186,7 @@ public class Reel{
                         }
                         else{
                                 throw new ReelException;
+                        }
                 }
         }
   
