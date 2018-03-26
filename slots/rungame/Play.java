@@ -4,7 +4,7 @@ import java.util.Scanner;		//import the scanner utility
 import java.io.*;
 import slots.gamelogic.*;
 import slots.guigame.*;
-import slots.exception.*;
+import slots.exception.ReelException;
 
 
 /*
