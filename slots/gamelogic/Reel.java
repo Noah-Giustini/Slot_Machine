@@ -179,23 +179,13 @@ public class Reel{
           * @param      reelValues - an array of the values of the symbols for the particular reel.
           */
         public void setReelValues(int [] reelValues) throws ReelException{
-                if ((reelValues[0] < 6) &&(reelValues [0] > 0)){
-                        topBox = reelValues[0];
-                }
-                else{
-                        throw ReelException;
-                }
-                if ((reelValues[1] < 6) &&(reelValues [1] > 0)){
-                        middleBox = reelValues[1];
-                }
-                else{
-                        throwReelException;
-                }
-                if ((reelValues[2] < 6) &&(reelValues [2] > 0)){
-                        bottomBox = reelValues[2];
-                }
-                else{
-                        throwReelException;
+                int [] boxesArray = {topBox, middleBox, bottomBox};
+                for (int arrayPos = 0; arrayPos < reelValues.length; arryPos ++){
+                        if ((reelValues[arrayPos] < 6) &&(reelValues [arrayPos] > 0)){
+                                boxesArray[arrayPos] = reelValues[arrayPos];
+                        }
+                        else{
+                                throw new ReelException;
                 }
         }
   
