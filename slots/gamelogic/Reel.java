@@ -15,11 +15,12 @@ import java.util.Arrays;
  * stored in instance variables, as well as methods to roll the reel changing the values as well as a method to return 
  * these values in an array.
  *
- * @var   topBox - the top position in the reel of the slot that keeps track of which symbol is in the position
- * @var   middleBox - the middle position in the reel of the slot that keeps track of which symbol is in the position
- * @var   bottomBox - the bottom position in the reel of the slot that keeps track of which symbol is in the position
- * @var   location - the placement of the particular reel. The location is 0 for the left reel, 1 for the middle reel
- *        and 2 for the right reel
+ * @var         topBox - the top position in the reel of the slot that keeps track of which symbol is in the position
+ * @var         middleBox - the middle position in the reel of the slot that keeps track of which symbol is in the position
+ * @var         bottomBox - the bottom position in the reel of the slot that keeps track of which symbol is in the position
+ * @var         location - the placement of the particular reel. The location is 0 for the left reel, 1 for the middle reel
+ *              and 2 for the right reel
+ * @var         item1 - the 
  */
 
 public class Reel{
@@ -27,13 +28,12 @@ public class Reel{
         private int middleBox;         
         private int bottomBox;        
         private int location;        
-        //private static Random rand = new Random();
-        private static WeightedRandom.Item item1 = new WeightedRandom.Item(45); //cherry
-        private static WeightedRandom.Item item2 = new WeightedRandom.Item(35); //watermelon
-        private static WeightedRandom.Item item3 = new WeightedRandom.Item(25); //horseshoe
-        private static WeightedRandom.Item item4 = new WeightedRandom.Item(10); //diamond
-        private static WeightedRandom.Item item5 = new WeightedRandom.Item(5); //7
-        private static WeightedRandom.Item itemL = new WeightedRandom.Item(2); //lucky
+        private final static WeightedRandom.Item item1 = new WeightedRandom.Item(45); //cherry
+        private final static WeightedRandom.Item item2 = new WeightedRandom.Item(35); //watermelon
+        private final static WeightedRandom.Item item3 = new WeightedRandom.Item(25); //horseshoe
+        private final static WeightedRandom.Item item4 = new WeightedRandom.Item(10); //diamond
+        private final static WeightedRandom.Item item5 = new WeightedRandom.Item(5); //7
+        private final static WeightedRandom.Item itemL = new WeightedRandom.Item(2); //lucky
 
         private static ArrayList<WeightedRandom.Item> leftMidArray = new ArrayList(5);
         private static ArrayList<WeightedRandom.Item> rightArray = new ArrayList(6);
@@ -50,8 +50,8 @@ public class Reel{
                 rightArray.add(item5);
                 rightArray.add(itemL);
         }
-        private static WeightedRandom wr1 = new WeightedRandom(leftMidArray);
-        private static WeightedRandom wr2 = new WeightedRandom(rightArray);
+        private final static WeightedRandom wr1 = new WeightedRandom(leftMidArray);
+        private final static WeightedRandom wr2 = new WeightedRandom(rightArray);
 
         public Reel (int locat){
                 this.location = locat;
