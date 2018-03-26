@@ -10,8 +10,9 @@ import slots.exception.ReelException;
 /*
  * @author	Noah Guistini 
  * @author      Brian Kehrig
+ * @author      Erin Brintnell
  *  
- * @version     2.0
+ * @version     3.0
  *       
  * The class, Reel is used to keep track of the data of each individual reel including the values of each of its 3 positions
  * stored in instance variables, as well as methods to roll the reel changing the values as well as a method to return 
@@ -174,18 +175,18 @@ public class Reel{
         
         /** The method, setReelValues, is used to set the initial reel values for the saved game. The method
           * checks to make sure that all of the values of the reels are actual values and then sets the reels
-          * to these values. If they are not actual values for the reels, a ReelException is thrown
+          * to these values. If they are not actual values for the symbols on the reels, a ReelException is thrown
           *
           * @param      reelValues - an array of the values of the symbols for the particular reel.
           */
         public void setReelValues(int [] reelValues) throws ReelException{
                 int [] boxesArray = {topBox, middleBox, bottomBox};
-                for (int arrayPos = 0; arrayPos < reelValues.length; arryPos ++){
+                for (int arrayPos = 0; arrayPos < reelValues.length; arrayPos ++){
                         if ((reelValues[arrayPos] < 6) &&(reelValues [arrayPos] > 0)){
                                 boxesArray[arrayPos] = reelValues[arrayPos];
                         }
                         else{
-                                throw new ReelException;
+                                throw new ReelException();
                         }
                 }
         }
