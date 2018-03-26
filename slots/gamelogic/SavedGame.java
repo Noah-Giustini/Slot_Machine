@@ -140,7 +140,7 @@ public class SavedGame extends Game{
 		}
 		catch (NegativeBalanceException e){
 			System.out.println("The game you are trying to load has a negative balance, loading a new game.");
-			syper.rollAll();
+			super.rollAll();
 		}
 		
 		
