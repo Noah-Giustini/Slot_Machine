@@ -2,6 +2,7 @@ package slots.gamelogic;
 
 import java.io.*;
 import slots.exception.NegativeBalanceException;
+import slots.exception.ReelException;
 
 
 
@@ -124,23 +125,26 @@ public class SavedGame extends Game{
 		}
 		
 		catch (FileNotFoundException e){
-			System.out.println("I'm sorry I can't find a saved file, loading new game.");
+			System.out.println("I'm sorry I can't find a saved file, loading new game...");
 			super.rollAll();
 		}
 		
 		catch (IOException e){
-			System.out.println("An error has occured in loading the saved game, loading new game.");
+			System.out.println("An error has occured in loading the saved game, loading new game...");
 			super.rollAll();
 		}
 		
 		catch (ArrayIndexOutOfBoundsException e){
-			System.out.println("There seems to be a problem with the state of the saved file, loading new game.");
+			System.out.println("There seems to be a problem with the state of the saved file, loading new game...");
 			super.rollAll();
 			
 		}
 		catch (NegativeBalanceException e){
-			System.out.println("The game you are trying to load has a negative balance, loading a new game.");
+			System.out.println("The game you are trying to load has a negative balance, loading a new game...");
 			super.rollAll();
+		}
+		catch (ReelException e){
+			System.out.println("The game you are trying to load has invalid reels, loading a new game...");
 		}
 		
 		
