@@ -84,9 +84,9 @@ public class FXMLDocumentController implements Initializable {
         private Label holdStatusLabel;
         
         //Set up the reel and game objects
-        private Reel lReel = new Reel(0);
-        private Reel mReel = new Reel(1);
-        private Reel rReel = new Reel(2);
+        private Reel lReel = null;
+        private Reel mReel = null;
+        private Reel rReel = null;
         private Game backend;
         private int hold = 1;
         private String holdStatus;
@@ -95,6 +95,14 @@ public class FXMLDocumentController implements Initializable {
         public void initialize(URL url, ResourceBundle rb) {
                 //At the beginning of the game when the user is choosing which game to playNormalGame
                 // for this reason the bet buttons are invisible
+		try{
+			lReel = new Reel(0);
+        		mReel = null new Reel(1);
+       			rReel = null new Reel(2);
+		}
+		catch (ReelException e){
+			System.exit(0);
+		}
                 bet30.setVisible(false);
                 bet20.setVisible(false);
                 bet10.setVisible(false);
