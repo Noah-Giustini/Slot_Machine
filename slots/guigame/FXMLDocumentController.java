@@ -97,8 +97,8 @@ public class FXMLDocumentController implements Initializable {
                 // for this reason the bet buttons are invisible
 		try{
 			lReel = new Reel(0);
-        		mReel = null new Reel(1);
-       			rReel = null new Reel(2);
+        		mReel = new Reel(1);
+       			rReel = new Reel(2);
 		}
 		catch (ReelException e){
 			System.exit(0);
