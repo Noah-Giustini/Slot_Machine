@@ -33,13 +33,7 @@ public class ReelException extends Exception{
         super(message);
     }
   
-    /** The exitTextGame method graciously exits out of the text version of the game printing a statement 
-      * telling the user that there is an error in the reels of the game.
-      *
-      */
-    public void exitTextGame(){
-        System.out.println("There seems to be an error in the reels of the slot machine, the program will now close...");
-    }
+
 
 }
 
