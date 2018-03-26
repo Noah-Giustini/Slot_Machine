@@ -73,6 +73,7 @@ public class Reel{
         private final static WeightedRandom wr1 = new WeightedRandom(leftMidArray);
         private final static WeightedRandom wr2 = new WeightedRandom(rightArray);
 
+        
         /** Default Constuctor
           *
           * No arguments have been given as to the location of the reel.
@@ -80,6 +81,7 @@ public class Reel{
           */
         public Reel (){
         }
+        
         
         /** Constructor
           *
@@ -99,18 +101,19 @@ public class Reel{
         }
         
         
-        
-
-        public void rollReel(){         //method used to roll the reel changing the values in all three boxes while also ensuring there are no 2 same values on one reel
-                
-
-                boolean good = false;
+        /** The method rollReel, is used to roll the reel changing the values in all three boxes while also ensuring there 
+          * are no 2 same values on one reel. It does this by getting a random symbol from each of the different boxes
+          * the while loop runs until all three symbols are different.
+          *
+          */
+        public void rollReel(){        
+                boolean differentSymbols = false;
                 while (!good) {
                         topBox = getRandom();
                         middleBox = getRandom();
                         bottomBox = getRandom();
                         if (topBox != middleBox && topBox != bottomBox && middleBox != bottomBox) {
-                                good = true;
+                                differentSymbols = true;
                         }
                 } 
         }
