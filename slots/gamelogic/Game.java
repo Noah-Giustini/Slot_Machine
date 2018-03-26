@@ -46,7 +46,7 @@ public class Game{
 	  *
 	  */
         public Game(Reel l,Reel m,Reel r){     
-                this.leftReel = new Reel (5);             
+                this.leftReel = l;             
                 this.rightReel = r;            
                 this.midReel = m;
                	setPlayerBalance(100); 
