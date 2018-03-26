@@ -49,7 +49,7 @@ public class Game{
                 this.leftReel = l;             
                 this.rightReel = r;            
                 this.midReel = m;
-               	setPlayerBalance(100); 
+		this.playerBalance = 100;
         }
 	
 	/** The method, getPlayerBalance, is a getter for the players balance within the slot machine.
