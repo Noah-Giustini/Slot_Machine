@@ -11,12 +11,13 @@ package slots.exception;
   *
   */
 public class ReelException extends Exception{
+ 
     /** Default Constructor
       *
       * No parameters are given when the exception is thrown. Thus there is no detailed message about the 
       * exception, thus the super class is called with no exception message.
       */
-    public NegativeBalanceException(){
+    public ReelException(){
         super();
     }
   
@@ -28,7 +29,7 @@ public class ReelException extends Exception{
       * @param      message - the detailed message about the exception.
       *
       */
-    public NegativeBalanceException(String message){
+    public ReelException(String message){
         super(message);
     }
   
