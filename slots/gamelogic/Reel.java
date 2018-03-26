@@ -3,6 +3,7 @@ package slots.gamelogic;
 import java.util.Random;      
 import java.util.ArrayList;
 import java.util.Arrays;
+import slots.exception.ReelException;
 
 
 /*
@@ -71,6 +72,9 @@ public class Reel{
         private final static WeightedRandom wr2 = new WeightedRandom(rightArray);
 
         
+        public Reel (){
+        }
+        
         /** Constructor
           *
           * This constructor sets up a reel according to a particular location given as a parameter by setting the
@@ -79,14 +83,22 @@ public class Reel{
           * @param      locat - the location of the reel.
           */
         public Reel (int locat){
-                if ((locat >= 0) && (locat <= 2){
-                        this.location = locat;
+                try{
+                        if ((locat >= 0) && (locat <= 2)){
+                                this.location = locat;
+                        }
+                        else {
+                                throw new ReelException();
+                        }
                 }
-                else {
+                catch (ReelException e){
+                        e.exitTextGame();
+                }
                         
         }
-        public Reel (){
-        }
+        
+        
+        
 
         public void rollReel(){         //method used to roll the reel changing the values in all three boxes while also ensuring there are no 2 same values on one reel
                 
