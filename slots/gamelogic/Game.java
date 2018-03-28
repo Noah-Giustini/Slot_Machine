@@ -121,7 +121,7 @@ public class Game{
                 int[] leftList = leftReel.getReel();    
                 int[] midList = midReel.getReel();     
                 int[] rightList = rightReel.getReel(); 
-                System.out.print ("\n\n\n");    //Prints out a space between different displays of the game
+                //System.out.print ("\n\n\n");    //Prints out a space between different displays of the game
 		try{
 			for(int rowPos=0;rowPos<3;rowPos++){
 				System.out.println(leftList[rowPos]+"          "+midList[rowPos]+"          "+rightList[rowPos]); 
