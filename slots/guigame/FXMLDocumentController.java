@@ -26,11 +26,21 @@ import slots.gamelogic.*;
 import slots.exception.ReelException;
 
 
-
+/** This class, FXMLDocumentController, handles all of the screen elements of the GUI game according
+  * to the FXML document including the buttons, VBoxes, ImageViews, and labels.
+  * 
+  * @var	bet30 - the button that a user presses when they want to bet $30
+  * @var	bet20 - the button that a user presses when they want to bet $20
+  * @var	bet10 - the button that a user presses when they want to bet $10
+  * @var	save - the button that a user presses when they want to save the game
+  * @var	savedGame - the button that a user presses when they want to start a previously saved game
+  * @var	normalGame - the button that a user presses when they want to start a brand new game
+  * @var	holdButton - the button that a user presses when they want to hold the middle reel of the game
+  *
+  
+  
 public class FXMLDocumentController implements Initializable {
-        //This class handles all the screen elements, including the buttons, VBoxes, ImageViews, and labels.
-        
-        //Set up the buttons
+     
         @FXML
         private Button bet30;
         @FXML
@@ -46,14 +56,13 @@ public class FXMLDocumentController implements Initializable {
         @FXML
         private Button holdButton;
 
-		
-        //Set up the VBoxes
-        @FXML
-        private VBox leftReel;
-        @FXML
-        private VBox midReel;
-        @FXML
-        private VBox rightReel;
+
+       // @FXML
+        //private VBox leftReel;
+        //@FXML
+       // private VBox midReel;
+       // @FXML
+        //private VBox rightReel;
 
         //Set up the ImageViews.  There are 9 in total, 3 for each reel.
         @FXML
