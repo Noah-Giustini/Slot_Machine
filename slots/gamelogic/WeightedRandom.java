@@ -30,10 +30,7 @@ public class WeightedRandom {
     }
  
  
-    /** The method, get, gets a random item from the array list of items (items) in accordance with their weights.
-      * It does this by getting the weight of a particular item which is a uniform random number from 0 to the total weight.
-      * Then using the java Random class, the method gets a new random double which is multiplied by the total weight of
-      * the current array list. The method then uses a for loop to find the next item with the */
+  
     public Item get(Random random) {
         double total = getTotalWeight();
         double current = random.nextDouble() * total;
@@ -57,7 +54,7 @@ public class WeightedRandom {
         return w;
     }
     
-    /**/
+    
     public static class Item {
         //This classes can be accessed by typing WeightedRandom.Item
         private double weight;
