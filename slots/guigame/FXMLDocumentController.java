@@ -36,7 +36,7 @@ import slots.exception.ReelException;
   * @var	savedGame - the button that a user presses when they want to start a previously saved game
   * @var	normalGame - the button that a user presses when they want to start a brand new game
   * @var	holdButton - the button that a user presses when they want to hold the middle reel of the game
-  *
+  */
   
   
 public class FXMLDocumentController implements Initializable {
