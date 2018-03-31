@@ -4,15 +4,24 @@ import java.util.ArrayList;
 import java.util.Random;
 
 
-
-public class WeightedRandom {
-    //This class generates weighted random numbers
+/** The weightedRandom class, generates a random symbol for a position within a reel dependant upon how 
+  * likely it is for a specific item to be within a reel thus simulating an actual slot machine.
+  *
+  * @var    items - an array list containing all of the items (cherry, watermelon, lucky, etc) that
+  *         could be in a particular reel
+  */
+public class WeightedRandom {    
+    private ArrayList <Item> items = new ArrayList <Item> (); 
     
-    private ArrayList<Item> items; //list of items
-    
+    /** Constructor
+      *
+      * The user has given an array list of all of the different items that could be in a particular
+      * reel for the position it is given. The items array list is then 
+      */
     public WeightedRandom(ArrayList<Item> i) {
-        //just a standard constructor
-        items = i;
+        for (item: i){
+            items.add(item);
+        }
     }
     public Item get(Random random) {
         //This method gets a random item from the list of items
