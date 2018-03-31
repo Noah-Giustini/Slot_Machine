@@ -59,7 +59,11 @@ public class SavedGame extends Game{
 	  * from the past game written to a buffered reader is used to do the reading
 	  * for each line of the saveFile. The the balance and values of the reels 
 	  * are then set according to the text document which holds a previous state
-	  * of the game.
+	  * of the game. If the saved game cannot find the file that has the saved game
+	  * or if there is an IO exception it will print a statement saying that it 
+	  * cannot find the specified file, and will start a new game. If the saved file
+	  * does not have propper formatting (ie. there is a negative balance), an message
+	  * will be printed and a new game will be started
 	  *
 	  * @var	lineRead -  the String read from each line of the document
 	  * @var	in - a buffered reading the incoming file IO
