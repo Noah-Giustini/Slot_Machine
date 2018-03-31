@@ -18,7 +18,8 @@ public class WeightedRandom {
       * The user has given an array list of all of the different items that could be in a particular
       * reel for the position it is given. The for loop is used to iterate through the inputted arraylist
       * and add each item to the items array list. A for loop is used to prevent against privacy leaks so
-      * that the array lists are not the same. 
+      * that the array lists are not the same, when this for loop is iterated through a new Item is created
+      * to ensure that no privacy leaks occur
       *
       * @param     i - an array list containing all of the items for a particular reel within the game
       */
@@ -29,11 +30,12 @@ public class WeightedRandom {
     }
  
  
+    /** The method, get, gets a random item from the array list of items (items) in accordance with their weights.
+      * It does this by getting the weight of a particular item which is a uniform random number from 0 to the total weight.
+      * Then using the java Random class, the method gets a new random double which is multiplied by the total weight of
+      * the current array list. The method then uses a for loop to find the next item with the */
     public Item get(Random random) {
-        //This method gets a random item from the list of items
-        //in accordance with their weights
-        
-        double total = getTotalWeight(); //uniform random number from 0 to the total weight
+        double total = getTotalWeight();
         double current = random.nextDouble() * total;
         for (Item i : items) {
             // get a random element with the weights
@@ -55,6 +57,7 @@ public class WeightedRandom {
         return w;
     }
     
+    /**/
     public static class Item {
         //This classes can be accessed by typing WeightedRandom.Item
         private double weight;
