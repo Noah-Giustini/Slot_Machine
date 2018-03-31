@@ -18,13 +18,13 @@ public class WeightedRandom {
       * The user has given an array list of all of the different items that could be in a particular
       * reel for the position it is given. The for loop is used to iterate through the inputted arraylist
       * and add each item to the items array list. A for loop is used to prevent against privacy leaks so
-      * that the array lists are not the same
+      * that the array lists are not the same. 
       *
       * @param     i - an array list containing all of the items for a particular reel within the game
       */
     public WeightedRandom(ArrayList<Item> i) {
         for (item: i){
-            items.add(item);
+            items.add(new Item(item.getWeight());
         }
     }
  
