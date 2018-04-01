@@ -123,8 +123,7 @@ public class FXMLDocumentController implements Initializable {
 		holdButton.setVisible(false);
 		holdStatusLabel.setVisible(false);
 		
-		System.out.println("got here");
-		title.setImage(new Image(title.png));
+		title.setImage(new Image("title.png"));
         }
 		
         //Sets up a normal game that has (ie. not a saved game)
