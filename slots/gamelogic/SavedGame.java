@@ -108,14 +108,14 @@ public class SavedGame extends Game{
 				//The next three lines are the values of the middle reel, which are added
 				// to the middle reel array
 				else if (numLinesRead <= 6){
-					mReelValues[numLinesRead - 3] = Integer.parseInt(lineRead);
+					mReelValues[numLinesRead - 4] = Integer.parseInt(lineRead);
 					numLinesRead ++;
 				}
 				
 				//The last three lines are the values of the right reel, which are added
 				// to the right reel array
 				else if (numLinesRead <= 9){
-					rReelValues[numLinesRead - 6] = Integer.parseInt(lineRead);
+					rReelValues[numLinesRead - 7] = Integer.parseInt(lineRead);
 					numLinesRead ++;
 				}
 				System.out.println(Integer.parseInt(lineRead));	
@@ -139,9 +139,8 @@ public class SavedGame extends Game{
 		}
 		
 		catch (ArrayIndexOutOfBoundsException e){
-			System.out.println("There seems to be a problem with the state of the saved file, loading new game...");
-			super.rollAll();
-			
+			System.out.println("The code is to add reel values that are out of the indexing range. There is" +
+					   " likely an error in the number of lines read by each reel.");	
 		}
 		catch (NegativeBalanceException e){
 			System.out.println("The game you are trying to load has a negative balance, loading a new game...");
