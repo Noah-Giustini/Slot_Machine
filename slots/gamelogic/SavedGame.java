@@ -107,14 +107,14 @@ public class SavedGame extends Game{
 				
 				//The next three lines are the values of the middle reel, which are added
 				// to the middle reel array
-				else if (numLinesRead < 7){
+				else if (numLinesRead < 6){
 					mReelValues[numLinesRead - 4] = Integer.parseInt(lineRead);
 					numLinesRead ++;
 				}
 				
 				//The last three lines are the values of the right reel, which are added
 				// to the right reel array
-				else if (numLinesRead < 11){
+				else if (numLinesRead < 10){
 					rReelValues[numLinesRead - 7] = Integer.parseInt(lineRead);
 					numLinesRead ++;
 				}
