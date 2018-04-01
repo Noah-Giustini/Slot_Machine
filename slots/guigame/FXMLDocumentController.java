@@ -57,12 +57,12 @@ public class FXMLDocumentController implements Initializable {
         private Button holdButton;
 
 
-       // @FXML
-        //private VBox leftReel;
-        //@FXML
-       // private VBox midReel;
-       // @FXML
-        //private VBox rightReel;
+        @FXML
+        private VBox leftReel;
+        @FXML
+        private VBox midReel;
+        @FXML
+        private VBox rightReel;
 
         //Set up the ImageViews.  There are 9 in total, 3 for each reel.
         @FXML
