@@ -44,12 +44,12 @@ public class Reel{
         private int location; 
         private static Random rand = new Random();
         
-        private final static WeightedRandom.Item cherry = new WeightedRandom.Item(45); 
-        private final static WeightedRandom.Item watermelon = new WeightedRandom.Item(35);
-        private final static WeightedRandom.Item horseshoe = new WeightedRandom.Item(25); 
-        private final static WeightedRandom.Item diamond = new WeightedRandom.Item(10);
-        private final static WeightedRandom.Item seven = new WeightedRandom.Item(5); 
-        private final static WeightedRandom.Item lucky = new WeightedRandom.Item(2); 
+        private static WeightedRandom.Item cherry = new WeightedRandom.Item(45); 
+        private static WeightedRandom.Item watermelon = new WeightedRandom.Item(35);
+        private static WeightedRandom.Item horseshoe = new WeightedRandom.Item(25); 
+        private static WeightedRandom.Item diamond = new WeightedRandom.Item(10);
+        private static WeightedRandom.Item seven = new WeightedRandom.Item(5); 
+        private static WeightedRandom.Item lucky = new WeightedRandom.Item(2); 
 
         private static ArrayList<WeightedRandom.Item> leftMidArray = new ArrayList(5);
         private static ArrayList<WeightedRandom.Item> rightArray = new ArrayList(6);
@@ -71,8 +71,8 @@ public class Reel{
                 rightArray.add(lucky);
         }
         
-        private final static WeightedRandom wr1 = new WeightedRandom(leftMidArray);
-        private final static WeightedRandom wr2 = new WeightedRandom(rightArray);
+        private static WeightedRandom wr1 = new WeightedRandom(leftMidArray);
+        private static WeightedRandom wr2 = new WeightedRandom(rightArray);
 
         
         /** Default Constuctor
