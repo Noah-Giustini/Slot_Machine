@@ -191,7 +191,7 @@ public class Reel{
                 }
                 this.topBox = boxesArray [0];
                 this.middleBox = boxesArray [1];
-                this.bottomeBox = boxesArray [2];
+                this.bottomBox = boxesArray [2];
                 System.out.println(this.topBox);
                 System.out.println(this.middleBox);
                 System.out.println(this.bottomBox);
