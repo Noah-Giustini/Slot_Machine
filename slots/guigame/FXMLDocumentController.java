@@ -320,13 +320,23 @@ public class FXMLDocumentController implements Initializable {
 	
 	
 	/** The method, betClick, is called whenever a user bets any amount of money through one of the
-	  * three betting buttons. The method uses that backend variable to check how much money will be
-	  * left if the game 
+	  * three betting buttons. The method uses the backend variable to check how much money will be
+	  * left if the game is to substract the amount of money that the user has bet, if this amount
+	  * is greater than or equal to zero than the method will continue to run. Next the method
+	  * will check if the middle reel is held by checking for a remainder value on the hold 
+	  * variable. If the middle reel is to be held the method will then check to make sure that
+	  * $10 can be subtracted to hold the middle reel. If this is the case then, the method
+	  * will run methods through the backend to change the state of the game. If the middle reel
+	  * is not to be held than the method will run backend methods that do not involve a held middle reel.
+	  * Finally the method, shows  the new state of the screen. If the palyer does not have any money \
+	  * left than the resartGame method will be called.
+	  *
+	  * @param	event - the button press event that was used to press one of the betting buttons
+	  * @param	amount - the amount of money that the user is betting
+	  * 
 	  */
         private void betClick(ActionEvent event, int amount) {
-                //This is the method that is called when you bet an amount
-                //The amount variable is the amount of the bet (can be 10, 20, or 30)
-                if ((backend.getPlayerBalance() - amount) >= 0){ //if we are not yet bankrupt
+                if ((backend.getPlayerBalance() - amount) >= 0){ 
                         if ((this.hold%2) == 0){
                                 if ((backend.getPlayerBalance() - amount - 10) >= 0){
                                         backend.bet(amount);
@@ -340,7 +350,7 @@ public class FXMLDocumentController implements Initializable {
                                 }
                         }
                         if (((this.hold+1)%2)== 0){
-                                backend.bet(amount); //bet the specified amount
+                                backend.bet(amount); 
                                 backend.rollAll(); //roll the reels
                                 int didWin = backend.winTest(); //check if we won
                                 if (didWin > 0){
@@ -353,6 +363,36 @@ public class FXMLDocumentController implements Initializable {
                         
                         
                 }
-
+		
+		else{
+			resartGame();
+		}
         }
+	
+	
+	
+	/** The method, restartGame, brings up a new version of the start screen when the user has run out
+	  * of money. It does this by making all game buttons to invisible and bringing up the new and 
+	  * saved game buttons again. It also changes the balance label to state "You have run out of money"
+	  *
+	  */
+	private void restartGame(){
+		bet30.setVisible(false);
+                bet20.setVisible(false);
+                bet10.setVisible(false);
+                balance.setVisible(false);
+                holdStatusLabel.setVisible(false);
+		holdButton.setVisible(false);
+		
+		savedGame.setVisible(true);
+                normalGame.setVisible(true);
+		
+		balanceLabel.setText("You have run out of money");
+	}
+		
+	
 }
+
+
+
+
