@@ -36,6 +36,24 @@ import slots.exception.ReelException;
   * @var	savedGame - the button that a user presses when they want to start a previously saved game
   * @var	normalGame - the button that a user presses when they want to start a brand new game
   * @var	holdButton - the button that a user presses when they want to hold the middle reel of the game
+  * @var	lTop - an image view showing the item in the top section of the left reel
+  * @var	mTop - an image view showing the item in the top section of the middle reel
+  * @var	rTop - an image view showing the item in the top section of the right reel
+  * @var	lMid - an image view showing the item in the middle section of the left reel
+  * @var	mMid - an image view showing the item in the middle section of the middle reel
+  * @var	rMid - an image view showing the item in the middle section of the right reel
+  * @var	lBot - an image view showing the item in the bottom section of the left reel
+  * @var	mBot - an image view showing the item in the bottom section of the middle reel
+  * @var	rBot - an image view showing the item in the bottom section of the right reel
+  * @var	title - an image view that shows the intro title screen for the game
+  * @var	balance - a label showing the user's current balance in the game
+  * @var	holdStatusLabel - a label showing whether or not the middle reel is held for the game
+  * @var	lReel - an instance of the reel class for the left reel of the game
+  * @var	mReel - an instance of the reel class for the middle reel of the game
+  * @var	rReel - an instance of the reel class for the right reel of the game
+  * @var	backend - the game play that happens behind the scenes (can either be a new game or a saved game)
+  * @var	hold - an integer counting how many times the user has pressed the hold button starting with 1 time
+  * @var	holdStatus - a string showing the status of the hold
   */
   
   
@@ -56,15 +74,8 @@ public class FXMLDocumentController implements Initializable {
         @FXML
         private Button holdButton;
 
-
-        @FXML
-        private VBox leftReel;
-        @FXML
-        private VBox midReel;
-        @FXML
-        private VBox rightReel;
-
-        //Set up the ImageViews.  There are 9 in total, 3 for each reel.
+	
+	
         @FXML
         private ImageView lTop;
         @FXML
@@ -90,7 +101,7 @@ public class FXMLDocumentController implements Initializable {
 	private ImageView title;
 		
 
-        //Set up the label that will display our balance.
+
         @FXML
         private Label balance;
         @FXML
@@ -139,6 +150,7 @@ public class FXMLDocumentController implements Initializable {
         @FXML
         private void playSavedGame (ActionEvent event){
                 backend = new SavedGame(lReel, mReel, rReel);
+		backend = (SavedGame) backend;
                 startGame(event);
         }
 		
