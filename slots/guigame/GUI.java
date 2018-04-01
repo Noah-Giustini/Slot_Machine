@@ -34,7 +34,6 @@ public class GUI extends Application {
       */
     @Override
     public void start(Stage stage) throws Exception {
-        //Set everything up (root, scene, stage, etc...)
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
         
         Scene scene = new Scene(root);
