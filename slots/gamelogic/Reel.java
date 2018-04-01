@@ -176,11 +176,13 @@ public class Reel{
         /** The method, setReelValues, is used to set the initial reel values for the saved game. The method
           * checks to make sure that all of the values of the reels are actual values and then sets the reels
           * to these values. If they are not actual values for the symbols on the reels, a ReelException is thrown
+          * Finally at the end of the method the variables topBox, middleBox and bottomBox are set to the
+          * values in the boxes array
           *
           * @param      reelValues - an array of the values of the symbols for the particular reel.
           */
         public void setReelValues(int [] reelValues) throws ReelException{
-                int [] boxesArray = {topBox, middleBox, bottomBox};
+                int [] boxesArray = {top, middle, bottom};
                 for (int arrayPos = 0; arrayPos < boxesArray.length; arrayPos ++){
                         if ((reelValues[arrayPos] < 6) &&(reelValues [arrayPos] > 0)){
                                 boxesArray[arrayPos] = reelValues[arrayPos];
@@ -192,9 +194,6 @@ public class Reel{
                 this.topBox = boxesArray [0];
                 this.middleBox = boxesArray [1];
                 this.bottomBox = boxesArray [2];
-                System.out.println(this.topBox);
-                System.out.println(this.middleBox);
-                System.out.println(this.bottomBox);
         }
   
 }
