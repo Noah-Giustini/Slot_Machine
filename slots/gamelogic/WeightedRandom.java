@@ -26,6 +26,7 @@ public class WeightedRandom {
     public WeightedRandom(ArrayList<Item> i) {
         for (Item item: i){
             items.add(new Item( i.getWieght()));
+        }
     }
  
  
