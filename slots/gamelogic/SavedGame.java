@@ -151,9 +151,6 @@ public class SavedGame extends Game{
 			System.out.println("The game you are trying to load has invalid reels, loading a new game...");
 			super.rollAll();
 		}
-		catch (Exception e){
-			System.out.println("There is something here" + e);
-		}
 		
 		
 	}	
