@@ -184,6 +184,7 @@ public class Reel{
                 for (int arrayPos = 0; arrayPos < boxesArray.length; arrayPos ++){
                         if ((reelValues[arrayPos] < 6) &&(reelValues [arrayPos] > 0)){
                                 boxesArray[arrayPos] = reelValues[arrayPos];
+                                System.out.println(boxesArray[arrayPos]);
                         }
                         else{
                                 throw new ReelException();
