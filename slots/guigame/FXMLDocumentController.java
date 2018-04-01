@@ -163,7 +163,7 @@ public class FXMLDocumentController implements Initializable {
         private void playNormalGame (ActionEvent event){
                 backend = new Game(lReel, mReel, rReel);
 		backend.rollAll();
-		startGame(event);
+		startGame();
         }
 	
 	
@@ -178,7 +178,7 @@ public class FXMLDocumentController implements Initializable {
         private void playSavedGame (ActionEvent event){
                 backend = new SavedGame(lReel, mReel, rReel);
 		backend = (SavedGame) backend;
-                startGame(event);
+                startGame();
         }
 	
 	
