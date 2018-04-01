@@ -189,9 +189,9 @@ public class Reel{
                                 throw new ReelException();
                         }
                 }
-                System.out.println(topBox);
-                System.out.println(middleBox);
-                System.out.println(bottomBox);
+                System.out.println(this.topBox);
+                System.out.println(this.middleBox);
+                System.out.println(this.bottomBox);
         }
   
 }
