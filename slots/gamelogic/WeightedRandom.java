@@ -24,8 +24,8 @@ public class WeightedRandom {
       * @param     i - an array list containing all of the items for a particular reel within the game
       */
     public WeightedRandom(ArrayList<Item> i) {
-        for (item: i){
-            items.add(new Item(item.getWeight());
+        for (Item item: i){
+            items.add(new Item(item.getWeight()));
         }
     }
  
