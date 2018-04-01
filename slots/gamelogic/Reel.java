@@ -182,7 +182,7 @@ public class Reel{
           * @param      reelValues - an array of the values of the symbols for the particular reel.
           */
         public void setReelValues(int [] reelValues) throws ReelException{
-                int [] boxesArray = {0,0,0};
+                int [] boxesArray = new int [3];
                 for (int arrayPos = 0; arrayPos < boxesArray.length; arrayPos ++){
                         if ((reelValues[arrayPos] < 6) &&(reelValues [arrayPos] > 0)){
                                 boxesArray[arrayPos] = reelValues[arrayPos];
