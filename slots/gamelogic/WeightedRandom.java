@@ -11,7 +11,7 @@ import java.util.Random;
   *         could be in a particular reel
   */
 public class WeightedRandom {    
-    private ArrayList <Item> items = new ArrayList <Item> (); 
+    private ArrayList <Item> items; 
     
     /** Constructor
       *
@@ -24,9 +24,7 @@ public class WeightedRandom {
       * @param     i - an array list containing all of the items for a particular reel within the game
       */
     public WeightedRandom(ArrayList<Item> i) {
-        for (Item item: i){
-            items.add(new Item( i.getWeight()));
-        }
+        items = i;
     }
  
  
