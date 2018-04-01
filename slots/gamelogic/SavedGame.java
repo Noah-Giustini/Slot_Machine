@@ -118,7 +118,7 @@ public class SavedGame extends Game{
 					rReelValues[numLinesRead - 7] = Integer.parseInt(lineRead);
 					numLinesRead ++;
 				}
-					
+				System.out.println(Integer.parseInt(lineRead));	
 			}
 			in.close();
 			
