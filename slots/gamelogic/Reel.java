@@ -180,8 +180,8 @@ public class Reel{
           * @param      reelValues - an array of the values of the symbols for the particular reel.
           */
         public void setReelValues(int [] reelValues) throws ReelException{
-                int [] boxesArray = {topBox, middleBox, bottomBox};
-                for (int arrayPos = 0; arrayPos < reelValues.length; arrayPos ++){
+                int [] boxesArray = {this.topBox, this.middleBox, this.bottomBox};
+                for (int arrayPos = 0; arrayPos < boxesArray.length; arrayPos ++){
                         if ((reelValues[arrayPos] < 6) &&(reelValues [arrayPos] > 0)){
                                 boxesArray[arrayPos] = reelValues[arrayPos];
                         }
