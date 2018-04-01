@@ -40,8 +40,7 @@ import slots.exception.ReelException;
 public class Reel{
         private int topBox;           
         private int middleBox;         
-        private int bottomBox; 
-        private int [] boxesArray = {topBox, middleBox, bottomBox};
+        private int bottomBox;
         private int location; 
         private static Random rand = new Random();
         
@@ -181,6 +180,7 @@ public class Reel{
           * @param      reelValues - an array of the values of the symbols for the particular reel.
           */
         public void setReelValues(int [] reelValues) throws ReelException{
+                int [] boxesArray = {topBox, middleBox, bottomBox};
                 for (int arrayPos = 0; arrayPos < boxesArray.length; arrayPos ++){
                         if ((reelValues[arrayPos] < 6) &&(reelValues [arrayPos] > 0)){
                                 boxesArray[arrayPos] = reelValues[arrayPos];
@@ -189,6 +189,9 @@ public class Reel{
                                 throw new ReelException();
                         }
                 }
+                this.topBox = boxesArray [0];
+                this.middleBox = boxesArray [1];
+                this.bottomeBox = boxesArray [2];
                 System.out.println(this.topBox);
                 System.out.println(this.middleBox);
                 System.out.println(this.bottomBox);
