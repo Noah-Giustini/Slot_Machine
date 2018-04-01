@@ -118,13 +118,15 @@ public class SavedGame extends Game{
 					rReelValues[numLinesRead - 7] = Integer.parseInt(lineRead);
 					numLinesRead ++;
 				}
-				System.out.println(Integer.parseInt(lineRead));	
 			}
 			in.close();
 			
 			//Sets the initial values of each of the reels
+			System.out.println("Exception in reel 1");	
 			l.setReelValues(lReelValues);
+			System.out.println("Exception in reel 2");
 			m.setReelValues(mReelValues);
+			System.out.println("Exception in reel 3");
 			r.setReelValues(rReelValues);
 		}
 		
