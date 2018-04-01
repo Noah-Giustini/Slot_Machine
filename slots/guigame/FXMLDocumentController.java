@@ -123,6 +123,7 @@ public class FXMLDocumentController implements Initializable {
 		holdButton.setVisible(false);
 		holdStatusLabel.setVisible(false);
 		
+		System.out.println("got here");
 		title.setImage(new Image(title.png));
         }
 		
