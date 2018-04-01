@@ -19,9 +19,19 @@ import java.lang.Integer;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 
-
+/** This class GUI, runs the gui game of the slot machine using an FXMLDocument and calling to an FXML document
+  * controller, therefore it is the main class for the GUI version of the game
+  */
 public class GUI extends Application {
-        //This is the main class for the GUI version of the game.
+   
+    /** The method, start, is used to set up the GUI game, it does this by creating a primary Parent 
+      * grouping of all GUI elements called root. Root loads the GUI using an FXMLDocument loader
+      * which loads the FXML document that starts the FXMLDocument controller class. The method
+      * than sets the scene to have this root (Parent) Next, the method sets the title on the screen 
+      * to "SLOTS" and sets the stage to have the scene, the stage is then shown.
+      *
+      * @param         stage - the stage where everythin is shown in the GUI
+      */
     @Override
     public void start(Stage stage) throws Exception {
         //Set everything up (root, scene, stage, etc...)
@@ -34,10 +44,12 @@ public class GUI extends Application {
         stage.show();
     }
 
-
+    /** The main method of the GUI game that runs the GUI game, the launch method within main
+      * is inherited from Application
+      *
+      * @param          args - a string array of arguments taken from the command prompt
+      */
     public static void main(String[] args) {
-        //The main method of the game
-        //The launch method is inherited from Applicaion
         launch(args);
     }
     
