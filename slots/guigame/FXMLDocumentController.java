@@ -86,8 +86,8 @@ public class FXMLDocumentController implements Initializable {
         @FXML
         private ImageView rBot;
 	
-	//@FXML
-	//private ImageView title;
+	@FXML
+	private ImageView title;
 		
 
         //Set up the label that will display our balance.
@@ -124,7 +124,7 @@ public class FXMLDocumentController implements Initializable {
 		holdButton.setVisible(false);
 		holdStatusLabel.setVisible(false);
 		
-		//title.setImage(new Image("title.png"));
+		title.setImage(new Image("title.png"));
         }
 		
         //Sets up a normal game that has (ie. not a saved game)
@@ -169,7 +169,7 @@ public class FXMLDocumentController implements Initializable {
                 save.setVisible(true);
                 savedGame.setVisible(false);
                 normalGame.setVisible(false);
-		//title.setVisible(false);
+		title.setVisible(false);
 		holdButton.setVisible(true);
 		holdStatusLabel.setVisible(true);
 		showScreen(event);
@@ -202,10 +202,10 @@ public class FXMLDocumentController implements Initializable {
         }
         private void statusCalculate(){
                 if ((this.hold % 2) == 0){
-                        this.holdStatus = "Held";
+                    this.holdStatus = "Held";
                 }
                 else{
-                        this.holdStatus = "Not Held";
+                    this.holdStatus = "Not Held";
                 }
         }
 		
