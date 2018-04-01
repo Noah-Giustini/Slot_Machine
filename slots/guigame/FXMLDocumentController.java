@@ -169,7 +169,7 @@ public class FXMLDocumentController implements Initializable {
                 save.setVisible(true);
                 savedGame.setVisible(false);
                 normalGame.setVisible(false);
-		title.setVisible(false);
+		//title.setVisible(false);
 		holdButton.setVisible(true);
 		holdStatusLabel.setVisible(true);
 		showScreen(event);
