@@ -137,11 +137,6 @@ public class SavedGame extends Game{
 			System.out.println("An error has occured in loading the saved game, loading new game...");
 			super.rollAll();
 		}
-		
-		catch (ArrayIndexOutOfBoundsException e){
-			System.out.println("The code is to add reel values that are out of the indexing range. There is" +
-					   " likely an error in the number of lines read by each reel.");	
-		}
 		catch (NegativeBalanceException e){
 			System.out.println("The game you are trying to load has a negative balance, loading a new game...");
 			super.rollAll();
@@ -149,6 +144,10 @@ public class SavedGame extends Game{
 		catch (ReelException e){
 			System.out.println("The game you are trying to load has invalid reels, loading a new game...");
 			super.rollAll();
+		}
+		catch (NumberFormatException e){
+			System.out.println("The code is not formattin the given reel values properly");	
+			e.printStackTrace();
 		}
 		
 		
