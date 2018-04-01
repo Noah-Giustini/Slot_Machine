@@ -121,16 +121,9 @@ public class SavedGame extends Game{
 			}
 			in.close();
 			
-			//Sets the initial values of each of the reels
-				
 			l.setReelValues(lReelValues);
-			System.out.println("Exception not in reel 1");
-			
 			m.setReelValues(mReelValues);
-			System.out.println("Exception not in reel 2");
-			
 			r.setReelValues(rReelValues);
-			System.out.println("Exception not in reel 3");
 		}
 		
 		catch (FileNotFoundException e){
