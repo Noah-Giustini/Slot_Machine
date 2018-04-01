@@ -16,10 +16,9 @@ public class WeightedRandom {
     /** Constructor
       *
       * The user has given an array list of all of the different items that could be in a particular
-      * reel for the position it is given. The for loop is used to iterate through the inputted arraylist
-      * and add each item to the items array list. A for loop is used to prevent against privacy leaks so
-      * that the array lists are not the same, when this for loop is iterated through a new Item is created
-      * to ensure that no privacy leaks occur
+      * reel for the position it is given. Since the array list is set to the arraylist of items without
+      * making a copy this is a potential spot for a privacy leak, however since Items are static this
+      * privacy leak cannot be prevented without messing up the game.
       *
       * @param     i - an array list containing all of the items for a particular reel within the game
       */
