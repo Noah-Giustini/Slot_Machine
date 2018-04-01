@@ -318,6 +318,26 @@ public class FXMLDocumentController implements Initializable {
         }
 		
 	
+	/** The method, restartGame, brings up a new version of the start screen when the user has run out
+	  * of money. It does this by making all game buttons to invisible and bringing up the new and 
+	  * saved game buttons again. It also changes the balance label to state "You have run out of money"
+	  *
+	  */
+	private void restartGame(){
+		bet30.setVisible(false);
+                bet20.setVisible(false);
+                bet10.setVisible(false);
+                balance.setVisible(false);
+                holdStatusLabel.setVisible(false);
+		holdButton.setVisible(false);
+		
+		savedGame.setVisible(true);
+                normalGame.setVisible(true);
+		
+		balance.setText("You have run out of money");
+	}
+	
+	
 	
 	/** The method, betClick, is called whenever a user bets any amount of money through one of the
 	  * three betting buttons. The method uses the backend variable to check how much money will be
@@ -365,30 +385,10 @@ public class FXMLDocumentController implements Initializable {
                 }
 		
 		else{
-			resartGame();
+			restartGame();
 		}
         }
 	
-	
-	
-	/** The method, restartGame, brings up a new version of the start screen when the user has run out
-	  * of money. It does this by making all game buttons to invisible and bringing up the new and 
-	  * saved game buttons again. It also changes the balance label to state "You have run out of money"
-	  *
-	  */
-	private void restartGame(){
-		bet30.setVisible(false);
-                bet20.setVisible(false);
-                bet10.setVisible(false);
-                balance.setVisible(false);
-                holdStatusLabel.setVisible(false);
-		holdButton.setVisible(false);
-		
-		savedGame.setVisible(true);
-                normalGame.setVisible(true);
-		
-		balanceLabel.setText("You have run out of money");
-	}
 		
 	
 }
