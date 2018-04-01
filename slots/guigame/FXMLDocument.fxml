@@ -59,7 +59,7 @@
             <Image url="@../../Documents/GitHub/Slot_Machine/3.png" />
          </image>
       </ImageView>
-      <Label fx:id="balance" layoutX="264.0" layoutY="419.0" text="Balance: $100" />
+      <Label fx:id="balance" alignment="CENTER" layoutX="264.0" layoutY="419.0" text="Balance: $100" />
       <Button fx:id="save" layoutX="360.0" layoutY="529.0" mnemonicParsing="false" onAction="#saveClick" prefHeight="25.0" prefWidth="80.0" text="Save" />
       <Button fx:id="normalGame" layoutX="135.0" layoutY="486.0" mnemonicParsing="false" onAction="#playNormalGame" prefHeight="33.0" prefWidth="118.0" text="Play New Game" />
       <Button fx:id="savedGame" layoutX="360.0" layoutY="486.0" mnemonicParsing="false" onAction="#playSavedGame" prefHeight="33.0" prefWidth="118.0" text="Play Saved Game" />
