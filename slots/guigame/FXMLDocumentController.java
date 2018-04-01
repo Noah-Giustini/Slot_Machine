@@ -327,7 +327,7 @@ public class FXMLDocumentController implements Initializable {
 		bet30.setVisible(false);
                 bet20.setVisible(false);
                 bet10.setVisible(false);
-                balance.setVisible(false);
+                save.setVisible(false);
                 holdStatusLabel.setVisible(false);
 		holdButton.setVisible(false);
 		
