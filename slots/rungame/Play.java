@@ -4,21 +4,34 @@ import java.util.Scanner;
 import java.io.*;
 import slots.guigame.*;
 
-
 /*
-*	The play class is the main game which will be played. it incorporates the Game and Reel classes 
-*	it has no instance variables and its only method is the main method in which the game runs.
-*/
-public class Play {
-        public static void main(String[] args){		//main method (this is where the magic happens ;) 
-		
+ * @author	Noah Guistini 
+ * @author      Erin Brintnell
+ * @author	Brian Kehrig
+ *  
+ * @version     unknown
+ *       
+ * The Play class is used to allow the player to choose between the gui game and the text game
+ *
+ *      This class has one method which is the main method which is used to choose between the GUI and text version of the game
+ */
 
-                Scanner sc = new Scanner(System.in);	//create an instance of Scanner
-                int userChoice = 0;			//variable to keep track of the user's choice
-                while(userChoice == 0){			//while loop that checks if the user's input is valid
+public class Play {
+
+	/**	the method, main runs through a switch statement that alows the user to choose between the text version and 
+	*	the GUI version of the game. 
+	*
+	*@param	args - a string array of launch arguments
+	*
+	*/
+        public static void main(String[] args){
+		
+                Scanner sc = new Scanner(System.in);
+                int userChoice = 0;
+                while(userChoice == 0){
 			System.out.println("Would you like to enable GUI for this game? (Yes/No)");
-			String mmchoice = sc.nextLine(); //take user input as a string
-			switch (mmchoice.toUpperCase()) {//switch statement to go through all posibilities
+			String mmchoice = sc.nextLine();
+			switch (mmchoice.toUpperCase()) {
 			case "YES":  userChoice = 1;
 				break;
 			case "Y":  userChoice = 1;
@@ -31,18 +44,16 @@ public class Play {
 				break;
 			case "Q":  userChoice = 3;
 				break;
-			case "YES I AM RICH": userChoice = 4;
-				break;
-			case "NO I AM RICH": userChoice = 5;
-				break;
 			default: System.out.println("Invalid selection (yes/no/quit)");
 				break;
 			} 
 		}
-		if (userChoice == 2 | userChoice == 5){		//if the user choses the option with no gui
+		if (userChoice == 2){
+			//launch the text version of the game
 			TextGame.main(new String[0]);
 		}
 		if (userChoice == 1){
+			//launch the GUI version of the game
 			GUI.main(new String[0]);
 		}
 	}

@@ -6,16 +6,37 @@ import slots.guigame.*;
 import slots.exception.*;
 import java.io.*;
 
+/*
+ * @author	Noah Guistini 
+ * @author      Erin Brintnell
+ * @author	Brian Kehrig
+ *  
+ * @version     unknown
+ *       
+ * The TextGame class allows players to play the text version of the slot machine. It encorporates the Reel, Game and ReelException classes
+ * It has one method which is the main method
+ *
+ */
+
 public class TextGame{
+        /** The method main is used to put all the functions of the text based game into action. 
+        * it creates new instances of the Reel class for leftReel, middleReel, and rightReel and an
+        * instance of the Scanner class for sc. Then a switch statement is used to see if the user would like to play a saved game
+        * and after that a new instance of the Game class is made. This method rolls the reels and shows them and uses
+        * switch statements to prompt the user to save the game, bet an amount and hold the middle reel. if the player runs out
+        * of money the console will tell the player they have no more money and will not allow them to play anymore.
+        *
+        *@param args - String array of launch arguments
+        */
         public static void main(String[] args){
                 Scanner sc = new Scanner(System.in);
                 Reel leftReel = null;
 		Reel middleReel = null;
 		Reel rightReel = null;
 		try{
-			leftReel = new Reel(0);		//create the left reel
-			middleReel = new Reel(1);		//create the middle reel
-			rightReel = new Reel(2);		//create the right reel
+			leftReel = new Reel(0);
+			middleReel = new Reel(1);
+			rightReel = new Reel(2);
 		}
 		catch (ReelException e){
 			System.out.println("There seems to be a problem with the reels of the slot machine. The program" +
@@ -23,11 +44,11 @@ public class TextGame{
 			System.exit(0);
 		}
 
-                int gameChoice = 0;			//variable to keep track of the user's choice of game
-                while(gameChoice == 0){			//while loop that checks if the user's input is valid
+                int gameChoice = 0;
+                while(gameChoice == 0){
                         System.out.println("Would you like to play a saved game? (Yes/No)");
-                        String choice = sc.nextLine(); //take user input as a string
-                        switch (choice.toUpperCase()) {//switch statement to go through all posibilities
+                        String choice = sc.nextLine();
+                        switch (choice.toUpperCase()) {
                                 case "YES":  gameChoice = 1;
                                         break;
                                 case "Y":  gameChoice = 1;
@@ -64,15 +85,15 @@ public class TextGame{
                         game = new Game(leftReel,middleReel,rightReel);
                 }
                         
-                game.rollAll();						//roll all reels so there will be data to display
-                game.showGame();					//show the reels
+                game.rollAll();
+                game.showGame();
                 
-                while(game.getPlayerBalance()>0){			//while the player has money
-                        int saveChoice = 0;			//variable to keep track of the user's choice of game
-                        while(saveChoice == 0){			//while loop that checks if the user's input is valid
+                while(game.getPlayerBalance()>0){
+                        int saveChoice = 0;
+                        while(saveChoice == 0){
                                 System.out.println("Would you like to save? (Yes/No)");
-                                String choice = sc.nextLine(); //take user input as a string
-                                switch (choice.toUpperCase()) {//switch statement to go through all posibilities
+                                String choice = sc.nextLine();
+                                switch (choice.toUpperCase()) {
                                 case "YES":  saveChoice = 1;
                                         break;
                                 case "Y":  saveChoice = 1;
@@ -90,11 +111,11 @@ public class TextGame{
                                 game.saveGame();
                         }
                         System.out.println("You have "+game.getPlayerBalance()+"$, how much would you like to bet? (10/20/30)");
-                        int userBet = 0;				//variable to keep track of the users bet
-                        int didWin = 0;					//variable to see if the user won
-                        while(userBet == 0){				//while the user has not bet a valid amount
-                                String betVal = sc.nextLine();		//take in user input
-                                switch (betVal) {			//switch statement to go through the possibilities of the user's bet
+                        int userBet = 0;
+                        int didWin = 0;
+                        while(userBet == 0){
+                                String betVal = sc.nextLine();
+                                switch (betVal) {
                                 case "10":  userBet = 1;
                                         break;
                                 case "20":  userBet = 2;
