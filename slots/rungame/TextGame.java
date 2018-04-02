@@ -41,7 +41,7 @@ public class TextGame{
                         }
                 }
                         
-                Game game;
+                Game game = null;
                 if (gameChoice == 1){
 			try{
                        		game = new SavedGame(leftReel,middleReel,rightReel);
