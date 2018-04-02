@@ -4,6 +4,7 @@ import java.util.Scanner;
 import slots.gamelogic.*;
 import slots.guigame.*;
 import slots.exception.ReelException;
+import java.io.FileNotFoundException;
 
 public class TextGame{
         public static void main(String[] args){
