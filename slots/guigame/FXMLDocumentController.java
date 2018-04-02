@@ -25,6 +25,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.shape.Rectangle;
 import slots.gamelogic.*;
 import slots.exception.ReelException;
+import java.io.*;
 
 
 /** This class, FXMLDocumentController, handles all of the screen elements of the GUI game according
