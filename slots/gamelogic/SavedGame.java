@@ -32,9 +32,14 @@ public class SavedGame extends Game{
 	  * @param	r - the right reel for the game setup
 	  *
 	  */
-	public SavedGame(Reel l,Reel m,Reel r){
+	public SavedGame(Reel l,Reel m,Reel r) throws FileNotFoundException{
 		super (l,m,r);
-		readPastGame(l,m,r);	
+		try{
+			readPastGame(l,m,r);	
+		}
+		catch (FileNotFoundException e){
+			throw e;
+		}
 	}
 	
 	
