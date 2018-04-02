@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.embed.swing.*?>
 <?import javafx.scene.*?>
@@ -8,8 +9,10 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="slots.guigame.FXMLDocumentController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="slots.guigame.FXMLDocumentController">
    <children>
+      <Rectangle fx:id="bgRect" arcHeight="5.0" arcWidth="5.0" fill="RED" height="583.0" layoutX="10.0" layoutY="9.0" stroke="RED" strokeType="INSIDE" width="583.0" />
+      <Rectangle fx:id="slotRect" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="421.0" layoutX="23.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" width="554.0" />
       <Button fx:id="holdButton" layoutX="135.0" layoutY="529.0" mnemonicParsing="false" onAction="#holdClick" text="Hold Middle Reel" />
       <Button fx:id="bet10" layoutX="107.0" layoutY="461.0" mnemonicParsing="false" onAction="#bet10Click" text="Bet $10" />
       <Button fx:id="bet20" layoutX="272.0" layoutY="461.0" mnemonicParsing="false" onAction="#bet20Click" text="Bet $20" />
@@ -59,7 +62,7 @@
             <Image url="@../../Documents/GitHub/Slot_Machine/3.png" />
          </image>
       </ImageView>
-      <Label fx:id="balance" alignment="CENTER" layoutX="264.0" layoutY="419.0" text="Balance: $100" textAlignment="CENTER" />
+      <Label fx:id="balance" alignment="CENTER" centerShape="false" layoutX="25.0" layoutY="418.0" prefHeight="17.0" prefWidth="548.0" text="Balance: $100" textAlignment="CENTER" />
       <Button fx:id="save" layoutX="360.0" layoutY="529.0" mnemonicParsing="false" onAction="#saveClick" prefHeight="25.0" prefWidth="80.0" text="Save" />
       <Button fx:id="normalGame" layoutX="135.0" layoutY="486.0" mnemonicParsing="false" onAction="#playNormalGame" prefHeight="33.0" prefWidth="118.0" text="Play New Game" />
       <Button fx:id="savedGame" layoutX="360.0" layoutY="486.0" mnemonicParsing="false" onAction="#playSavedGame" prefHeight="33.0" prefWidth="118.0" text="Play Saved Game" />
@@ -71,4 +74,3 @@
       </ImageView>
    </children>
 </AnchorPane>
-
