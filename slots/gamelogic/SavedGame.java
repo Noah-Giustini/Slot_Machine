@@ -32,12 +32,12 @@ public class SavedGame extends Game{
 	  * @param	r - the right reel for the game setup
 	  *
 	  */
-	public SavedGame(Reel l,Reel m,Reel r) throws FileNotFoundException, IOException, NegativeBalanceException, ReelException{
+	public SavedGame(Reel l,Reel m,Reel r) throws IOException, NegativeBalanceException, ReelException{
 		super (l,m,r);
 		try{
 			readPastGame(l,m,r);	
 		}
-		catch (FileNotFoundException|IOException|NegativeBalanceException|ReelException e){
+		catch (IOException|NegativeBalanceException|ReelException e){
 			throw e;
 		}
 			throw e;
@@ -82,7 +82,7 @@ public class SavedGame extends Game{
 	  * @param	m - the middle reel for the game setup
 	  * @param	r - the right reel for the game setup
 	  */
-	private void readPastGame(Reel l, Reel m, Reel r) throws FileNotFoundException, IOException, NegativeBalanceException, ReelException {
+	private void readPastGame(Reel l, Reel m, Reel r) throws IOException, NegativeBalanceException, ReelException {
 		String lineRead = "";
 		BufferedReader in = null;
 		int numLinesRead = 0;
@@ -133,7 +133,7 @@ public class SavedGame extends Game{
 			r.setReelValues(rReelValues);
 		}
 		
-		catch (FileNotFoundException|IOException|NegativeBalanceException|ReelException e){
+		catch (IOException|NegativeBalanceException|ReelException e){
 			throw e;
 		}
 		
