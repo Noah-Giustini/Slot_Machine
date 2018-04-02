@@ -158,6 +158,13 @@ public class FXMLDocumentController implements Initializable {
 			System.exit(0);
 		}
 		
+		try{
+			SavedGame saveTest = new SavedGame(lReel, mReel, rReel);
+		}
+		catch (FileNotFoundException e){
+			savedGame.setVisible(false);
+		}
+		
 		holdStatusLabel.setVisible(false);
 		
 		title.setImage(new Image("slots/images/title.png"));
