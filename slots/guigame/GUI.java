@@ -18,7 +18,6 @@ import javafx.animation.AnimationTimer;
 import java.lang.Integer;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.paint.Color;
 
 /** This class GUI, runs the gui game of the slot machine using an FXMLDocument and calling to an FXML document
   * controller, therefore it is the main class for the GUI version of the game
@@ -37,7 +36,7 @@ public class GUI extends Application {
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
         
-        Scene scene = new Scene(root, Color.BLACK);
+        Scene scene = new Scene(root);
         
         stage.setTitle("SLOTS");
         stage.setScene(scene);
