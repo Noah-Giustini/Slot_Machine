@@ -195,7 +195,12 @@ public class FXMLDocumentController implements Initializable {
 	  */
         @FXML
         private void playSavedGame (ActionEvent event){
-                backend = new SavedGame(lReel, mReel, rReel);
+		try{
+                	backend = new SavedGame(lReel, mReel, rReel);
+		}
+		catch (FileNotFoundException e){
+			backend = new Game(lReel, mReel, rReel);
+		}
 		backend = (SavedGame) backend;
                 startGame();
         }
