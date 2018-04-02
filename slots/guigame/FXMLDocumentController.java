@@ -48,6 +48,8 @@ import slots.exception.ReelException;
   * @var	title - an image view that shows the intro title screen for the game
   * @var	balance - a label showing the user's current balance in the game
   * @var	holdStatusLabel - a label showing whether or not the middle reel is held for the game
+  * @var	bgRect - a rectangle that is red and acts like the background of the slot machine
+  * @var	slotRect - a white rectangle that sits around the reels
   * @var	lReel - an instance of the reel class for the left reel of the game
   * @var	mReel - an instance of the reel class for the middle reel of the game
   * @var	rReel - an instance of the reel class for the right reel of the game
@@ -104,6 +106,13 @@ public class FXMLDocumentController implements Initializable {
         private Label balance;
         @FXML
         private Label holdStatusLabel;
+	
+	
+	
+	@FXML
+	private Rectangle bgRect;
+	@FXML
+	private Rectangle slotRect;
         
 
 	
@@ -134,6 +143,8 @@ public class FXMLDocumentController implements Initializable {
                 balance.setVisible(false);
                 save.setVisible(false);
 		holdButton.setVisible(false);
+		bgRect.setVisible(false);
+		slotRect.setVisible(false);
 		
 		try{
 			lReel = new Reel(0);
@@ -262,6 +273,8 @@ public class FXMLDocumentController implements Initializable {
                 save.setVisible(true);
 		holdButton.setVisible(true);
 		holdStatusLabel.setVisible(true);
+		bgRect.setVisible(true);
+		slotRect.setVisible(true);
 		
 		savedGame.setVisible(false);
                 normalGame.setVisible(false);
