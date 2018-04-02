@@ -165,7 +165,7 @@ public class FXMLDocumentController implements Initializable {
 		try{
 			SavedGame saveTest = new SavedGame(lReel, mReel, rReel);
 		}
-		catch (FileNotFoundException | ReelException | IOException | BalanceException e){
+		catch (FileNotFoundException | ReelException | IOException | NegativeBalanceException e){
 			savedGame.setVisible(false);
 		}
 		
