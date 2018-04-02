@@ -25,7 +25,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.shape.Rectangle;
 import slots.gamelogic.*;
 import slots.exception.*;
-import java.io.*;
+import java.io.IOException;
 
 
 /** This class, FXMLDocumentController, handles all of the screen elements of the GUI game according
@@ -165,7 +165,7 @@ public class FXMLDocumentController implements Initializable {
 		try{
 			SavedGame saveTest = new SavedGame(lReel, mReel, rReel);
 		}
-		catch (FileNotFoundException | ReelException | IOException | NegativeBalanceException e){
+		catch (ReelException | IOException | NegativeBalanceException e){
 			savedGame.setVisible(false);
 		}
 		
