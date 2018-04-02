@@ -37,7 +37,9 @@ public class SavedGame extends Game{
 		try{
 			readPastGame(l,m,r);	
 		}
-		catch (FileNotFoundException e){
+		catch (FileNotFoundException|IOException|NegativeBalanceException|ReelException e){
+			throw e;
+		}
 			throw e;
 		}
 	}
