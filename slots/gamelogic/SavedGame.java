@@ -32,7 +32,7 @@ public class SavedGame extends Game{
 	  * @param	r - the right reel for the game setup
 	  *
 	  */
-	public SavedGame(Reel l,Reel m,Reel r) throws FileNotFoundException{
+	public SavedGame(Reel l,Reel m,Reel r) throws FileNotFoundException, IOException, NegativeBalanceException, ReelException{
 		super (l,m,r);
 		try{
 			readPastGame(l,m,r);	
@@ -131,21 +131,10 @@ public class SavedGame extends Game{
 			r.setReelValues(rReelValues);
 		}
 		
-		catch (FileNotFoundException e){
+		catch (FileNotFoundException|IOException|NegativeBalanceException|ReelException e){
 			throw e;
 		}
 		
-		catch (IOException e){
-			throw e;
-		}
-		catch (NegativeBalanceException e){
-			System.out.println("The game you are trying to load has a negative balance, loading a new game...");
-			super.rollAll();
-		}
-		catch (ReelException e){
-			System.out.println("The game you are trying to load has invalid reels, loading a new game...");
-			super.rollAll();
-		}
 		catch (NumberFormatException e){
 			System.out.println("The code is not formating the given reel values properly");	
 			e.printStackTrace();
