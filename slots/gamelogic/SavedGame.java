@@ -40,8 +40,6 @@ public class SavedGame extends Game{
 		catch (IOException|NegativeBalanceException|ReelException e){
 			throw e;
 		}
-			throw e;
-		}
 	}
 	
 	
