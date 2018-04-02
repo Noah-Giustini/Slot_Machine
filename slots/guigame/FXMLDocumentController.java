@@ -202,7 +202,7 @@ public class FXMLDocumentController implements Initializable {
 		try{
                 	backend = new SavedGame(lReel, mReel, rReel);
 		}
-		catch (FileNotFoundException e){
+		catch (IOException|NegativeBalanceException|ReelException e){
 			backend = new Game(lReel, mReel, rReel);
 		}
 		backend = (SavedGame) backend;
