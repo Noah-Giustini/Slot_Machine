@@ -50,7 +50,18 @@ public class TextGame{
 				System.out.println("I'm sorry I can't find a saved file, loading new game...");
 				game = new Game(leftReel, middleReel,rightReel);
 			}
-			catch (
+			catch (IOException e){
+				System.out.println("An error has occured in loading the saved game, loading new game...");
+				super.rollAll();
+			}
+			catch (NegativeBalanceException e){
+				System.out.println("The game you are trying to load has a negative balance, loading a new game...");
+				super.rollAll();
+			}
+			catch (ReelException e){
+				System.out.println("The game you are trying to load has invalid reels, loading a new game...");
+				super.rollAll();
+			}
                 }
                 else {
                         game = new Game(leftReel,middleReel,rightReel);
