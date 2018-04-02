@@ -75,7 +75,7 @@ public class SavedGame extends Game{
 	  * @param	m - the middle reel for the game setup
 	  * @param	r - the right reel for the game setup
 	  */
-	private void readPastGame(Reel l, Reel m, Reel r){
+	private void readPastGame(Reel l, Reel m, Reel r) throws FileNotFoundException{
 		String lineRead = "";
 		BufferedReader in = null;
 		int numLinesRead = 0;
@@ -127,8 +127,7 @@ public class SavedGame extends Game{
 		}
 		
 		catch (FileNotFoundException e){
-			System.out.println("I'm sorry I can't find a saved file, loading new game...");
-			super.rollAll();
+			throw e;
 		}
 		
 		catch (IOException e){
