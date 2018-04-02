@@ -3,8 +3,8 @@ package slots.rungame;
 import java.util.Scanner;
 import slots.gamelogic.*;
 import slots.guigame.*;
-import slots.exception.ReelException;
-import java.io.FileNotFoundException;
+import slots.exception.*;
+import java.io.*;
 
 public class TextGame{
         public static void main(String[] args){
@@ -50,6 +50,7 @@ public class TextGame{
 				System.out.println("I'm sorry I can't find a saved file, loading new game...");
 				game = new Game(leftReel, middleReel,rightReel);
 			}
+			catch (
                 }
                 else {
                         game = new Game(leftReel,middleReel,rightReel);
