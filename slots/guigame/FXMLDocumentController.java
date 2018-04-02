@@ -351,6 +351,8 @@ public class FXMLDocumentController implements Initializable {
 	/** The method, restartGame, brings up a new version of the start screen when the user has run out
 	  * of money. It does this by making all game buttons to invisible and bringing up the new and 
 	  * saved game buttons again. It also changes the balance label to state "You have run out of money"
+	  * The method also only displays the saved game button if a save file is available. It does this
+	  * usin the try and except statement
 	  *
 	  */
 	private void restartGame(){
@@ -363,6 +365,13 @@ public class FXMLDocumentController implements Initializable {
 		
 		savedGame.setVisible(true);
                 normalGame.setVisible(true);
+		
+		try{
+			SavedGame saveTest = new SavedGame(lReel, mReel, rReel);
+		}
+		catch (ReelException | IOException | NegativeBalanceException e){
+			savedGame.setVisible(false);
+		}
 		
 		balance.setText("You have run out of money");
 	}
