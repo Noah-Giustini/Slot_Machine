@@ -160,7 +160,7 @@ public class FXMLDocumentController implements Initializable {
 		
 		holdStatusLabel.setVisible(false);
 		
-		title.setImage(new Image("slots.images.title.png"));
+		title.setImage(new Image("slots/images/title.png"));
         }
 		
 	
@@ -299,17 +299,17 @@ public class FXMLDocumentController implements Initializable {
                 this.balance.setText("Balance: $"+Double.toString(backend.getPlayerBalance()));
 
 
-                lTop.setImage(new Image("slots.images."+Integer.toString(lReel.getReel()[0])+".png"));
-                lMid.setImage(new Image("slots.images."+Integer.toString(lReel.getReel()[1])+".png"));
-                lBot.setImage(new Image("slots.images."+Integer.toString(lReel.getReel()[2])+".png"));
+                lTop.setImage(new Image("slots/images/"+Integer.toString(lReel.getReel()[0])+".png"));
+                lMid.setImage(new Image("slots/images/"+Integer.toString(lReel.getReel()[1])+".png"));
+                lBot.setImage(new Image("slots/images/"+Integer.toString(lReel.getReel()[2])+".png"));
 
-                mTop.setImage(new Image("slots.images."+Integer.toString(mReel.getReel()[0])+".png"));
-                mMid.setImage(new Image("slots.images."+Integer.toString(mReel.getReel()[1])+".png"));
-                mBot.setImage(new Image("slots.images."+Integer.toString(mReel.getReel()[2])+".png"));
+                mTop.setImage(new Image("slots/images/"+Integer.toString(mReel.getReel()[0])+".png"));
+                mMid.setImage(new Image("slots/images/"+Integer.toString(mReel.getReel()[1])+".png"));
+                mBot.setImage(new Image("slots/images/"+Integer.toString(mReel.getReel()[2])+".png"));
 
-                rTop.setImage(new Image("slots.images."+Integer.toString(rReel.getReel()[0])+".png"));
-                rMid.setImage(new Image("slots.images."+Integer.toString(rReel.getReel()[1])+".png"));
-                rBot.setImage(new Image("slots.images."+Integer.toString(rReel.getReel()[2])+".png"));
+                rTop.setImage(new Image("slots/images/"+Integer.toString(rReel.getReel()[0])+".png"));
+                rMid.setImage(new Image("slots/images/"+Integer.toString(rReel.getReel()[1])+".png"));
+                rBot.setImage(new Image("slots/images/"+Integer.toString(rReel.getReel()[2])+".png"));
         }
 	
 	
