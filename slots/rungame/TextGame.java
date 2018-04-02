@@ -42,7 +42,13 @@ public class TextGame{
                         
                 Game game;
                 if (gameChoice == 1){
-                        game = new SavedGame(leftReel,middleReel,rightReel);
+			try{
+                       		game = new SavedGame(leftReel,middleReel,rightReel);
+			}
+			catch (FileNotFoundException e){
+				System.out.println("I'm sorry I can't find a saved file, loading new game...");
+				game = new Game(leftReel, middleReel,rightReel);
+			}
                 }
                 else {
                         game = new Game(leftReel,middleReel,rightReel);
