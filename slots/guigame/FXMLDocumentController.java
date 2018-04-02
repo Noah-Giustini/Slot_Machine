@@ -24,8 +24,8 @@ import java.lang.Double;
 import javafx.scene.control.CheckBox;
 import javafx.scene.shape.Rectangle;
 import slots.gamelogic.*;
-import slots.exception.ReelException;
-import java.io.FileNotFoundException;
+import slots.exception.*;
+import java.io.*;
 
 
 /** This class, FXMLDocumentController, handles all of the screen elements of the GUI game according
@@ -132,7 +132,8 @@ public class FXMLDocumentController implements Initializable {
 	  * that there is an error in the reels than the method displays a message to the user using the
 	  * holdStatusLabel and quits the application. The method sets all game objects to invisible 
 	  * while keeping objects needed for the starting screen visible. Finally it sets the start screen image 
-	  * to the title image.
+	  * to the title image. The method also tries to start a new game but if their is not a properly set up save file
+	  * then the saved game button is not displayed
 	  *
 	  * @param	url - the url of the FXMLDocument that is read by the FXMLDocument controller
 	  * @param	rb - the resource bundle needed to run the FXMLDocumentController class
@@ -159,15 +160,17 @@ public class FXMLDocumentController implements Initializable {
 			System.exit(0);
 		}
 		
+		
+		
 		try{
 			SavedGame saveTest = new SavedGame(lReel, mReel, rReel);
 		}
-		catch (FileNotFoundException e){
+		catch (FileNotFoundException | ReelException | IOException | BalanceException e){
 			savedGame.setVisible(false);
 		}
 		
-		holdStatusLabel.setVisible(false);
 		
+		holdStatusLabel.setVisible(false);
 		title.setImage(new Image("slots/images/title.png"));
         }
 		
