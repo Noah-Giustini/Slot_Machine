@@ -1,31 +1,12 @@
-
-
 import static org.junit.Assert.*;
 import org.junit.Test;
 import slots.gamelogic.*;
-
-
-
-
+import slots.exception.ReelException;
 
 public class TestSlotMachine {
 
-	/*@Test
-	public void test_getIDNum(){
-		assertTrue("Instance variables should be private with correct name and type.", instanceVariablesArePrivate());
-		assertTrue("Employee should not have the default constructor.", noDefaultConstructor());
-		String[] methods = {"double getMonthlyPay()", "String getStatus()"};
-		assertTrue("The Employee class, getStatus and getMonthlyPay methods should be abstract with correct signature.", hasRequiredAbstractMethods(methods));
-		assertTrue("constructor should be public with correct signature.", hasRequiredPublicMethods());
-		
-		
-		Emp e1 = new Emp("Adam","1");
-		
-		assertEquals("Created Adam, 1.", "1", e1.getIDNum());
-	}*/
-    
     @Test
-    public void test_constructors() {
+    public void test_Reel_constructors() {
         Reel reel1 = new Reel(0);
         Reel reel2 = new Reel(1);
         Reel reel3 = new Reel(2);
@@ -35,9 +16,9 @@ public class TestSlotMachine {
         Game g = new Game(reel1, reel2, reel3);
         assertEquals("Should have balance of $100", 100, g.getPlayerBalance());
     }
-    
+
     @Test
-    public void test_money() {
+    public void test_Reel_money() {
         Reel reel1 = new Reel(0);
         Reel reel2 = new Reel(1);
         Reel reel3 = new Reel(2);
@@ -48,35 +29,58 @@ public class TestSlotMachine {
         g.collectWinnings(73773);
         assertEquals("Should have balance of $73840", 73840, g.getPlayerBalance());
     }
-    
+
     @Test
-    public void test_getReels() {
-	Reel reel1 = new Reel(0);
+    public void test_Reel_getReels() {
+        Reel reel1 = new Reel(0);
         Reel reel2 = new Reel(1);
         Reel reel3 = new Reel(2);
         Game g = new Game(reel1, reel2, reel3);
         assertEquals("Reel1 should match", reel1.getReel()[0], g.getLeftList()[0]);
-	assertEquals("Reel1 should match", reel1.getReel()[1], g.getLeftList()[1]);
-	assertEquals("Reel1 should match", reel1.getReel()[2], g.getLeftList()[2]);
+        assertEquals("Reel1 should match", reel1.getReel()[1], g.getLeftList()[1]);
+        assertEquals("Reel1 should match", reel1.getReel()[2], g.getLeftList()[2]);
         assertEquals("Reel2 should match", reel2.getReel()[0], g.getMidList()[0]);
-	assertEquals("Reel2 should match", reel2.getReel()[1], g.getMidList()[1]);
-	assertEquals("Reel2 should match", reel2.getReel()[2], g.getMidList()[2]);
+        assertEquals("Reel2 should match", reel2.getReel()[1], g.getMidList()[1]);
+        assertEquals("Reel2 should match", reel2.getReel()[2], g.getMidList()[2]);
         assertEquals("Reel3 should match", reel3.getReel()[0], g.getRightList()[0]);
-	assertEquals("Reel3 should match", reel3.getReel()[1], g.getRightList()[1]);
-	assertEquals("Reel3 should match", reel3.getReel()[2], g.getRightList()[2]);
+        assertEquals("Reel3 should match", reel3.getReel()[1], g.getRightList()[1]);
+        assertEquals("Reel3 should match", reel3.getReel()[2], g.getRightList()[2]);
+    }
+
+    @Test
+    public void test_Reel_rollReels() {
+        Reel reel1 = new Reel(0);
+        Reel reel2 = new Reel(1);
+        Reel reel3 = new Reel(2);
+        Game g = new Game(reel1, reel2, reel3);
+        g.rollAll();
+        assertTrue("Left reel needs to have all different items", testReel(reel1));
+        assertTrue("Middle reel needs to have all different items", testReel(reel2));
+        assertTrue("Reel reel needs to have all different items", testReel(reel3));
     }
     
     @Test
-    public void test_rollReels() {
-	Reel reel1 = new Reel(0);
-	Reel reel2 = new Reel(1);
-	Reel reel3 = new Reel(2);
-	Game g = new Game(reel1, reel2, reel3);
-	g.rollAll();
-	assertTrue("Left reel needs to have all different items", testReel(reel1));
-	assertTrue("Middle reel needs to have all different items", testReel(reel2));
-	assertTrue("Reel reel needs to have all different items", testReel(reel3));
+    public void test_Reel_setValues_valid() {
+        Reel reel = new Reel(0);
+        reel.rollReel();
+        reel.setReelValues(new int[]{3,1,5});
+        int[] thing = reel.getReel();
+        assertEquals("Top slot should be 3", thing[0], 3);
+        assertEquals("Middle slot should be 1", thing[1], 1);
+        assertEquals("Bottom slot should be 5", thing[2], 5);
     }
+    
+    @Test
+    public void test_Reel_setValues_invalid() {
+        Reel reel = new Reel(0);
+        reel.rollReel();
+        reel.setReelValues(new int[]{3333,1,-5});
+        try {
+            int[] thing = reel.getReel(); // it should throw ReelException on this line
+            assertTrue("getReel() should throw ReelException", false); // fail if it gets to this line
+        } catch (ReelException e) {}
+    }    
+
     private boolean testReel(Reel reel) {
         int[] list = reel.getReel();
         if ((list[0] == list[1]) || (list[0] == list[2]) || (list[1] == list[2])) {
