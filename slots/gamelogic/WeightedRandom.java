@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 
-/** The weightedRandom class, generates a random symbol for a position within a reel dependant upon how 
+/** The weightedRandom class, generates a random symbol for a position within a reel dependent upon how 
   * likely it is for a specific item to be within a reel thus simulating an actual slot machine.
   *
   * @var    items - an array list containing all of the items (cherry, watermelon, lucky, etc) that
@@ -25,9 +25,14 @@ public class WeightedRandom {
     public WeightedRandom(ArrayList<Item> i) {
         items = i;
     }
- 
- 
-  
+    
+    /** This method chooses one item randomly from the list of items, while respecting
+      * weights.  For example, if X = new Item(1.0) and Y = new Item(3.0), then
+      * a WeightedRandom instance with {X,Y} as its list will choose Y 3 times as
+      * often as X, because Y's weight has 3 times greater than X's weight.
+      *
+      * @param      random - an instance of Random to use.
+      */
     public Item get(Random random) {
         double total = getTotalWeight();
         double current = random.nextDouble() * total;
@@ -41,8 +46,9 @@ public class WeightedRandom {
         return null;
         // The code should never reach this point
     }
+    
     private double getTotalWeight() {
-        //Gets the sum of the weights of all the items
+        //Gets the sum of the weights of all the items in the list
         //This method is used by the get() method
         double w = 0.0;
         for (Item i : items) {
@@ -51,9 +57,17 @@ public class WeightedRandom {
         return w;
     }
     
-    
+    /** The Item inner class of WeightedRandom represents an item.  The WeightedRandom
+      * class has a list of items to choose from, and the get() method chooses one item
+      * randomly, while respecting weights.  If X = new Item(1.0) and Y = new Item(3.0),
+      * then a WeightedRandom instance with {X,Y} as its list will choose Y 3 times as
+      * often as X, because Y's weight has 3 times greater than X's weight.
+      *
+      * @var   weight - a value which is the weight of the item.  A higher value means
+      *                 it is more likely to be chosen by the WeightedRandom class.
+      */
     public static class Item {
-        //This classes can be accessed by typing WeightedRandom.Item
+        
         private double weight;
         
         public Item(double w) {
@@ -67,8 +81,11 @@ public class WeightedRandom {
     }
     
     public static void main(String[] args) {
-        //THIS METHOD IS A TEST METHOD
-        //IT IS NOT USED IN THE ACTUAL GAME
+        /**
+          * THIS METHOD IS A TEST METHOD
+          * IT IS NOT USED IN THE ACTUAL GAME
+          * (it does work, by the way)
+          */
         
         Item i = new WeightedRandom.Item(3);
         Item j = new WeightedRandom.Item(10);
