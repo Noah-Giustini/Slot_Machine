@@ -130,7 +130,9 @@ public class FXMLDocumentController implements Initializable {
 	  * holdStatusLabel and quits the application. The method sets all game objects to invisible 
 	  * while keeping objects needed for the starting screen visible. Finally it sets the start screen image 
 	  * to the title image. The method also tries to start a new game but if their is not a properly set up save file
-	  * then the saved game button is not displayed
+	  * then the saved game button is not displayed. Setting the certain game componants visible is specific to the 
+	  * GUI however, the reels are part of the underlying game logic that can also be seen in the text version of
+	  * the game. The exceptions will be caught regardless of whether we are in GUI or in the underlying logic
 	  *
 	  * @param	url - the url of the FXMLDocument that is read by the FXMLDocument controller
 	  * @param	rb - the resource bundle needed to run the FXMLDocumentController class
@@ -174,7 +176,8 @@ public class FXMLDocumentController implements Initializable {
 	
         /** The method, playNormalGame, sets up a normal game that has not yet been played (ie. not a saved game)
 	  * it does this by setting the backend to a new Game with the three reels and rolling all of the reels
-	  * it then calls to the startGame method to begin the game.
+	  * it then calls to the startGame method to begin the game. The backend game is the underlying gamelogic
+	  * completely separate from the GUI. Therefore a game can be run separate from the GUI
 	  *
 	  * @param	event - the action event of pressing the normalGame button to start a new game
 	  */
@@ -189,7 +192,9 @@ public class FXMLDocumentController implements Initializable {
 	
         /** The method, playSavedGame, sets up a saved game from a saved file
 	  * it does this by setting the backend to a new SavedGame with the three reels, and typecasting backend to 
-	  * a saved game. It then calls to the startGame method to begin the game.
+	  * a saved game. It then calls to the startGame method to begin the game. Saved game is an 
+	  * underlying game logic that can be run without the gui. The cascaded exceptions will be found regardsless
+	  * of whether we are in the gui or the underlying game logic
 	  *
 	  * @param	event - the action event of pressing the savedGame button to start a new game
 	  */
@@ -208,7 +213,7 @@ public class FXMLDocumentController implements Initializable {
 	
 	
 	/** The method bet10Click, is called when the user presses the bet10 button. When this happens the method
-	  * calls to the betClick method with an amount to be bet of $10
+	  * calls to the betClick method with an amount to be bet of $10. Part of the gui game
 	  *
 	  * @param	event - the action event of pressing the bet10 button to bet $10
 	  *
@@ -221,7 +226,7 @@ public class FXMLDocumentController implements Initializable {
 	
 	
 	/** The method bet20Click, is called when the user presses the bet20 button. When this happens the method
-	  * calls to the betClick method with an amount to be bet of $20
+	  * calls to the betClick method with an amount to be bet of $20. Part of the gui game
 	  *
 	  * @param	event - the action event of pressing the bet20 button to bet $20
 	  *
@@ -234,7 +239,7 @@ public class FXMLDocumentController implements Initializable {
 	
 	
 	/** The method, bet30Click, is called when the user presses the bet30 button. When this happens the method
-	  * calls to the betClick method with an amount to be bet of $30
+	  * calls to the betClick method with an amount to be bet of $30. Part of the gui game
 	  *
 	  * @param	event - the action event of pressing the bet30 button to bet $30
 	  *
@@ -247,7 +252,7 @@ public class FXMLDocumentController implements Initializable {
 	
 	
 	/** The method, saveClick, is called when the user presses the save button. When this happens the method
-	  * saves the game in the backend variable
+	  * saves the game in the backend variable. Uses underlying game logic to save the game
 	  *
 	  * @param	event - the action event of pressing the save button to save the game
 	  *
@@ -274,7 +279,8 @@ public class FXMLDocumentController implements Initializable {
 	
 	
         /** This method, startGame, removes the starting buttons and the introscreen by manking them invisible and 
-	  * brings up the betting buttons as well as showing the game, through the showScreen method
+	  * brings up the betting buttons as well as showing the game, through the showScreen method. Sets all 
+	  * important gui elements to show for the main game.
 	  *
 	  */
 	
@@ -303,7 +309,7 @@ public class FXMLDocumentController implements Initializable {
 	  * views to the image of their respective item from the backend variable by getting the reel of their 
 	  * area and choosing a position in the array that is returned. The position in 0 of this array is the top
 	  * placement, the item in position 1 of the array is the middle item and the item in position 2 is the bottom
-	  * item.
+	  * item. Uses underlying game logic to get the reels
 	  */
         private void showScreen(){
 	
