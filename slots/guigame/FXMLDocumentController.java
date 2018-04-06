@@ -59,7 +59,6 @@ import java.io.IOException;
  * @var	holdStatus - a string showing the status of the hold
  */
 public class FXMLDocumentController implements Initializable {
-<<<<<<< HEAD
 
     @FXML
     private Button bet30;
@@ -162,209 +161,6 @@ public class FXMLDocumentController implements Initializable {
             SavedGame saveTest = new SavedGame(lReel, mReel, rReel);
         } catch (ReelException | IOException | NegativeBalanceException e) {
             savedGame.setVisible(false);
-=======
-     
-        @FXML
-        private Button bet30;
-        @FXML
-        private Button bet20;
-        @FXML
-        private Button bet10;
-        @FXML
-        private Button save;
-        @FXML
-        private Button savedGame;
-        @FXML
-        private Button normalGame;
-        @FXML
-        private Button holdButton;
-
-	
-	
-        @FXML
-        private ImageView lTop;
-        @FXML
-        private ImageView mTop;
-        @FXML
-        private ImageView rTop;
-
-        @FXML
-        private ImageView lMid;
-        @FXML
-        private ImageView mMid;
-        @FXML
-        private ImageView rMid;
-
-        @FXML
-        private ImageView lBot;
-        @FXML
-        private ImageView mBot;
-        @FXML
-        private ImageView rBot;
-	
-	@FXML
-	private ImageView title;
-		
-
-
-        @FXML
-        private Label balance;
-        @FXML
-        private Label holdStatusLabel;
-	
-	
-	
-	@FXML
-	private Rectangle bgRect;
-        
-
-	
-        private Reel lReel = null;
-        private Reel mReel = null;
-        private Reel rReel = null;
-        private Game backend;
-        private int hold = 1;
-        private String holdStatus;
-
-	
-	
-	/** The method initialize sets up the game when the FXMLDocument controller class is orginally started.
-	  * the method begins by trying to set up the reels for the game. If a reel excepion is caught, meaning
-	  * that there is an error in the reels than the method displays a message to the user using the
-	  * holdStatusLabel and quits the application. The method sets all game objects to invisible 
-	  * while keeping objects needed for the starting screen visible. Finally it sets the start screen image 
-	  * to the title image. The method also tries to start a new game but if their is not a properly set up save file
-	  * then the saved game button is not displayed. Setting the certain game componants visible is specific to the 
-	  * GUI however, the reels are part of the underlying game logic that can also be seen in the text version of
-	  * the game. The exceptions will be caught regardless of whether we are in GUI or in the underlying logic
-	  *
-	  * @param	url - the url of the FXMLDocument that is read by the FXMLDocument controller
-	  * @param	rb - the resource bundle needed to run the FXMLDocumentController class
-	  */
-        @Override
-        public void initialize(URL url, ResourceBundle rb) {
-		bet30.setVisible(false);
-                bet20.setVisible(false);
-                bet10.setVisible(false);
-                balance.setVisible(false);
-                save.setVisible(false);
-		holdButton.setVisible(false);
-		bgRect.setVisible(false);
-		
-		try{
-			lReel = new Reel(0);
-        		mReel = new Reel(1);
-       			rReel = new Reel(2);
-		}
-		catch (ReelException e){
-			holdStatusLabel.setText("There seems to be an error with the reels of the game, the application"
-						+ "will now close");
-			System.exit(0);
-		}
-		
-		
-		
-		try{
-			SavedGame saveTest = new SavedGame(lReel, mReel, rReel);
-		}
-		catch (ReelException | IOException | NegativeBalanceException e){
-			savedGame.setVisible(false);
-		}
-		
-		
-		holdStatusLabel.setVisible(false);
-		title.setImage(new Image("slots/images/title.png"));
-        }
-		
-	
-	
-        /** The method, playNormalGame, sets up a normal game that has not yet been played (ie. not a saved game)
-	  * it does this by setting the backend to a new Game with the three reels and rolling all of the reels
-	  * it then calls to the startGame method to begin the game. The backend game is the underlying gamelogic
-	  * completely separate from the GUI. Therefore a game can be run separate from the GUI
-	  *
-	  * @param	event - the action event of pressing the normalGame button to start a new game
-	  */
-        @FXML
-        private void playNormalGame (ActionEvent event){
-                backend = new Game(lReel, mReel, rReel);
-		backend.rollAll();
-		startGame();
-        }
-	
-	
-	
-        /** The method, playSavedGame, sets up a saved game from a saved file
-	  * it does this by setting the backend to a new SavedGame with the three reels, and typecasting backend to 
-	  * a saved game. It then calls to the startGame method to begin the game. Saved game is an 
-	  * underlying game logic that can be run without the gui. The cascaded exceptions will be found regardsless
-	  * of whether we are in the gui or the underlying game logic
-	  *
-	  * @param	event - the action event of pressing the savedGame button to start a new game
-	  */
-        @FXML
-        private void playSavedGame (ActionEvent event){
-		try{
-                	backend = new SavedGame(lReel, mReel, rReel);
-		}
-		catch (IOException|NegativeBalanceException|ReelException e){
-			backend = new Game(lReel, mReel, rReel);
-		}
-		backend = (SavedGame) backend;
-                startGame();
-        }
-	
-	
-	
-	/** The method bet10Click, is called when the user presses the bet10 button. When this happens the method
-	  * calls to the betClick method with an amount to be bet of $10. Part of the gui game
-	  *
-	  * @param	event - the action event of pressing the bet10 button to bet $10
-	  *
-	  */
-        @FXML
-        private void bet10Click(ActionEvent event) {
-            betClick(event, 10); //When you bet 10
-        }
-	
-	
-	
-	/** The method bet20Click, is called when the user presses the bet20 button. When this happens the method
-	  * calls to the betClick method with an amount to be bet of $20. Part of the gui game
-	  *
-	  * @param	event - the action event of pressing the bet20 button to bet $20
-	  *
-	  */
-        @FXML
-        private void bet20Click(ActionEvent event) {
-            betClick(event, 20); //When you bet 20
-        }
-	
-	
-	
-	/** The method, bet30Click, is called when the user presses the bet30 button. When this happens the method
-	  * calls to the betClick method with an amount to be bet of $30. Part of the gui game
-	  *
-	  * @param	event - the action event of pressing the bet30 button to bet $30
-	  *
-	  */
-        @FXML
-        private void bet30Click(ActionEvent event) {
-            betClick(event, 30); //When you bet 30
-        }
-	
-	
-	
-	/** The method, saveClick, is called when the user presses the save button. When this happens the method
-	  * saves the game in the backend variable. Uses underlying game logic to save the game
-	  *
-	  * @param	event - the action event of pressing the save button to save the game
-	  *
-	  */
-        @FXML
-        private void saveClick(ActionEvent event){
-                backend.saveGame();
->>>>>>> 5bc457ab7adec7bfee36bc60a7d321efbdc69452
         }
 
 
@@ -420,7 +216,6 @@ public class FXMLDocumentController implements Initializable {
     }
 
 
-<<<<<<< HEAD
 
     /** The method bet20Click, is called when the user presses the bet20 button. When this happens the method
      * calls to the betClick method with an amount to be bet of $20
@@ -540,31 +335,6 @@ public class FXMLDocumentController implements Initializable {
             this.holdStatus = "Held";
         } else {
             this.holdStatus = "Not Held";
-=======
-	
-	
-        /** This method, startGame, removes the starting buttons and the introscreen by manking them invisible and 
-	  * brings up the betting buttons as well as showing the game, through the showScreen method. Sets all 
-	  * important gui elements to show for the main game.
-	  *
-	  */
-	
-        private void startGame(){
-                bet30.setVisible(true);
-                bet20.setVisible(true);
-                bet10.setVisible(true);
-                balance.setVisible(true);
-                save.setVisible(true);
-		holdButton.setVisible(true);
-		holdStatusLabel.setVisible(true);
-		bgRect.setVisible(true);
-		
-		savedGame.setVisible(false);
-                normalGame.setVisible(false);
-		title.setVisible(false);
-		
-		showScreen();
->>>>>>> 5bc457ab7adec7bfee36bc60a7d321efbdc69452
         }
     }
 
@@ -587,39 +357,10 @@ public class FXMLDocumentController implements Initializable {
         savedGame.setVisible(true);
         normalGame.setVisible(true);
 
-<<<<<<< HEAD
         try {
             SavedGame saveTest = new SavedGame(lReel, mReel, rReel);
         } catch (ReelException | IOException | NegativeBalanceException e) {
             savedGame.setVisible(false);
-=======
-	
-	
-        /** The method, showScreen, shows the screen where all the images, buttons, etc. at the start of the game and 
-	  * after each time that the user has bet some money and the reels have rolled. The method first chances the 
-	  * balance variable to the new player balance in the backend variable and then sets each of the item image
-	  * views to the image of their respective item from the backend variable by getting the reel of their 
-	  * area and choosing a position in the array that is returned. The position in 0 of this array is the top
-	  * placement, the item in position 1 of the array is the middle item and the item in position 2 is the bottom
-	  * item. Uses underlying game logic to get the reels
-	  */
-        private void showScreen(){
-	
-                this.balance.setText("Balance: $"+Double.toString(backend.getPlayerBalance()));
-
-
-                lTop.setImage(new Image("slots/images/"+Integer.toString(lReel.getReel()[0])+".png"));
-                lMid.setImage(new Image("slots/images/"+Integer.toString(lReel.getReel()[1])+".png"));
-                lBot.setImage(new Image("slots/images/"+Integer.toString(lReel.getReel()[2])+".png"));
-
-                mTop.setImage(new Image("slots/images/"+Integer.toString(mReel.getReel()[0])+".png"));
-                mMid.setImage(new Image("slots/images/"+Integer.toString(mReel.getReel()[1])+".png"));
-                mBot.setImage(new Image("slots/images/"+Integer.toString(mReel.getReel()[2])+".png"));
-
-                rTop.setImage(new Image("slots/images/"+Integer.toString(rReel.getReel()[0])+".png"));
-                rMid.setImage(new Image("slots/images/"+Integer.toString(rReel.getReel()[1])+".png"));
-                rBot.setImage(new Image("slots/images/"+Integer.toString(rReel.getReel()[2])+".png"));
->>>>>>> 5bc457ab7adec7bfee36bc60a7d321efbdc69452
         }
 
         balance.setText("You have run out of money");
