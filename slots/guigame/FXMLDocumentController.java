@@ -130,7 +130,11 @@ public class FXMLDocumentController implements Initializable {
      * holdStatusLabel and quits the application. The method sets all game objects to invisible 
      * while keeping objects needed for the starting screen visible. Finally it sets the start screen image 
      * to the title image. The method also tries to start a new game but if their is not a properly set up save file
-     * then the saved game button is not displayed
+     * then the saved game button is not displayed. Exception handling is used to deal with cascaded exceptions from
+     * other classes. If there is a ReelException than there is a problem with the internal game and nothing but a 
+     * descriptive message of the internal game problem will be displayed. If there is an exception due to the saved game
+     * than the user will not be able to run the saved game (such as no sve file), as the exception handeling method
+     * will not display the save game button. 
      *
      * @param	url - the url of the FXMLDocument that is read by the FXMLDocument controller
      * @param	rb - the resource bundle needed to run the FXMLDocumentController class
@@ -150,9 +154,11 @@ public class FXMLDocumentController implements Initializable {
             mReel = new Reel(1);
             rReel = new Reel(2);
         } catch (ReelException e) {
-            holdStatusLabel.setText("There seems to be an error with the reels of the game, the application" +
-                "will now close");
-            System.exit(0);
+            title.setVisible (false);
+            savedGame.setVisible (false);
+            newGame.setVisible (false);
+            bgRext.setVisible (true);
+            holdStatusLabel.setText("There seems to be an error with the reels of the game, please resart the game");
         }
 
 
