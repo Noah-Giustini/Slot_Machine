@@ -106,8 +106,9 @@ public class ReelTest {
         }
             
         reel.rollReel();
-        reel.setReelValues(new int[]{3333,1,-5});
+        
         try {
+            reel.setReelValues(new int[]{3333,1,-5});
             int[] thing = reel.getReel(); // it should throw ReelException on this line
             assertTrue("getReel() should throw ReelException", false); // fail if it gets to this line
         } catch (ReelException e) {}
