@@ -1,6 +1,8 @@
 There are three ways that you can run the game:
-        1) If you are using Windows - double click on runmeWNDS. This will automatically compile all nescessary classes and will start the            program
-        2) If you are using Linux - double click on runmeLNX. This will automatically compile all nescessary classes and will start the              program
+        1) If you are using Windows - double click on runmeWNDS. This will automatically compile all 
+           nescessary classes and will start the program
+        2) If you are using Linux - double click on runmeLNX. This will automatically compile all 
+           nescessary classes and will start the program
         3) For any other system:
                 1) Open the folder in your command prompt
                 2) Compile necessary classes using the following commands:
