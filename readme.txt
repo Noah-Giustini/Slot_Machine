@@ -15,8 +15,8 @@ There are three ways that you can run the game:
 
 To run the junit test cases use the following commands in your command prompt:
 
-1) javac -cp .:junit-4.12.jar:hamcrest-core-1.3.jar TestSlotMachine.java
-2) java -cp .:junit-4.12.jar:hamcrest-core-1.3.jar org.junit.runner.JUnitCore TestSlotMachine
+1) javac -cp .:junit-4.12.jar:hamcrest-core-1.3.jar slots/test/ReelTest.java
+2) java -cp .:junit-4.12.jar:hamcrest-core-1.3.jar org.junit.runner.JUnitCore ReelTest
 
 Pictures from: https://pixaroma.deviantart.com/art/Free-Slot-Machine-Icons-478414978 Accessed 02/27/2018
 
