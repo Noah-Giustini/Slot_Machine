@@ -193,7 +193,8 @@ public class FXMLDocumentController implements Initializable {
 
     /** The method, playSavedGame, sets up a saved game from a saved file
      * it does this by setting the backend to a new SavedGame with the three reels, and typecasting backend to 
-     * a saved game. It then calls to the startGame method to begin the game.
+     * a saved game. It then calls to the startGame method to begin the game. If there is an exception in
+     * running the saved game than the play saved game method will simply run a new game.
      *
      * @param	event - the action event of pressing the savedGame button to start a new game
      */
@@ -250,14 +251,22 @@ public class FXMLDocumentController implements Initializable {
 
 
     /** The method, saveClick, is called when the user presses the save button. When this happens the method
-     * saves the game in the backend variable
+     * saves the game in the backend variable. If an IOException cascaded from the saveGame method in the Game
+     * class occurs, than the exception will be handled and a message will appear in the balance label on 
+     * the screen saying that the game cannot be saved. The save button will then be hidden so that the 
+     * user is prevented from saving in the future.
      *
      * @param	event - the action event of pressing the save button to save the game
      *
      */
     @FXML
     private void saveClick(ActionEvent event) {
-        backend.saveGame();
+        try{
+            backend.saveGame();
+        } catch (IOException e) {
+            balance.setText ("Unfortunately, an error has occured and the game cannot save");
+            save.setVisible(false);
+        }
     }
 
 
@@ -306,24 +315,39 @@ public class FXMLDocumentController implements Initializable {
      * views to the image of their respective item from the backend variable by getting the reel of their 
      * area and choosing a position in the array that is returned. The position in 0 of this array is the top
      * placement, the item in position 1 of the array is the middle item and the item in position 2 is the bottom
-     * item.
+     * item. If an ArrayIndexOutOfBounds exception occurs, than a message will be displayed in the balance label
+     * and the user will be prevented from doing anything else as everything but the message will be invisible
+     * to them. This exception is caught through exception handeling
      */
     private void showScreen() {
 
         this.balance.setText("Balance: $" + Double.toString(backend.getPlayerBalance()));
 
+        try{
+            lTop.setImage(new Image("slots/images/" + Integer.toString(lReel.getReel()[0]) + ".png"));
+            lMid.setImage(new Image("slots/images/" + Integer.toString(lReel.getReel()[1]) + ".png"));
+            lBot.setImage(new Image("slots/images/" + Integer.toString(lReel.getReel()[2]) + ".png"));
 
-        lTop.setImage(new Image("slots/images/" + Integer.toString(lReel.getReel()[0]) + ".png"));
-        lMid.setImage(new Image("slots/images/" + Integer.toString(lReel.getReel()[1]) + ".png"));
-        lBot.setImage(new Image("slots/images/" + Integer.toString(lReel.getReel()[2]) + ".png"));
+            mTop.setImage(new Image("slots/images/" + Integer.toString(mReel.getReel()[0]) + ".png"));
+            mMid.setImage(new Image("slots/images/" + Integer.toString(mReel.getReel()[1]) + ".png"));
+            mBot.setImage(new Image("slots/images/" + Integer.toString(mReel.getReel()[2]) + ".png"));
 
-        mTop.setImage(new Image("slots/images/" + Integer.toString(mReel.getReel()[0]) + ".png"));
-        mMid.setImage(new Image("slots/images/" + Integer.toString(mReel.getReel()[1]) + ".png"));
-        mBot.setImage(new Image("slots/images/" + Integer.toString(mReel.getReel()[2]) + ".png"));
-
-        rTop.setImage(new Image("slots/images/" + Integer.toString(rReel.getReel()[0]) + ".png"));
-        rMid.setImage(new Image("slots/images/" + Integer.toString(rReel.getReel()[1]) + ".png"));
-        rBot.setImage(new Image("slots/images/" + Integer.toString(rReel.getReel()[2]) + ".png"));
+            rTop.setImage(new Image("slots/images/" + Integer.toString(rReel.getReel()[0]) + ".png"));
+            rMid.setImage(new Image("slots/images/" + Integer.toString(rReel.getReel()[1]) + ".png"));
+            rBot.setImage(new Image("slots/images/" + Integer.toString(rReel.getReel()[2]) + ".png"));
+            
+        } catch (ArrayIndexOutOfBoundsException e) {
+            title.setVisible (false);
+            savedGame.setVisible (false);
+            newGame.setVisible (false);
+            bet30.setVisible(false);
+            bet20.setVisible(false);
+            bet10.setVisible(false);
+            balance.setVisible(false);
+            save.setVisible(false);
+            holdButton.setVisible(false);
+            holdStatusLabel.setText("There seems to be an error with the images needed for the reels, please resart the game");
+        }
     }
 
 
@@ -349,7 +373,9 @@ public class FXMLDocumentController implements Initializable {
      * of money. It does this by making all game buttons to invisible and bringing up the new and 
      * saved game buttons again. It also changes the balance label to state "You have run out of money"
      * The method also only displays the saved game button if a save file is available. It does this
-     * usin the try and except statement
+     * usin the try and except statement. The exception handeling in this method is used to ensure that
+     * a saved game can be played. If there is a cascaded exception related to the saved game than
+     * the user will be prevented from starting a saved game as the saved game button will be invisible
      *
      */
     private void restartGame() {
@@ -397,7 +423,9 @@ public class FXMLDocumentController implements Initializable {
                     backend.bet(amount);
                     backend.bet(10);
                     backend.rollNotAll();
-                    int didWin = backend.winTest(); //check if we won
+                    try{
+                        int didWin = backend.winTest(); //check if we won
+                    } catch (
                     if (didWin > 0) {
                         int winnings = backend.winnings(amount, didWin);
                         backend.collectWinnings(winnings); //collect our moneys
