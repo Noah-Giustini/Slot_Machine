@@ -33,6 +33,7 @@ public class TextGame {
         Reel leftReel = null;
         Reel middleReel = null;
         Reel rightReel = null;
+        
         try {
             leftReel = new Reel(0);
             middleReel = new Reel(1);
@@ -68,7 +69,8 @@ public class TextGame {
 
         Game game = null;
         if (gameChoice == 1) {
-            try {
+            //This exception handeling ensures that a saved game can actually be played. If the saved game cannot be played a new game will run
+            try {   
                 game = new SavedGame(leftReel, middleReel, rightReel);
             } catch (FileNotFoundException e) {
                 System.out.println("I'm sorry I can't find a saved file, loading new game...");
@@ -89,6 +91,7 @@ public class TextGame {
 
         while (game.getPlayerBalance() > 0) {
             int saveChoice = 0;
+            
             while (saveChoice == 0) {
                 System.out.println("Would you like to save? (Yes/No)");
                 String choice = sc.nextLine();
@@ -111,9 +114,14 @@ public class TextGame {
                 }
             }
 
-            if (saveChoice == 1) {
-                game.saveGame();
+            if (saveChoice == 1) 
+                try {
+                    game.saveGame();
+                } catch (IOException e) {
+                    System.out.println("I'm sorry the game could not be saved);
+                }
             }
+            
             System.out.println("You have " + game.getPlayerBalance() + "$, how much would you like to bet? (10/20/30)");
             int userBet = 0;
             int didWin = 0;
@@ -134,6 +142,7 @@ public class TextGame {
                         break;
                 }
             }
+                                       
             int holdChoice = 0;
             while (holdChoice == 0) {
                 System.out.println("Would you like to hold the middle reel for $10?");
