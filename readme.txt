@@ -1,3 +1,6 @@
+There are three ways that you can run the game:
+1) If you are using Windows - double click on 
+
 to play open the folder in console and do:
 1) javac slots/rungame/*.java
 2) java slots.rungame.Play
