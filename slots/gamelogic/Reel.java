@@ -179,21 +179,30 @@ public class Reel {
      * checks to make sure that all of the values of the reels are actual values and then sets the reels
      * to these values. If they are not actual values for the symbols on the reels, a ReelException is thrown
      * Finally at the end of the method the variables topBox, middleBox and bottomBox are set to the
-     * values in the boxes array
+     * values in the boxes array. In this class IndexOutOfBoundsExceptions are casceded as ReelExceptions
+     * because there is a problem with the Reels if there is an IndexOutOfBoundsException. A ReelException
+     * will also be thrown if the method is called using values for the reel that cannot used: for example
+     * negative values for reel symbols
      *
      * @param      reelValues - an array of the values of the symbols for the particular reel.
      */
     public void setReelValues(int[] reelValues) throws ReelException {
         int[] boxesArray = new int[3];
-        for (int arrayPos = 0; arrayPos < boxesArray.length; arrayPos++) {
-            if ((reelValues[arrayPos] < 6) && (reelValues[arrayPos] > 0)) {
-                boxesArray[arrayPos] = reelValues[arrayPos];
-            } else {
-                throw new ReelException();
+        try{
+            for (int arrayPos = 0; arrayPos < boxesArray.length; arrayPos++) {
+                if ((reelValues[arrayPos] < 6) && (reelValues[arrayPos] > 0)) {
+                    boxesArray[arrayPos] = reelValues[arrayPos];
+                } else {
+                    throw new ReelException();
+                }
             }
+            
+            this.topBox = boxesArray[0];
+            this.middleBox = boxesArray[1];
+            this.bottomBox = boxesArray[2];
+            
+        } catch (IndexOutOfBoundsException e) {
+            throw new ReelException();
         }
-        this.topBox = boxesArray[0];
-        this.middleBox = boxesArray[1];
-        this.bottomBox = boxesArray[2];
     }
 }
