@@ -112,7 +112,10 @@ public class Game {
      * the data from each of the three reels in the form of arrays and then it uses a for loop to print out
      * each row of the game at a time. Until three rows have been printed (the number of placements on the 
      * reels. Exception handeling is used to ensure that there is a spot at each position in these arrays.
-     * If there is not a spot within the arrays the program will close.
+     * If there is not a spot within the arrays the program will close. This method prints out the error on the 
+     * command prompt because the method is only ever used in the text version of the game. Therefore the 
+     * index out of bounds exception can be shown on the command prompt. If an exception is caught than
+     * the game will print a description of the exception and then exit
      *
      */
     public void showGame() {
@@ -124,8 +127,9 @@ public class Game {
                 System.out.println(leftList[rowPos] + "          " + midList[rowPos] + "          " + rightList[rowPos]);
             }
         } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("It looks as if the reels within the slot machine may have incorrect formatting, " +
-                "the slot machine will now close. Try recompiling the program");
+            System.out.println("An ArrayIndexOutOfBoundsException was found when reading an array containing the three" +
+                              "reels of the game. There may be an error in the internal code. Try recompiling but if the" +
+                              "error persists please contact the game creators");
             System.exit(0);
         }
     }
@@ -137,10 +141,11 @@ public class Game {
      * and puts this into an array that has the information for all three reels. The method then writes the 
      * players current balance on the first line of the text document before using a nested for loop to interate through
      * each of the reel arrays in the allReels array writing the data from these arrays to the text document.
-     * Exception handeling is used to ensure that the text document is written to properly.
+     * Exception handeling cascades any IOExceptions to subsequent classes so that they can either be fixed by the gui
+     * or be displayed by the gui.
      *
      */
-    public void saveGame() {
+    public void saveGame() throws IOException{
         int[] leftList = leftReel.getReel();
         int[] midList = midReel.getReel();
         int[] rightList = rightReel.getReel();
@@ -159,10 +164,8 @@ public class Game {
                 }
             }
             writer.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("I'm sorry I can't find the save file and will be unable to save.");
         } catch (IOException e) {
-            System.out.println("There has been a problem within the file IO of the game, unable to save");
+            throw new IOException();
         }
     }
 
@@ -215,40 +218,47 @@ public class Game {
      * set up. It does this by getting information from each of the reels and then iterating through the
      * arrays containing this information to check for winning sequences (ie. 3 in a row horizontally, vertically
      * or diagonally). The variable winLines counts how many times the game has been won, each time their 
-     * is a winning sequence winLines is incremented.
+     * is a winning sequence winLines is incremented. If there is an ArrayIndexOutOfBoundsException, than the 
+     * exception will be cascaded to other classes running the method in order for the exception to be properly 
+     * displayed
      *
      * @return	winLines - the number of lines that the user has won on (these could be horizontal, diagonal or vertical)
      */
-    public int winTest() {
+    public int winTest() throws ArrayIndexOutOfBoundsException{
         int[] leftList = leftReel.getReel();
         int[] midList = midReel.getReel();
         int[] rightList = rightReel.getReel();
 
         int winLines = 0;
         //int[] wonOn = new ArrayList<>(5);
-        for (int x = 0; x < 3; x++) { //loop to itterate through and see if the player won on the horizontal lines
-            if (rightList[x] != 6) {
-                if ((leftList[x] == midList[x]) && (leftList[x] == rightList[x]) && (midList[x] == rightList[x])) {
-                    //wonOn[winLines] = x;
-                    winLines += winningList[leftList[x]];
+        try{
+            for (int x = 0; x < 3; x++) { //loop to itterate through and see if the player won on the horizontal lines
+                if (rightList[x] != 6) {
+                    if ((leftList[x] == midList[x]) && (leftList[x] == rightList[x]) && (midList[x] == rightList[x])) {
+                        //wonOn[winLines] = x;
+                        winLines += winningList[leftList[x]];
 
-                }
-            } else {
-                if ((leftList[x] == midList[x]) && (6 == rightList[x])) {
-                    //wonOn[winLines] = x;
-                    winLines += winningList[leftList[x]];
+                    }
+                } else {
+                    if ((leftList[x] == midList[x]) && (6 == rightList[x])) {
+                        //wonOn[winLines] = x;
+                        winLines += winningList[leftList[x]];
 
+                    }
                 }
             }
+            if (((leftList[0] == midList[1]) && (leftList[0] == rightList[2]) && (midList[1] == rightList[2])) ||
+                (leftList[0] == midList[1] && rightList[2] == 6)) { //checks to see if there is a win on the diagonal
+                winLines += winningList[leftList[0]];
+            }
+            if (((leftList[2] == midList[1]) && (leftList[2] == rightList[0]) && (midList[1] == rightList[0])) ||
+                (leftList[2] == midList[1] && rightList[0] == 6)) { //checks to see if there is a win on the diagonal
+                winLines += winningList[leftList[2]];
+            }
+        }catch (ArrayIndexOutOfBoundsException e){
+            throw e;
         }
-        if (((leftList[0] == midList[1]) && (leftList[0] == rightList[2]) && (midList[1] == rightList[2])) ||
-            (leftList[0] == midList[1] && rightList[2] == 6)) { //checks to see if there is a win on the diagonal
-            winLines += winningList[leftList[0]];
-        }
-        if (((leftList[2] == midList[1]) && (leftList[2] == rightList[0]) && (midList[1] == rightList[0])) ||
-            (leftList[2] == midList[1] && rightList[0] == 6)) { //checks to see if there is a win on the diagonal
-            winLines += winningList[leftList[2]];
-        }
+        
         return winLines;
 
     }
