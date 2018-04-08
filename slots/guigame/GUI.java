@@ -17,6 +17,7 @@ import java.lang.Double;
 import javafx.animation.AnimationTimer;
 import java.lang.Integer;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.LoadException;
 import javafx.scene.Parent;
 
 
@@ -40,18 +41,18 @@ public class GUI extends Application {
     public void start(Stage stage) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+            
+            Scene scene = new Scene(root);
+
+            stage.setTitle("SLOTS");
+            stage.setScene(scene);
+            stage.show();
+            
         } catch (LoadException e) {
             System.out.println("There was an exception in loading the GUI, most likely you did not compile" +
                 " the FXDocumentController class.");
             System.exit(0);
         }
-
-
-        Scene scene = new Scene(root);
-
-        stage.setTitle("SLOTS");
-        stage.setScene(scene);
-        stage.show();
     }
 
     /** The main method of the GUI game that runs the GUI game, the launch method within main
