@@ -3,7 +3,7 @@ import org.junit.Test;
 import slots.gamelogic.*;
 import slots.exception.ReelException;
 
-public class TestSlotMachine {
+public class ReelTest {
 
     @Test
     public void test_Reel_constructors() {
