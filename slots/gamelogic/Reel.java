@@ -51,8 +51,8 @@ public class Reel {
     private final static WeightedRandom.Item seven = new WeightedRandom.Item(5);
     private final static WeightedRandom.Item lucky = new WeightedRandom.Item(2);
 
-    private static ArrayList<WeightedRandom.Item> leftMidArray = new ArrayList(5);
-    private static ArrayList<WeightedRandom.Item> rightArray = new ArrayList(6);
+    private static ArrayList<WeightedRandom.Item> leftMidArray = new ArrayList <WeightedRandom.Item> (5);
+    private static ArrayList<WeightedRandom.Item> rightArray = new ArrayList <WeigthedRandom.Item> (6);
 
     /** This static statement adds each of the items to their repective array lists, the leftMidArray arraylist
      * gets all of the items except the lucky item. The rightArray arraylist gets all of the items.
