@@ -98,7 +98,7 @@ public class ReelTest {
     
     @Test
     public void test_Reel_setValues_invalid() {
-        Reel reel;
+        Reel reel = null;
         try{
             reel = new Reel(0);
         } catch (ReelException e) {
