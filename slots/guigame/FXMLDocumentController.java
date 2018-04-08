@@ -339,7 +339,7 @@ public class FXMLDocumentController implements Initializable {
         } catch (ArrayIndexOutOfBoundsException e) {
             title.setVisible (false);
             savedGame.setVisible (false);
-            newGame.setVisible (false);
+            normalGame.setVisible (false);
             bet30.setVisible(false);
             bet20.setVisible(false);
             bet10.setVisible(false);
