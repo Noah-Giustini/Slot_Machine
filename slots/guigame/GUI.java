@@ -19,6 +19,7 @@ import java.lang.Integer;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.LoadException;
 import javafx.scene.Parent;
+import java.io.IOException;
 
 
 
@@ -48,7 +49,7 @@ public class GUI extends Application {
             stage.setScene(scene);
             stage.show();
             
-        } catch (LoadException e) {
+        } catch (LoadException | IOException e) {
             System.out.println("There was an exception in loading the GUI, most likely you did not compile" +
                 " the FXDocumentController class.");
             System.exit(0);
