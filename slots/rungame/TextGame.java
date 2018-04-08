@@ -180,8 +180,6 @@ public class TextGame {
                 }
             }
 
-
-        }
         System.out.println("You have no more money. oops! "); //tell the player they have no more money (need to re-evaluate life choices)
     }
 }
