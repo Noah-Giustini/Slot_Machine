@@ -18,8 +18,7 @@ public class ReelTest {
             assertEquals("Middle reel needs location of 1", 1, reel2.getLocation());
             assertEquals("Right reel needs location of 2", 2, reel3.getLocation());
             Game g = new Game(reel1, reel2, reel3);
-            assertEquals("Should have balance of $100", 100, g.getPlayerBalance());
-            
+            assertEquals("Should have balance of $100", 100, g.getPlayerBalance());  
         } catch (ReelException e) {
              assertTrue("Making reels should not throw a ReelExceptioon", false); // fail if it gets to this line
         }
