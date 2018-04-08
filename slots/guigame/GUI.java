@@ -17,7 +17,6 @@ import java.lang.Double;
 import javafx.animation.AnimationTimer;
 import java.lang.Integer;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.LoadException;
 import javafx.scene.Parent;
 import java.io.IOException;
 
@@ -32,7 +31,7 @@ public class GUI extends Application {
      * grouping of all GUI elements called root. Root loads the GUI using an FXMLDocument loader
      * which loads the FXML document that starts the FXMLDocument controller class. The method
      * than sets the scene to have this root (Parent) Next, the method sets the title on the screen 
-     * to "SLOTS" and sets the stage to have the scene, the stage is then shown. Exception handeling
+     * to "SLOTS" and sets the stage to have the scene, the stage is then shown. Exception handeling of the IOException
      * is used to ensure that the GUI class loads properly, if the class does not load properly than a descriptive
      * message will print and the game will exit.
      *
@@ -49,7 +48,7 @@ public class GUI extends Application {
             stage.setScene(scene);
             stage.show();
             
-        } catch (LoadException | IOException e) {
+        } catch (IOException e) {
             System.out.println("There was an exception in loading the GUI, most likely you did not compile" +
                 " the FXDocumentController class.");
             System.exit(0);
