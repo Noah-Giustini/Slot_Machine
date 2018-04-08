@@ -118,7 +118,7 @@ public class TextGame {
                 try {
                     game.saveGame();
                 } catch (IOException e) {
-                    System.out.println("I'm sorry the game could not be saved);
+                    System.out.println("I'm sorry the game could not be saved");
                 }
             }
             
