@@ -410,32 +410,54 @@ public class FXMLDocumentController implements Initializable {
      * will run methods through the backend to change the state of the game. If the middle reel
      * is not to be held than the method will run backend methods that do not involve a held middle reel.
      * Finally the method, shows  the new state of the screen. If the palyer does not have any money \
-     * left than the resartGame method will be called.
+     * left than the resartGame method will be called. Exception handeling is used twice in this method
+     * to catch cascaded IndexOutOfBoundsExceptions from changing the balance. If these exceptions do occur,
+     * didWin will remain negative and thus the balance will not be updated. A message will also be displayed
+     * to the user through the balance label. Additionally, if the player runs out of money the game will 
+     * resart. Even though these method seem like it is doing game logic, it is actually using methods
+     * entirely from the Game class that can be independantly tested for
      *
      * @param	event - the button press event that was used to press one of the betting buttons
      * @param	amount - the amount of money that the user is betting
+     * @var     didWin - an integer that is greater than 0 if and only if the user has won money
      * 
      */
     private void betClick(ActionEvent event, int amount) {
+        int didWin = -1;
+        
+        
         if ((backend.getPlayerBalance() - amount) >= 0) {
             if ((this.hold % 2) == 0) {
                 if ((backend.getPlayerBalance() - amount - 10) >= 0) {
                     backend.bet(amount);
                     backend.bet(10);
                     backend.rollNotAll();
+                    
                     try{
-                        int didWin = backend.winTest(); //check if we won
-                    } catch (
+                        didWin = backend.winTest(); //check if we won
+                    } catch (IndexOutOfBoundsException e){
+                        balance.setText ("There was a problem in making that bet, so your balance was not updated");
+                    }
+                        
                     if (didWin > 0) {
                         int winnings = backend.winnings(amount, didWin);
                         backend.collectWinnings(winnings); //collect our moneys
                     }
                 }
             }
+                
+                
             if (((this.hold + 1) % 2) == 0) {
                 backend.bet(amount);
                 backend.rollAll(); //roll the reels
-                int didWin = backend.winTest(); //check if we won
+                
+                try{
+                     didWin = backend.winTest(); //check if we won
+                } catch (IndexOutOfBoundsException e){
+                    balance.setText ("There was a problem in making that bet, so your balance was not updated");
+                }
+                
+                
                 if (didWin > 0) {
                     int winnings = backend.winnings(amount, didWin);
                     backend.collectWinnings(winnings); //collect our moneys
