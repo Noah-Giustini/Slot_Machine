@@ -156,8 +156,8 @@ public class FXMLDocumentController implements Initializable {
         } catch (ReelException e) {
             title.setVisible (false);
             savedGame.setVisible (false);
-            newGame.setVisible (false);
-            bgRext.setVisible (true);
+            normalGame.setVisible (false);
+            bgRect.setVisible (true);
             holdStatusLabel.setText("There seems to be an error with the reels of the game, please resart the game");
         }
 
