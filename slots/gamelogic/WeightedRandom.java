@@ -51,7 +51,9 @@ public class WeightedRandom {
         return null;
         // The code should never reach this point
     }
-
+    
+   /** This method sums all the weights of all the items in the list, and returns that value.
+     */
     private double getTotalWeight() {
         //Gets the sum of the weights of all the items in the list
         //This method is used by the get() method
