@@ -114,10 +114,11 @@ public class TextGame {
                 }
             }
 
-            if (saveChoice == 1) 
+            if (saveChoice == 1){
                 try {
                     game.saveGame();
-                } catch (IOException e) {
+                }
+                catch (IOException e) {
                     System.out.println("I'm sorry the game could not be saved");
                 }
             }
@@ -179,7 +180,7 @@ public class TextGame {
                     game.mainGame(userBet, 0);
                 }
             }
-
-        System.out.println("You have no more money. oops! "); //tell the player they have no more money (need to re-evaluate life choices)
+        }
+    System.out.println("You have no more money. oops! "); //tell the player they have no more money (need to re-evaluate life choices)
     }
 }
