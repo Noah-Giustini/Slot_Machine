@@ -5,3 +5,4 @@ javac slots/gamelogic/*.java
 javac slots/exception/*.java
 cls
 java slots.rungame.Play
+cmd
