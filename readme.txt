@@ -1,8 +1,8 @@
 There are three ways that you can run the game:
-        1) If you are using Windows - double click on runmeWNDS. This will automatically compile all 
+        1) If you are using Windows - double click on runmeWNDS.bat This will automatically compile all 
            nescessary classes and will start the program
-        2) If you are using Linux - double click on runmeLNX. This will automatically compile all 
-           nescessary classes and will start the program
+        2) If you are using Linux - in terminal do: ./runmeLNX.sh 
+		This will automatically compile all nescessary classes and will start the program
         3) For any other system:
                 1) Open the folder in your command prompt
                 2) Compile necessary classes using the following commands:
@@ -16,10 +16,13 @@ There are three ways that you can run the game:
 
 To run the junit test cases use the following commands in your command prompt:
         If you are on Windows:
-                1) javac -cp .;junit-4.12.jar;hamcrest-core-1.3.jar slots/test/ReelTest.java
-                2) java -cp .;junit-4.12.jar;hamcrest-core-1.3.jar org.junit.runner.JUnitCore slots.test.ReelTest
+                double click the runtestWNDS.bat This will automatically compile and run the ReelTest file
+	
+	If you are on Linux:
+		from terminal do: ./runtestLNX.sh
+		this will automatically compile and run the ReelTest file
         
-        If you are on Linux:
+        on any other system:
                 1) javac -cp .:junit-4.12.jar:hamcrest-core-1.3.jar slots/test/ReelTest.java
                 2) java -cp .:junit-4.12.jar:hamcrest-core-1.3.jar org.junit.runner.JUnitCore slots.test.ReelTest
                 
