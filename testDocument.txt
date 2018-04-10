@@ -1,0 +1,44 @@
+Procedure to test the application:
+
+1) If you are using Linux double click on runmeLNX. If you are using Windows double click on runmeWNDS
+2) Ensure that there is currently no file in the application called savefile.txt, if this file exists delete it
+3) Type y or yes into the GUI - the GUI application should start
+4) There should be a starting screen with a single button (New Game) and a title screen. If there is a second button 
+   (Saved Game), you either did not delete savefile.txt or there is a problem in the IOException handeling within the code.
+   This problem in exception handeling is likely in the SavedGame class in gamelogic, however it could also be in the 
+   way that the GUI handels IOExceptions
+5) Click on the New Game button, the screen should change to a screen with 9 slot machine symbols, 5 buttons and 2 labels.
+   One label should  "not held", and the other should display "Balance: $100". 
+6) Click on the "Bet $10" button. The slot machine symbols should change. If there are three symbols in a row then your 
+   balance should increase. Otherwise, your balance should decrease by $10.
+7) Click on the "Bet $20" buttom. The slot machine symbols should change. If there are three symbols in a row then your 
+   balance should increase. Otherwise, your balance should decrease by $20.
+8) Click on the "Bet $30" buttom. The slot machine symbols should change. If there are three symbols in a row then your 
+   balance should increase. Otherwise, your balance should decrease by $30.
+9) Click on the "Hold Middle Reel" button. The label above the balance label should change to held.
+10) Click on the "Bet $10" button again. The three slot machine symbols in the middle should not change. If you don't get
+    three symbols in a row, than your balance should decrease by $20 instead of $10.
+11) Click on the "Bet $20" button again. The three slot machine symbols in the middle should not change. If you don't get
+    three symbols in a row, than your balance should decrease by $30 instead of $20.
+12) Click on the "Bet $30" button again. The three slot machine symbols in the middle should not change. If you don't get
+    three symbols in a row, than your balance should decrease by $40 instead of $30.
+13) Click on the "hold" button again. The label above balance should change to "not held"
+14) Click on any of the bet buttons. All slot machine symbols should change (the random nature of the slot machine
+    may have one image not change). Your balance should update according to the bet button pressed and if money
+    is lost. You should only lose the quantity of money that you have bet
+15) Click on any of the three buttons until you completely run out of money and your balance is $0.0. Click on the "bet $10"
+    button one more time. All three bet buttons and the hold and save buttons should dissappear. The "New Game" button should
+    reappear.
+16) Click on the "New Game" button. The game should reset with a balance of $100.0, a "Not Held" label and 9 new slot
+    machine symbols.
+17) Click on any of the bet buttons until your balance changes. 
+18) Click on the "Save" button. Your current game state should be written to savefile.txt. Look into the game file and
+    see if such a file has been written.
+19) Click on any of the bet buttons until you have no money left. Click on the bet button one more time. All three bet
+    buttons, the "Save" button and the "Hold" button should disappear. The "New Game" button and a "Saved Game" button.
+20) Click on the "Saved Game" button. Your previous game state should reload. All slot machine symbols should be the same
+    and your balance should be the same. 
+21) Exit out of the Java application. Restart the game by either double clicking on runmeLNX or runmeWNDS.
+22) Restart the GUI application by entering y or yes into the command prompt. This time a window should appear with
+    both the "Play Game" and "Saved Game" buttons
+23) Click on the "Saved Game" button. Your previously saved game state should reload with 
