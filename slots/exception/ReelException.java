@@ -17,7 +17,7 @@ public class ReelException extends Exception {
      * exception, thus the super class is called with no exception message.
      */
     public ReelException() {
-        super();
+        super("Invalid Reel");
     }
 
     /** Constructor
