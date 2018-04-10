@@ -51,4 +51,8 @@ Procedure to test the application:
 28) Quit the Java application. Restart the application by double clicking on eiher runmeLNX or runmeWNDS
 29) Type n or no into the command prompt to run the text game. Type n or no again to play a new game
 30) Type n or no to not save the game
-31) 
+31) Enter 10 into the prompt. A question asking whether you would like to hold the middle reel should appear
+32) Enter n or no, a new display of numbers should appear
+32) Repeat steps 30 to 32, using the numbers 20, 30, 11, 9, 21, 19, 31, 29 and 4000. For all values except 20 and
+    30 "Invalid selection" should appear in the command. 
+33) Exit the application: yay you finished testing!!!!
