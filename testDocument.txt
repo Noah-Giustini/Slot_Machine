@@ -1,10 +1,10 @@
 Procedure to test the application:
 
 1) If you are using Linux double click on runmeLNX. If you are using Windows double click on runmeWNDS
-2) Ensure that there is currently no file in the application called savefile.txt, if this file exists delete it
+2) Ensure that there is currently no file in the application called saveFile.txt, if this file exists delete it
 3) Type y or yes into the GUI - the GUI application should start
 4) There should be a starting screen with a single button (New Game) and a title screen. If there is a second button 
-   (Saved Game), you either did not delete savefile.txt or there is a problem in the IOException handeling within the code.
+   (Saved Game), you either did not delete saveFile.txt or there is a problem in the IOException handeling within the code.
    This problem in exception handeling is likely in the SavedGame class in gamelogic, however it could also be in the 
    way that the GUI handels IOExceptions
 5) Click on the New Game button, the screen should change to a screen with 9 slot machine symbols, 5 buttons and 2 labels.
@@ -32,7 +32,7 @@ Procedure to test the application:
 16) Click on the "New Game" button. The game should reset with a balance of $100.0, a "Not Held" label and 9 new slot
     machine symbols.
 17) Click on any of the bet buttons until your balance changes. 
-18) Click on the "Save" button. Your current game state should be written to savefile.txt. Look into the game file and
+18) Click on the "Save" button. Your current game state should be written to saveFile.txt. Look into the game file and
     see if such a file has been written.
 19) Click on any of the bet buttons until you have no money left. Click on the bet button one more time. All three bet
     buttons, the "Save" button and the "Hold" button should disappear. The "New Game" button and a "Saved Game" button.
@@ -41,4 +41,14 @@ Procedure to test the application:
 21) Exit out of the Java application. Restart the game by either double clicking on runmeLNX or runmeWNDS.
 22) Restart the GUI application by entering y or yes into the command prompt. This time a window should appear with
     both the "Play Game" and "Saved Game" buttons
-23) Click on the "Saved Game" button. Your previously saved game state should reload with 
+23) Click on the "Saved Game" button. Your previously saved game state should reload with the previous game state.
+    All slot machine symbols should be the same and in the same positions, your balance should also be the same.
+24) Press the "Bet $10", "Bet $20", "Bet 30" and "hold" buttons to make sure that tasks run.
+25) Quit the java application. Go into saveFile.txt and add a - sign before the first number.
+26) If you are using Linux double click on runmeLNX. If you are using Windows double click on runmeWNDS
+27) Restart the GUI application by entering y or yes into the command prompt. This time a window should appear with
+    only the "Play Game" button. This is beause there is a problem in saveFile.txt which is solved via exception handling
+28) Quit the Java application. Restart the application by double clicking on eiher runmeLNX or runmeWNDS
+29) Type n or no into the command prompt to run the text game. Type n or no again to play a new game
+30) Type n or no to not save the game
+31) 
