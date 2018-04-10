@@ -38,17 +38,17 @@ Procedure to test the application:
     buttons, the "Save" button and the "Hold" button should disappear. The "New Game" button and a "Saved Game" button.
 20) Click on the "Saved Game" button. Your previous game state should reload. All slot machine symbols should be the same
     and your balance should be the same. 
-21) Exit out of the Java application. Restart the game by either double clicking on runmeLNX or runmeWNDS.
+21) Exit out of the Java application. Enter java.rungame.Play into the command prompt to run the game again.
 22) Restart the GUI application by entering y or yes into the command prompt. This time a window should appear with
     both the "Play Game" and "Saved Game" buttons
 23) Click on the "Saved Game" button. Your previously saved game state should reload with the previous game state.
     All slot machine symbols should be the same and in the same positions, your balance should also be the same.
 24) Press the "Bet $10", "Bet $20", "Bet 30" and "hold" buttons to make sure that tasks run.
 25) Quit the java application. Go into saveFile.txt and add a - sign before the first number.
-26) If you are using Linux double click on runmeLNX. If you are using Windows double click on runmeWNDS
+26) Enter java.rungame.Play into the command prompt.
 27) Restart the GUI application by entering y or yes into the command prompt. This time a window should appear with
     only the "Play Game" button. This is beause there is a problem in saveFile.txt which is solved via exception handling
-28) Quit the Java application. Restart the application by double clicking on eiher runmeLNX or runmeWNDS
+28) Quit the Java application. Enter java.rungame.Play to start the game again.
 29) Type n or no into the command prompt to run the text game. Type n or no again to play a new game
 30) Type n or no to not save the game
 31) Enter 10 into the prompt. A question asking whether you would like to hold the middle reel should appear
