@@ -224,37 +224,41 @@ public class Game {
      *
      * @return	winLines - the number of lines that the user has won on (these could be horizontal, diagonal or vertical)
      */
-    public int winTest() throws ArrayIndexOutOfBoundsException{
+    public int winTest(){
         int[] leftList = leftReel.getReel();
         int[] midList = midReel.getReel();
         int[] rightList = rightReel.getReel();
 
         int winLines = 0;
-        
-        for (int x = 0; x < 3; x++) { //loop to itterate through and see if the player won on the horizontal lines
-            if (rightList[x] != 6) {
-                if ((leftList[x] == midList[x]) && (leftList[x] == rightList[x]) && (midList[x] == rightList[x])) {
-                    //wonOn[winLines] = x;
-                    winLines += winningList[leftList[x]];
+        try{
+            for (int x = 0; x < 3; x++) { //loop to itterate through and see if the player won on the horizontal lines
+                if (rightList[x] != 6) {
+                    if ((leftList[x] == midList[x]) && (leftList[x] == rightList[x]) && (midList[x] == rightList[x])) {
+                        //wonOn[winLines] = x;
+                        winLines += winningList[leftList[x]];
 
-                }
-            } else {
-                if ((leftList[x] == midList[x]) && (6 == rightList[x])) {
-                    //wonOn[winLines] = x;
-                    winLines += winningList[leftList[x]];
+                    }
+                } else {
+                    if ((leftList[x] == midList[x]) && (6 == rightList[x])) {
+                        //wonOn[winLines] = x;
+                        winLines += winningList[leftList[x]];
 
+                    }
                 }
             }
+            if (((leftList[0] == midList[1]) && (leftList[0] == rightList[2]) && (midList[1] == rightList[2])) ||
+                (leftList[0] == midList[1] && rightList[2] == 6)) { //checks to see if there is a win on the diagonal
+                winLines += winningList[leftList[0]];
+            }
+            if (((leftList[2] == midList[1]) && (leftList[2] == rightList[0]) && (midList[1] == rightList[0])) ||
+                (leftList[2] == midList[1] && rightList[0] == 6)) { //checks to see if there is a win on the diagonal
+                winLines += winningList[leftList[2]];
+            }
+            return winLines;
+        } catch (ArrayIndexOutOfBoundsException e){
+            System.out.println("There is an ArrayIndexOutOfBoundsException in the winTest method of Game.java" +
+                               " please fix code");
         }
-        if (((leftList[0] == midList[1]) && (leftList[0] == rightList[2]) && (midList[1] == rightList[2])) ||
-            (leftList[0] == midList[1] && rightList[2] == 6)) { //checks to see if there is a win on the diagonal
-            winLines += winningList[leftList[0]];
-        }
-        if (((leftList[2] == midList[1]) && (leftList[2] == rightList[0]) && (midList[1] == rightList[0])) ||
-            (leftList[2] == midList[1] && rightList[0] == 6)) { //checks to see if there is a win on the diagonal
-            winLines += winningList[leftList[2]];
-        }
-        return winLines;
 
     }
 
