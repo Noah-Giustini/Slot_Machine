@@ -224,41 +224,35 @@ public class Game {
      *
      * @return	winLines - the number of lines that the user has won on (these could be horizontal, diagonal or vertical)
      */
-    public int winTest(){
+    public int winTest() throws ArrayIndexOutOfBoundsException{
         int[] leftList = leftReel.getReel();
         int[] midList = midReel.getReel();
         int[] rightList = rightReel.getReel();
 
         int winLines = 0;
-        try{
-            for (int x = 0; x < 3; x++) { //loop to itterate through and see if the player won on the horizontal lines
-                if (rightList[x] != 6) {
-                    if ((leftList[x] == midList[x]) && (leftList[x] == rightList[x]) && (midList[x] == rightList[x])) {
-                        //wonOn[winLines] = x;
-                        winLines += winningList[leftList[x]];
+        
+        for (int x = 0; x < 3; x++) { //loop to itterate through and see if the player won on the horizontal lines
+            if (rightList[x] != 6) {
+                if ((leftList[x] == midList[x]) && (leftList[x] == rightList[x]) && (midList[x] == rightList[x])) {
+                    //wonOn[winLines] = x;
+                    winLines += winningList[leftList[x]];
 
-                    }
-                } else {
-                    if ((leftList[x] == midList[x]) && (6 == rightList[x])) {
-                        //wonOn[winLines] = x;
-                        winLines += winningList[leftList[x]];
+                }
+            } else {
+                if ((leftList[x] == midList[x]) && (6 == rightList[x])) {
+                    //wonOn[winLines] = x;
+                    winLines += winningList[leftList[x]];
 
-                    }
                 }
             }
-            if (((leftList[0] == midList[1]) && (leftList[0] == rightList[2]) && (midList[1] == rightList[2])) ||
-                (leftList[0] == midList[1] && rightList[2] == 6)) { //checks to see if there is a win on the diagonal
-                winLines += winningList[leftList[0]];
-            }
-            if (((leftList[2] == midList[1]) && (leftList[2] == rightList[0]) && (midList[1] == rightList[0])) ||
-                (leftList[2] == midList[1] && rightList[0] == 6)) { //checks to see if there is a win on the diagonal
-                winLines += winningList[leftList[2]];
-            }
-            
-        } catch (ArrayIndexOutOfBoundsException e){
-            System.out.println("There is an ArrayIndexOutOfBoundsException in the winTest method of Game.java" +
-                               " Try recompiling the game. If the problem persists please contact the game creators");
-            System.exit(0);
+        }
+        if (((leftList[0] == midList[1]) && (leftList[0] == rightList[2]) && (midList[1] == rightList[2])) ||
+            (leftList[0] == midList[1] && rightList[2] == 6)) { //checks to see if there is a win on the diagonal
+            winLines += winningList[leftList[0]];
+        }
+        if (((leftList[2] == midList[1]) && (leftList[2] == rightList[0]) && (midList[1] == rightList[0])) ||
+            (leftList[2] == midList[1] && rightList[0] == 6)) { //checks to see if there is a win on the diagonal
+            winLines += winningList[leftList[2]];
         }
         
         return winLines;
@@ -305,11 +299,15 @@ public class Game {
         }
         int didWin = winTest();
         showGame();
-        if (didWin > 0) {
-            int winnings = winnings(value, didWin);
-            collectWinnings(winnings);
-            System.out.println("YOU HAVE WON $" + winnings + "!"); //tell player how much they have won
-        }
+        try{
+            if (didWin > 0) {
+                int winnings = winnings(value, didWin);
+                collectWinnings(winnings);
+                System.out.println("YOU HAVE WON $" + winnings + "!"); //tell player how much they have won
+            }
+        } catch (ArrayIndexOutOfBoundsException e){
+            System.out.println("There was an ArrayIndexOutOfBoundsException thrown while collecting your money" +
+                               " so your balance was not updated");
     }
 
 }
