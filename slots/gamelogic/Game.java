@@ -308,6 +308,7 @@ public class Game {
         } catch (ArrayIndexOutOfBoundsException e){
             System.out.println("There was an ArrayIndexOutOfBoundsException thrown while collecting your money" +
                                " so your balance was not updated");
+        }
     }
 
 }
