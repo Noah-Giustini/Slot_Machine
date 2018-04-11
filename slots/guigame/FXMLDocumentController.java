@@ -463,8 +463,10 @@ public class FXMLDocumentController implements Initializable {
                     backend.collectWinnings(winnings); //collect our moneys
                 }
             }
-
-            showScreen();
+            
+            if (didWin >= 0){
+                showScreen();
+            }
 
 
         } else {
