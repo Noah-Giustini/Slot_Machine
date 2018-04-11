@@ -453,7 +453,7 @@ public class FXMLDocumentController implements Initializable {
                 
                 try{
                      didWin = backend.winTest(); //check if we won
-                } catch (IndexOutOfBoundsException e){
+                } catch (ArrayIndexOutOfBoundsException e){
                     balance.setText ("There was a problem in making that bet, so your balance was not updated");
                 }
                 
