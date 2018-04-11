@@ -231,7 +231,7 @@ public class Game {
 
         int winLines = 0;
         
-        for (int x = 0; x < 4; x++) { //loop to itterate through and see if the player won on the horizontal lines
+        for (int x = 0; x < 3; x++) { //loop to itterate through and see if the player won on the horizontal lines
             if (rightList[x] != 6) {
                 if ((leftList[x] == midList[x]) && (leftList[x] == rightList[x]) && (midList[x] == rightList[x])) {
                     //wonOn[winLines] = x;
