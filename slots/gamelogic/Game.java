@@ -297,18 +297,25 @@ public class Game {
         if (hold == 10) {
             rollNotAll();
         }
-        int didWin = winTest();
-        showGame();
+        
+        int didWin = 0;
+        
         try{
-            if (didWin > 0) {
-                int winnings = winnings(value, didWin);
-                collectWinnings(winnings);
-                System.out.println("YOU HAVE WON $" + winnings + "!"); //tell player how much they have won
-            }
+            didWin = winTest();  
         } catch (ArrayIndexOutOfBoundsException e){
             System.out.println("There was an ArrayIndexOutOfBoundsException thrown while collecting your money" +
                                " so your balance was not updated");
+            
         }
+        
+        showGame();
+        
+        if (didWin > 0) {
+            int winnings = winnings(value, didWin);
+            collectWinnings(winnings);
+            System.out.println("YOU HAVE WON $" + winnings + "!"); //tell player how much they have won
+        }
+        
     }
 
 }
