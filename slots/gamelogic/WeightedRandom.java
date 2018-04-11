@@ -34,7 +34,7 @@ public class WeightedRandom {
      *
      * @param      random - an instance of Random to use.
      */
-    public Item get(Random random) throws ArrayIndexOutOfBoundsException {
+    public Item get(Random random) {
         double total = getTotalWeight(); //Get the total weight of all the items
         double current = random.nextDouble() * total; //Get a random number from 0 to the total weight.
         
@@ -58,7 +58,8 @@ public class WeightedRandom {
                 current -= i.getWeight();
             }
         } catch (ArrayIndexOutOfBoundsException e) {
-            throw e;
+            System.out.println("ArrayIndexOutOfBoundsException in the Item class of Weighted random. Please fix code");
+            System.exit(0);
         }
         return null; // The code should never reach this point
     }
