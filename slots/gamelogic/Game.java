@@ -257,7 +257,8 @@ public class Game {
             
         } catch (ArrayIndexOutOfBoundsException e){
             System.out.println("There is an ArrayIndexOutOfBoundsException in the winTest method of Game.java" +
-                               " please fix code");
+                               " Try recompiling the game. If the problem persists please contact the game creators");
+            System.exit(0);
         }
         
         return winLines;
