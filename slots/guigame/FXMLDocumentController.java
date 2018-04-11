@@ -454,10 +454,12 @@ public class FXMLDocumentController implements Initializable {
                 try{
                      didWin = backend.winTest(); //check if we won
                 } catch (ArrayIndexOutOfBoundsException e){
-                    balance.setText ("There was a problem in making that bet, so your balance was not updated");
+                    balance.setText ("Ooops there seems to be a problem with the ArrayIndexing in the game." +
+                                    " Please contact a game creator");
                 }
                 
                 
+                //The game will not display if an exception has been caught because didWin is still negative
                 if (didWin > 0) {
                     int winnings = backend.winnings(amount, didWin);
                     backend.collectWinnings(winnings); //collect our moneys
