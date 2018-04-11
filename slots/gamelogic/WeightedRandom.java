@@ -35,11 +35,23 @@ public class WeightedRandom {
      * @param      random - an instance of Random to use.
      */
     public Item get(Random random) throws ArrayIndexOutOfBoundsException {
-        double total = getTotalWeight();
-        double current = random.nextDouble() * total;
+        double total = getTotalWeight(); //Get the total weight of all the items
+        double current = random.nextDouble() * total; //Get a random number from 0 to the total weight.
+        
+        /** The algorithm works as follows (this is an analogy).
+         * Think of a line with a length equal to the total weight. Then you split up the line into
+         * some parts, where each part has a length equal to one of the items. So if your weights are
+         * Then it selects a random point on the line and finds which section it landed on. It returns
+         * the item corresponding to that section. So if you have items of weights 3, 8, and 2, the
+         * line would look like this: 3338888888822.
+         */
+        
         try {
             for (Item i: items) {
-                // get a random element with the weights
+                // Iterate over all the items.
+                // It will return the first item if the random number is smaller than the item's weight.
+                // If not, then it subtracts the item's weight from the random number (it will certainly
+                // be positive) and then repeats the process with the next item.
                 if (i.getWeight() > current) {
                     return i;
                 }
@@ -48,18 +60,16 @@ public class WeightedRandom {
         } catch (ArrayIndexOutOfBoundsException e) {
             throw e;
         }
-        return null;
-        // The code should never reach this point
+        return null; // The code should never reach this point
     }
     
    /** This method sums all the weights of all the items in the list, and returns that value.
-     */
+    * This method is used by the get() method.
+    */
     private double getTotalWeight() {
-        //Gets the sum of the weights of all the items in the list
-        //This method is used by the get() method
-        double w = 0.0;
+        double w = 0.0; //This variable keeps track of the total weight.
         for (Item i: items) {
-            w += i.getWeight();
+            w += i.getWeight(); //Add the item's weight to the total weight.
         }
         return w;
     }
@@ -76,13 +86,20 @@ public class WeightedRandom {
     public static class Item {
 
         private double weight;
-
+       /** Constructor
+         *
+         * Creates an item with the specified weight. Items with a larger weight are
+         * more likely to be chosen by the get() method of WeightedRandom.
+         *
+         * @param     w - the weight of the item.
+         */
         public Item(double w) {
-            //just a standard constructor
             weight = w;
         }
+        
+        /** Just a standard getter method.  Returns the weight of the item.
+         */
         public double getWeight() {
-            //just a standard getter method
             return weight;
         }
     }
