@@ -254,11 +254,13 @@ public class Game {
                 (leftList[2] == midList[1] && rightList[0] == 6)) { //checks to see if there is a win on the diagonal
                 winLines += winningList[leftList[2]];
             }
-            return winLines;
+            
         } catch (ArrayIndexOutOfBoundsException e){
             System.out.println("There is an ArrayIndexOutOfBoundsException in the winTest method of Game.java" +
                                " please fix code");
         }
+        
+        return winLines;
 
     }
 
