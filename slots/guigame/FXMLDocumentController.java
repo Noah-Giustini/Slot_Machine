@@ -470,10 +470,9 @@ public class FXMLDocumentController implements Initializable {
                 showScreen();
             }
 
-
-        } else {
+        }  else if(backend.getPlayerBalance() <= 0){
             restartGame();
-        }
+        } 
     }
 
 
